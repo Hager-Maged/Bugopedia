@@ -56,18 +56,18 @@ Bugopedia is an interactive web platform aimed at streamlining the debugging pro
 The project will be executed over a period of 10 weeks, starting from 24/09/2025 and concluding on 28/11/2025
 Timeline & Milestones
 
-Week 1 (Sep 24–30): Define core features, design UI wireframes, and set up GitHub workflow. Start React project and prepare mock data (JSON files or dummy APIs).
+• Week 1 (Sep 24–30): Define core features, design UI wireframes, and set up GitHub workflow. Start React project and prepare mock data (JSON files or dummy APIs).
 
-Weeks 2–3 (Oct 1–13): Frontend team builds main pages (Home with search/categories, Bug Details with visualization placeholder + comments, Submit Bug form, User Profile with points/badges). Focus on styling and user flow. Backend team starts setting up Node.js, Express, and MongoDB schemas in the background.
+• Weeks 2–3 (Oct 1–13): Frontend team builds main pages (Home with search/categories, Bug Details with visualization placeholder + comments, Submit Bug form, User Profile with points/badges). Focus on styling and user flow. Backend team starts setting up Node.js, Express, and MongoDB schemas in the background.
 
-Weeks 4–5 (Oct 14–27): Backend develops APIs (auth, bugs, comments, points). Meanwhile, frontend continues polishing UI and ensuring responsiveness. Towards the end of week 5, start connecting real APIs instead of mock data.
+• Weeks 4–5 (Oct 14–27): Backend develops APIs (auth, bugs, comments, points). Meanwhile, frontend continues polishing UI and ensuring responsiveness. Towards the end of week 5, start connecting real APIs instead of mock data.
 
-Week 6 (Oct 28–Nov 3): Integrate frontend with backend completely. Add visualizations (Mermaid.js, D3.js, or simple diagrams) into bug details page.
+• Week 6 (Oct 28–Nov 3): Integrate frontend with backend completely. Add visualizations (Mermaid.js, D3.js, or simple diagrams) into bug details page.
 
-Week 7 (Nov 4–10): Implement gamification: frontend builds leaderboard, badges, and points UI; backend adds logic for points and badge assignment.
+• Week 7 (Nov 4–10): Implement gamification: frontend builds leaderboard, badges, and points UI; backend adds logic for points and badge assignment.
 
-Week 8 (Nov 11–17): Testing and debugging: verify all flows (add bug, comment, earn points, see badges). Improve UX/UI design and handle edge cases.
+• Week 8 (Nov 11–17): Testing and debugging: verify all flows (add bug, comment, earn points, see badges). Improve UX/UI design and handle edge cases.
 
-Week 9 (Nov 18–24): Final refinements, prepare presentation/demo, and deploy frontend (Vercel/Netlify), backend (Render/Heroku), and database (MongoDB Atlas).
+• Week 9 (Nov 18–24): Final refinements, prepare presentation/demo, and deploy frontend (Vercel/Netlify), backend (Render/Heroku), and database (MongoDB Atlas).
 
-Week 10 (Nov 25–28): Buffer period for polishing, fixing last-minute issues, and practicing the final presentation.
+• Week 10 (Nov 25–28): Buffer period for polishing, fixing last-minute issues, and practicing the final presentation.
