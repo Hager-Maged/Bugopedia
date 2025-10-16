@@ -15,7 +15,7 @@ import NavBar from "./Components/NavBar/Nav";
 function App() {
   return (
     <div>
-      <Footer />
+      <NavBar />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
@@ -28,6 +28,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/rewards" element={<Rewards />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
