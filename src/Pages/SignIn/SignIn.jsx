@@ -10,7 +10,7 @@ import { FaGoogle } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
 import { TbLockPassword } from "react-icons/tb";
 
-const SignIn = () => {
+const Signin = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordVisiblity = () => setPasswordShown((cur) => !cur);
   return (
@@ -117,4 +117,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default Signin;
