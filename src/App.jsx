@@ -11,7 +11,7 @@ import Leaderboard from "./Pages/Leaderboard/Leaderboard";
 import Rewards from "./Pages/Rewards/Rewards";
 import Profile from "./Pages/Profile/Profile";
 import NavBar from "./Components/NavBar/Nav";
-import SignIn from "./Pages/SignIn/SignIn";
+import Signin from "./Pages/Signin/Signin";
 
 function App() {
   if (
@@ -24,7 +24,7 @@ function App() {
     document.documentElement.classList.remove("dark");
   }
   return (
-      <div className="dark:bg-mainDarkModeColor">
+    <div className="dark:bg-mainDarkModeColor">
       <NavBar />
       <Routes>
         <Route path="/" element={<Landing />} />
@@ -37,8 +37,7 @@ function App() {
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/rewards" element={<Rewards />} />
-        <Route path="/signin" element={<SignIn />} />
-
+        <Route path="/signin" element={<Signin />} />
       </Routes>
       <Footer />
     </div>
