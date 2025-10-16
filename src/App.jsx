@@ -15,6 +15,7 @@ import SignIn from "./Pages/SignIn/SignIn";
 
 function App() {
   if (
+<<<<<<< HEAD
     localStorage.theme === "dark" ||
     (!("theme" in localStorage) &&
       window.matchMedia("(prefers-color-scheme: dark)").matches)
@@ -25,6 +26,18 @@ function App() {
   }
   return (
     <div className="dark:bg-mainDarkModeColor">
+=======
+  localStorage.theme === "dark" ||
+  (!("theme" in localStorage) &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches)
+) {
+  document.documentElement.classList.add("dark");
+} else {
+  document.documentElement.classList.remove("dark");
+}
+  return (
+    <div>
+>>>>>>> b14538307d28287ce625693bd9e0648d32f12b9e
       <NavBar />
       <Routes>
         <Route path="/" element={<Landing />} />
@@ -37,7 +50,10 @@ function App() {
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/rewards" element={<Rewards />} />
+<<<<<<< HEAD
         <Route path="/signin" element={<SignIn />} />
+=======
+>>>>>>> b14538307d28287ce625693bd9e0648d32f12b9e
       </Routes>
       <Footer />
     </div>

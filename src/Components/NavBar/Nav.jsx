@@ -147,7 +147,7 @@ function NavList({ theme, setLightMode, setDarkMode }) {
           <input
             type="text"
             placeholder="Search bugs, topics, or contributors"
-            className="w-full pl-10 pr-3 py-[0.6em] rounded-[0.6em]  border-1 bg-transparent text-blackText dark:text-whiteText placeholder-grayText outline-none focus:ring-2 focus:ring-orange transition-all duration-200"
+            className="w-full pl-10 pr-3 py-[0.6em] rounded-[0.6em]  border-1 bg-transparent text-blackText dark:!text-white placeholder-grayText outline-none focus:ring-2 focus:ring-orange transition-all duration-200 focus:!text-white dark:focus:!text-white"
           />
         </div>
       </li>
