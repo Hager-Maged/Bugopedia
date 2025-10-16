@@ -1,11 +1,12 @@
 const withMT = require("@material-tailwind/react/utils/withMT");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = withMT({
   content: [
     "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-    "./node_modules/@material-tailwind/react/components/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./vite-project/node_modules/@material-tailwind/react/components/**/*.{js,ts,jsx,tsx}",
+    "./vite-project/node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -31,5 +32,6 @@ module.exports = withMT({
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
+  darkMode: "class",
 });

@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import Footer from "./Components/Footer/Footer";
-import Header from "./Components/Header/Header";
 import Home from "./Pages/Home/Home";
 import Landing from "./Pages/Landing/Landing";
 import AboutUs from "./Pages/About-us/AboutUs";
@@ -11,12 +10,12 @@ import Community from "./Pages/Community/Community";
 import Leaderboard from "./Pages/Leaderboard/Leaderboard";
 import Rewards from "./Pages/Rewards/Rewards";
 import Profile from "./Pages/Profile/Profile";
+import NavBar from "./Components/NavBar/Nav";
 
 function App() {
   return (
     <div>
-      <Footer />
-      
+      <NavBar />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
@@ -29,8 +28,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/rewards" element={<Rewards />} />
       </Routes>
-
-      <Header />
+      <Footer />
     </div>
   );
 }
