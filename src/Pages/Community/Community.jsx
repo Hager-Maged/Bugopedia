@@ -4,7 +4,7 @@ import Tabs_section from "./Components/Tabs_section"
 
 const Community = () => {
   return (
-    <div>
+    <div className="bg-white  dark:bg-[#1a1625]">
 			<Community_Header/>
       <Community_info/>
       <Tabs_section/>
