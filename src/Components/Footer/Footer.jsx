@@ -8,12 +8,14 @@ import { FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="w-full py-10 mt-20 bg-white border-t border-slate-200">
-      <div className="grid grid-cols-1 gap-10 px-6 mx-auto max-w-7xl md:grid-cols-4">
+    <footer className="w-full py-10 mt-20 bg-white border-t border-slate-200 dark:bg-mainDarkModeColor">
+      <div className="grid grid-cols-1 gap-10 px-6 mx-auto max-w-8xl md:grid-cols-4">
         <div className="space-y-3">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <img src={Logo} alt="Logo" className="w-12 h-12" />
-            <h5 className="text-xl font-semibold text-slate-800">Bugopedia</h5>
+            <h5 className="text-xl font-semibold text-slate-800 dark:text-white">
+              Bugopedia
+            </h5>
           </div>
           <p className="text-sm text-slate-600 text-grayText">
             A community-driven platform for debugging and learning together.
@@ -21,14 +23,14 @@ const Footer = () => {
         </div>
 
         <div>
-          <h6 className="mb-3 text-base font-semibold text-slate-800 ">
+          <h6 className="mb-3 text-base font-semibold text-slate-800 dark:text-white ">
             Quick Links
           </h6>
           <ul className="space-y-2 text-sm text-slate-600">
             <li>
               <Link
                 to="#"
-                className="hover:text-slate-500 text-grayText hover:text-black"
+                className="hover:text-slate-500 text-grayText hove r:text-black"
               >
                 Browse Bugs
               </Link>
@@ -61,7 +63,7 @@ const Footer = () => {
         </div>
 
         <div>
-          <h6 className="mb-3 text-base font-semibold text-slate-800">
+          <h6 className="mb-3 text-base font-semibold text-slate-800 dark:text-white">
             Community
           </h6>
           <ul className="space-y-2 text-sm text-slate-600">
@@ -101,14 +103,16 @@ const Footer = () => {
         </div>
 
         <div>
-          <h6 className="mb-3 text-base font-semibold text- ">Connect</h6>
+          <h6 className="mb-3 text-base font-semibold dark:text-white ">
+            Connect
+          </h6>
           <div className="flex gap-3">
             <Link
               to="#"
               className="p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-white "
             >
               <i className=" fa-brands fa-github">
-                <FaGithub className="w-6 h-6 " />
+                <FaGithub className="w-6 h-6 dark:text-white " />
               </i>
             </Link>
             <Link
@@ -116,7 +120,7 @@ const Footer = () => {
               className="p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-white"
             >
               <i className="fa-brands fa-twitter">
-                <FaTwitter className="w-6 h-6 " />
+                <FaTwitter className="w-6 h-6 dark:text-white" />
               </i>
             </Link>
             <Link
@@ -124,7 +128,7 @@ const Footer = () => {
               className="p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-white"
             >
               <i className="fa-solid fa-envelope">
-                <FaEnvelope className="w-6 h-6 " />
+                <FaEnvelope className="w-6 h-6 dark:text-white " />
               </i>
             </Link>
           </div>
@@ -132,7 +136,7 @@ const Footer = () => {
       </div>
 
       <div className="pt-5 mt-10 border-t border-slate-200">
-        <p className="text-sm text-center text-slate-500">
+        <p className="text-sm text-center text-slate-500 dark:text-white">
           © 2025 Bugopedia. All rights reserved.
         </p>
       </div>
