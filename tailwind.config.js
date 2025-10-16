@@ -30,6 +30,7 @@ module.exports = withMT({
         mainGradient: "linear-gradient(to right, #ff6a34 , #ff3266 )",
         secondaryGradient: "linear-gradient(45deg , #cb542a , #7d48a5)",
         gradientThree : "linear-gradient(180deg , #cd3e44 , #a43f81)",
+        lightGradiantToRight : "linear-gradient(to right , #fd693b , #ff3666)"
       },
     },
   },
