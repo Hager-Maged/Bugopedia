@@ -23,7 +23,7 @@ function App() {
   document.documentElement.classList.remove("dark");
 }
   return (
-    <div>
+    <div className="dark:bg-mainDarkModeColor">
       <NavBar />
       <Routes>
         <Route path="/" element={<Landing />} />
