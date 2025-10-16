@@ -15,7 +15,7 @@ const Signin = () => {
   const togglePasswordVisiblity = () => setPasswordShown((cur) => !cur);
   return (
     <section className="flex items-center justify-center w-full min-h-screen p-10 bg-mainDarkModeColor">
-      <div className="flex flex-col items-center w-full max-w-xl p-10 bg-white rounded-lg shadow-lg">
+      <div className="flex flex-col items-center w-full max-w-xl p-10 rounded-lg shadow-lg bg-whiteText">
         <img src={Logo2} alt="Logo" className="w-auto h-40 mb-6" />
 
         <Typography variant="h3" color="blue-gray" className="mb-2">
@@ -83,7 +83,7 @@ const Signin = () => {
 
           <button
             type="button"
-            className="flex items-center justify-center w-full gap-2 py-3 text-white transition-all rounded-md shadow-md bg-mainGradient hover:shadow-lg hover:scale-[1.02] focus:scale-[0.98] active:scale-[0.96]"
+            className="flex items-center justify-center w-full gap-2 py-3 text-whiteText transition-all rounded-md shadow-md bg-mainGradient hover:shadow-lg hover:scale-[1.02] focus:scale-[0.98] active:scale-[0.96]"
           >
             Sign In <FaArrowRight />
           </button>

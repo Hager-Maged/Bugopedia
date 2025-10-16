@@ -15,7 +15,7 @@ module.exports = withMT({
         darkModeBg: "#1a1625",
         secondaryColorOne: "#e7704f",
         secondaryColorTwo: "#ef3c6a",
-        whiteText: "#1a1625",
+        whiteText: "#fdf0e7",
         grayText: "#9ca3af",
         blackText: "#1a1625",
         orangeColor: "#ff6b35",
@@ -30,8 +30,8 @@ module.exports = withMT({
       backgroundImage: {
         mainGradient: "linear-gradient(to right, #ff6a34 , #ff3266 )",
         secondaryGradient: "linear-gradient(45deg , #cb542a , #7d48a5)",
-        gradientThree : "linear-gradient(180deg , #cd3e44 , #a43f81)",
-        lightGradiantToRight : "linear-gradient(to right , #fd693b , #ff3666)"
+        gradientThree: "linear-gradient(180deg , #cd3e44 , #a43f81)",
+        lightGradiantToRight: "linear-gradient(to right , #fd693b , #ff3666)",
       },
     },
   },
