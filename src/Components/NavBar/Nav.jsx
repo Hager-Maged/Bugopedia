@@ -5,6 +5,7 @@ import {
   Typography,
   IconButton,
 } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { Avatar } from "@material-tailwind/react";
 import { Input } from "@material-tailwind/react";
@@ -21,6 +22,7 @@ import { FaRegMessage } from "react-icons/fa6";
 import { IoPeopleOutline } from "react-icons/io5";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { IoHomeOutline } from "react-icons/io5";
+import Logo from "../../Media/Logo.png";
 import {
   Menu,
   MenuHandler,
@@ -316,12 +318,11 @@ export function NavbarSimple({
     <Navbar className={className}>
       <div className="flex items-center justify-evenly text-blackText dark:text-white">
         <Typography
-          as="a"
-          href="#"
-          variant="h6"
-          className="mr-4 cursor-pointer py-1.5 text-blackText dark:text-white"
+          as={Link}
+          to="/"
+          className="rounded-md bg-slate-800 p-2.5   text-center text-sm text-white transition-all  focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
         >
-          Bugopedia
+          <img src={Logo} alt="Logo" className="object-contain w-10 h-10" />
         </Typography>
 
         <div className="hidden lg:block">
