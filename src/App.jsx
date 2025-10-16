@@ -15,7 +15,7 @@ import NavBar from "./Components/NavBar/Nav";
 function App() {
   return (
     <div>
-      <NavBar />
+      <Footer />
       <Routes>
         {/* <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
