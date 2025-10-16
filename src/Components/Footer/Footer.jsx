@@ -8,7 +8,7 @@ import { FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="w-full py-10 mt-20 bg-white border-t border-slate-200 dark:bg-mainDarkModeColor">
+    <footer className="w-full py-10 bg-white border-t border-slate-200 dark:bg-mainDarkModeColor">
       <div className="grid grid-cols-1 gap-10 px-6 mx-auto max-w-8xl md:grid-cols-4">
         <div className="space-y-3">
           <div className="flex items-center gap-1">
