@@ -45,20 +45,20 @@ const pollsData = [
 
 const Polls = () => {
   return (
-    <div className="grid grid-cols-1 gap-5 pt-5">
+    <div className="grid grid-cols-1 gap-5 pt-5 dark:text-white">
       {pollsData.map((poll, index) => (
-        <div key={index} className="border p-10 flex flex-col gap-5 rounded-2xl">
+        <div key={index} className="border p-10 flex flex-col gap-5 rounded-2xl dark:border-[#3d3554]">
           {/* Header */}
           <div className="flex flex-col gap-3">
             <h1 className="text-lg font-medium">{poll.question}</h1>
             <div className="flex gap-1 items-center text-gray-600 text-sm">
               <FaRegCircleUser className="text-xl" />
-              <p>{poll.author}</p>
-              <p>{poll.username}</p>
+              <p className="dark:text-pargraph">{poll.author}</p>
+              <p className="dark:text-pargraph">{poll.username}</p>
               <BsDot />
-              <p>{poll.votes}</p>
+              <p className="dark:text-pargraph">{poll.votes}</p>
               <BsDot />
-              <p>{poll.time}</p>
+              <p className="dark:text-pargraph">{poll.time}</p>
             </div>
           </div>
 
@@ -66,9 +66,9 @@ const Polls = () => {
           <div className="flex flex-col gap-4">
             {poll.options.map((option, i) => (
               <div key={i} className="flex flex-col gap-2">
-                <div className="flex justify-between border border-[#e6e6e6] rounded-xl p-3">
+                <div className="flex justify-between border border-[#e6e6e6] rounded-xl p-3 dark:border-[#3d3554]">
                   <div>
-                    <h1 className="text-[#1e1e1e] text-md font-medium">{option.label}</h1>
+                    <h1 className="text-[#1e1e1e] text-md font-medium dark:text-white">{option.label}</h1>
                   </div>
                   <div className="flex gap-2 text-blackText text-sm font-medium">
                     <p>{option.votes}</p>
@@ -78,7 +78,7 @@ const Polls = () => {
                 <div className="relative">
                   <Progress
                     value={option.value}
-                    className="[&>div]:!bg-mainGradient"
+                    className="[&>div]:!bg-mainGradient dark:bg-card"
                   />
                 </div>
               </div>
