@@ -3,7 +3,7 @@ import ButtonLight from "../../../Components/Buttons/ButtonLight";
 
 const JoinUs = () => {
   return (
-    <div className="flex flex-col items-center justify-center gap-5 py-10 rounded-xl px-5 border border-orangeColor dark:bg-mutedYellow">
+    <div className="pb-10 flex flex-col items-center justify-center gap-5 py-10 rounded-xl px-5 border border-orangeColor dark:bg-mutedYellow ">
       <h3 className="text-blackText dark:text-whiteText text-lg font-semibold">Join Our Community</h3>
       <p className="text-grayText text-l font-semibold">
         Be part of a global community of developers helping each other build

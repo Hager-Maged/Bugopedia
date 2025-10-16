@@ -15,7 +15,7 @@ module.exports = withMT({
         darkModeBg: "#1a1625",
         secondaryColorOne: "#e7704f",
         secondaryColorTwo: "#ef3c6a",
-        whiteText: "#1a1625",
+        whiteText: "#fdf0e7",
         grayText: "#9ca3af",
         blackText: "#1a1625",
         orangeColor: "#ff6b35",
