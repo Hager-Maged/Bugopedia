@@ -13,7 +13,7 @@ import Profile from "./Pages/Profile/Profile";
 import NavBar from "./Components/NavBar/Nav";
 import Signin from "./Pages/Signin/Signin";
 import FAQ from "./Pages/FAQ/FAQ";
-import Signin from "./Pages/SignIn/SignIn";
+import Signin from "./Pages/Signin/Signin";
 
 function App() {
   if (
