@@ -12,7 +12,6 @@ export function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfPassword, setShowConfPassword] = useState(false);
 
-
   return (
     <section className="flex items-center justify-center w-full min-h-screen p-10 bg-mainDarkModeColor">
       <div className="flex flex-col items-center w-full max-w-xl p-10 bg-white rounded-lg shadow-lg">
@@ -26,7 +25,7 @@ export function SignUp() {
         </Typography>
         <form className="w-full">
           <CardBody className="flex flex-col gap-4 p-0">
-            <div className=" relative w-full">
+            <div className="relative w-full ">
               <label
                 htmlFor="name"
                 className="text-gray-900 font-normal text-[18px]"
@@ -43,7 +42,7 @@ export function SignUp() {
                 className="w-full pl-12 placeholder:opacity-100 focus:border-t-primary border-t-blue-gray-200"
               />
             </div>
-            <div className=" relative ">
+            <div className="relative ">
               <label
                 htmlFor="email"
                 className="text-gray-900 font-normal text-[18px]"
@@ -119,7 +118,7 @@ export function SignUp() {
                   type="checkbox"
                   className="w-5 h-5 border border-gray-300 rounded checked:bg-gray-800 checked:border-gray-800"
                 />
-                <span className="ml-2 text-m text-gray-600">
+                <span className="ml-2 text-gray-600 text-m">
                   I agree to the{" "}
                   <span className="text-[#ff6b35]">Terms of Service</span> and{" "}
                   <span className="text-[#ff6b35]">Privacy Policy</span>
@@ -148,9 +147,9 @@ export function SignUp() {
           </div>
 
           <div className="flex items-center justify-center mt-6 mb-4">
-            <p className=" text-gray-700 ">
+            <p className="text-gray-700 ">
               Already have an account ?{" "}
-              <Link to="/signin" className="text-gray-700 font-bold">
+              <Link to="/signin" className="font-bold text-orangeColor">
                 Sign in
               </Link>
             </p>
