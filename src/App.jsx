@@ -11,6 +11,7 @@ import Leaderboard from "./Pages/Leaderboard/Leaderboard";
 import Rewards from "./Pages/Rewards/Rewards";
 import Profile from "./Pages/Profile/Profile";
 import NavBar from "./Components/NavBar/Nav";
+import Settings from "./Pages/Settings/Settings";
 
 function App() {
   if (
@@ -36,6 +37,7 @@ function App() {
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/rewards" element={<Rewards />} />
+        <Route path="/settings" element={<Settings />} />
       </Routes>
       <Footer />
     </div>
