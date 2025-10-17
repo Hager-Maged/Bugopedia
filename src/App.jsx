@@ -11,14 +11,10 @@ import Leaderboard from "./Pages/Leaderboard/Leaderboard";
 import Rewards from "./Pages/Rewards/Rewards";
 import Profile from "./Pages/Profile/Profile";
 import NavBar from "./Components/NavBar/Nav";
-<<<<<<< HEAD
 import Signin from "./Pages/Signin/Signin";
 import FAQ from "./Pages/FAQ/FAQ";
 import Signin from "./Pages/Signin/Signin";
-=======
-import Signin from "./Pages/SignIn/SignIn";
 import SignUp from "./Pages/SignUp/SignUp";
->>>>>>> 9e7594ea2b5f2bcfbec199e1427f318c289d3d9d
 
 function App() {
   if (
@@ -45,11 +41,8 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/rewards" element={<Rewards />} />
         <Route path="/signin" element={<Signin />} />
-<<<<<<< HEAD
         <Route path="/faq" element={<FAQ />} />
-=======
         <Route path="/signup" element={<SignUp />} />
->>>>>>> 9e7594ea2b5f2bcfbec199e1427f318c289d3d9d
       </Routes>
       <Footer />
     </div>
