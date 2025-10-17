@@ -11,9 +11,11 @@ const Footer = () => {
     <footer className="w-full py-10 pt-20 bg-white dark:bg-mainDarkModeColor border-t border-slate-200">
       <div className="grid grid-cols-1 gap-10 px-6 mx-auto max-w-7xl md:grid-cols-4">
         <div className="space-y-3">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <img src={Logo} alt="Logo" className="w-12 h-12" />
-            <h5 className="text-xl font-semibold text-slate-800">Bugopedia</h5>
+            <h5 className="text-xl font-semibold text-slate-800 dark:text-white">
+              Bugopedia
+            </h5>
           </div>
           <p className="text-sm text-slate-600 text-grayText">
             A community-driven platform for debugging and learning together.
@@ -28,7 +30,7 @@ const Footer = () => {
             <li>
               <Link
                 to="#"
-                className="hover:text-slate-500 text-grayText hover:text-black"
+                className="hover:text-slate-500 text-grayText hove r:text-black"
               >
                 Browse Bugs
               </Link>
@@ -132,7 +134,7 @@ const Footer = () => {
       </div>
 
       <div className="pt-5 mt-10 border-t border-slate-200">
-        <p className="text-sm text-center text-slate-500">
+        <p className="text-sm text-center text-slate-500 dark:text-white">
           © 2025 Bugopedia. All rights reserved.
         </p>
       </div>

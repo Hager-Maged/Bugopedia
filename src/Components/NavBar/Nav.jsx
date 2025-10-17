@@ -275,7 +275,7 @@ function NavList({ theme, setLightMode, setDarkMode }) {
 
                 <MenuItem className="p-0">
                   <NavLink
-                    to="/logout"
+                    to="/signin"
                     className="flex items-center w-full gap-2 p-2 rounded-md hover:bg-red-100 focus:bg-mainGradient focus:!text-white transition-all duration-200"
                   >
                     <Typography

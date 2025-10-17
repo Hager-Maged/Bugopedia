@@ -39,12 +39,14 @@ const Tabs_section = () => {
     },
 ];
   return (
-		<div className="!grid !grid-cols-5">
-			<Tabs id="custom-animation" value="discussions" className="col-start-2 col-end-5">
-				<TabsHeader>
+		
+		<div className="!grid !grid-cols-5 ">
+			{/*scroll need dark mode edit*/}
+			<Tabs id="custom-animation" value="discussions" className="col-start-2 col-end-5 ">
+				<TabsHeader className=" dark:bg-card ">
 					{data.map(({ label, value,icon }) => (
-						<Tab key={value} value={value}>
-							<div className="flex flex-row justify-center items-center gap-3 font-semibold text-sm">
+						<Tab key={value} value={value} className="dark:text-white ">
+							<div className="flex flex-row justify-center items-center gap-3 font-semibold text-sm ">
 								{icon}
 								{label}
 							</div>
@@ -52,6 +54,7 @@ const Tabs_section = () => {
 					))}
 				</TabsHeader>
 				<TabsBody
+				className=""
 					animate={{
 						initial: { y: 250 },
 						mount: { y: 0 },
@@ -59,7 +62,7 @@ const Tabs_section = () => {
 					}}
 				>
 					{data.map(({ value, desc }) => (
-						<TabPanel key={value} value={value}>
+						<TabPanel key={value} value={value} className="">
 							{desc}
 						</TabPanel>
 					))}

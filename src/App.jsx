@@ -11,18 +11,20 @@ import Leaderboard from "./Pages/Leaderboard/Leaderboard";
 import Rewards from "./Pages/Rewards/Rewards";
 import Profile from "./Pages/Profile/Profile";
 import NavBar from "./Components/NavBar/Nav";
+import Signin from "./Pages/SignIn/SignIn";
+import SignUp from "./Pages/SignUp/SignUp";
 import Settings from "./Pages/Settings/Settings";
 
 function App() {
   if (
-  localStorage.theme === "dark" ||
-  (!("theme" in localStorage) &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches)
-) {
-  document.documentElement.classList.add("dark");
-} else {
-  document.documentElement.classList.remove("dark");
-}
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
   return (
     <div className="dark:bg-mainDarkModeColor">
       <NavBar />
@@ -37,6 +39,8 @@ function App() {
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/rewards" element={<Rewards />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/settings" element={<Settings />} />
       </Routes>
       <Footer />

@@ -53,34 +53,34 @@ const discussionsData = [
 
 const Discussions = () => {
   return (
-    <div className="grid grid-cols-1 gap-3 pt-5">
+    <div className="grid grid-cols-1 gap-3 pt-5 ">
       {discussionsData.map((item) => (
         <div
           key={item.id}
-          className="flex gap-5 border p-10 rounded-2xl border-[#e6e6e6] hover:shadow-xl"
+          className="flex gap-5 border p-10 rounded-2xl border-[#e6e6e6] hover:shadow-xl dark:bg-card dark:border-[#3d3554]"
         >
           <div className="flex justify-center items-center flex-col gap-4">
-            <button className="text-xl">
+            <button className="text-xl dark:text-[#f9fafb]">
               <AiOutlineLike />
             </button>
-            <p>{item.likes}</p>
+            <p className="dark:text-[#f9fafb] text-blackText">{item.likes}</p>
           </div>
 
-          <div>
-            <p className="text-blackText">{item.title}</p>
+          <div className="flex flex-col gap-2">
+            <p className="text-blackText dark:text-[#f9fafb]">{item.title}</p>
 
             <div className="flex gap-1.5 ">
               {item.tags.map((tag, index) => (
                 <button
                   key={index}
-                  className="border p-1 px-2 rounded-3xl text-xs font-bold"
+                  className="border p-1 px-2 rounded-3xl text-xs font-bold dark:text-[#f9fafb]"
                 >
                   {tag}
                 </button>
               ))}
             </div>
 
-            <div className="flex gap-2 justify-center items-center">
+            <div className="flex gap-2 justify-center items-center dark:text-pargraph text-sm">
               <div className="flex justify-center items-center gap-2">
                 <FaRegUserCircle className="text-2xl" />
                 <p>{item.user}</p>
