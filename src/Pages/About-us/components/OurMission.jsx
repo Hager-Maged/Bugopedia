@@ -8,25 +8,25 @@ import { IoShieldOutline } from "react-icons/io5";
 const OurMission = () => {
   return (
     // Cards
-    <div className="dark:bg-darkModeBg">
+    <div className=" pb-10 ">
       {/* CARDS */}
       <div className=" grid grid-cols-1 md:grid-cols-4 pt-8 gap-3 px-4">
-        <div className="transition-all hover:scale-110 shadow-lg shadow-gray-400 flex flex-col gap-5 items-center border border-1 rounded-2xl p-5 dark:bg-mainDarkModeColor">
+        <div className="transition-all hover:scale-110 flex flex-col gap-5 items-center rounded-2xl p-5 dark:bg-mainDarkModeColor">
           <FaUserFriends className="text-5xl text-orangeColor " />
           <p className="text-blackText dark:text-whiteText">0</p>
           <p className="text-grayText">Active Users</p>
         </div>
-        <div className="transition-all hover:scale-110 shadow-lg shadow-gray-400 flex flex-col gap-5 items-center border border-1 rounded-2xl p-5 dark:bg-mainDarkModeColor">
+        <div className="transition-all hover:scale-110  flex flex-col gap-5 items-center  rounded-2xl p-5 dark:bg-mainDarkModeColor">
           <IoMdCheckmarkCircleOutline className="text-5xl text-orangeColor " />
           <p className="text-blackText dark:text-whiteText">0</p>
           <p className="text-grayText">Bugs Solved</p>
         </div>
-        <div className="transition-all hover:scale-110 shadow-lg shadow-gray-400 flex flex-col gap-5 items-center border border-1 rounded-2xl p-5 dark:bg-mainDarkModeColor">
+        <div className="transition-all hover:scale-110  flex flex-col gap-5 items-center  rounded-2xl p-5 dark:bg-mainDarkModeColor">
           <FaRegHeart className="text-5xl text-orangeColor " />
           <p className="text-blackText dark:text-whiteText">0</p>
           <p className="text-grayText">Community Members</p>
         </div>
-        <div className="transition-all hover:scale-110 shadow-lg shadow-gray-400 flex flex-col gap-5 items-center border border-1 rounded-2xl p-5 dark:bg-mainDarkModeColor">
+        <div className="transition-all hover:scale-110  flex flex-col gap-5 items-center  rounded-2xl p-5 dark:bg-mainDarkModeColor">
           <SlEnergy className="text-5xl text-orangeColor " />
           <p className="text-blackText dark:text-whiteText">0</p>
           <p className="text-grayText">Daily Solutions</p>
@@ -34,7 +34,9 @@ const OurMission = () => {
       </div>
       {/* Our Mission */}
       <div className="mt-10 text-center p-5">
-        <h1 className="text-2xl text-blackText mb-4">Our Mission</h1>
+        <h1 className="text-2xl text-blackText dark:text-whiteText mb-4 font-semibold">
+          Our Mission
+        </h1>
         <p className="text-grayText">
           At Bugopedia, we believe that every bug is an opportunity to learn and
           grow. Our mission is to create a supportive community where developers
@@ -46,7 +48,7 @@ const OurMission = () => {
       </div>
       {/* Our Mission Cards */}
       <div className="grid gird-cols-1 lg:grid-cols-2 mt-10 gap-3">
-        <div className="flex gap-3 shadow-lg shadow-gray-400 rounded-xl p-5 py-7">
+        <div className="flex gap-3   rounded-xl p-5 py-7">
           <div>
             <FaCode className="text-orangeColor bg-lightPink dark:bg-mutedYellow p-2 text-5xl rounded-xl" />
           </div>
@@ -61,7 +63,7 @@ const OurMission = () => {
           </div>
         </div>
 
-        <div className="flex gap-3 shadow-lg shadow-gray-400 rounded-xl p-5 py-7">
+        <div className="flex gap-3   rounded-xl p-5 py-7">
           <div>
             <FaUserFriends className="text-orangeColor bg-lightPink dark:bg-mutedYellow p-2 text-5xl rounded-xl" />
           </div>
@@ -76,7 +78,7 @@ const OurMission = () => {
           </div>
         </div>
 
-        <div className="flex gap-3 shadow-lg shadow-gray-400 rounded-xl p-5 py-7">
+        <div className="flex gap-3   rounded-xl p-5 py-7">
           <div>
             <FaUserFriends className="text-orangeColor bg-lightPink dark:bg-mutedYellow p-2 text-5xl rounded-xl" />
           </div>
@@ -91,7 +93,7 @@ const OurMission = () => {
           </div>
         </div>
 
-        <div className="flex gap-3 shadow-lg shadow-gray-400 rounded-xl p-5 py-7">
+        <div className="flex gap-3   rounded-xl p-5 py-7">
           <div>
             <IoShieldOutline className="text-orangeColor bg-lightPink dark:bg-mutedYellow p-2 text-5xl rounded-xl" />
           </div>

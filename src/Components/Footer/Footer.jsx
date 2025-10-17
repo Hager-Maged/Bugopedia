@@ -8,8 +8,8 @@ import { FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="w-full py-10 bg-white border-t border-slate-200 dark:bg-mainDarkModeColor">
-      <div className="grid grid-cols-1 gap-10 px-6 mx-auto max-w-8xl md:grid-cols-4">
+    <footer className="w-full py-10 pt-20 bg-white dark:bg-mainDarkModeColor border-t border-slate-200">
+      <div className="grid grid-cols-1 gap-10 px-6 mx-auto max-w-7xl md:grid-cols-4">
         <div className="space-y-3">
           <div className="flex items-center gap-1">
             <img src={Logo} alt="Logo" className="w-12 h-12" />
@@ -23,7 +23,7 @@ const Footer = () => {
         </div>
 
         <div>
-          <h6 className="mb-3 text-base font-semibold text-slate-800 dark:text-white ">
+          <h6 className="mb-3 text-base font-semibold text-slate-800 text-blackText dark:text-whiteText">
             Quick Links
           </h6>
           <ul className="space-y-2 text-sm text-slate-600">
@@ -63,7 +63,7 @@ const Footer = () => {
         </div>
 
         <div>
-          <h6 className="mb-3 text-base font-semibold text-slate-800 dark:text-white">
+          <h6 className="mb-3 text-base font-semibold text-slate-800 text-blackText dark:text-whiteText">
             Community
           </h6>
           <ul className="space-y-2 text-sm text-slate-600">
@@ -103,16 +103,14 @@ const Footer = () => {
         </div>
 
         <div>
-          <h6 className="mb-3 text-base font-semibold dark:text-white ">
-            Connect
-          </h6>
+          <h6 className="mb-3 text-base font-semibold text-blackText dark:text-whiteText ">Connect</h6>
           <div className="flex gap-3">
             <Link
               to="#"
               className="p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-white "
             >
               <i className=" fa-brands fa-github">
-                <FaGithub className="w-6 h-6 dark:text-white " />
+                <FaGithub className="w-6 h-6 text-blackText" />
               </i>
             </Link>
             <Link
@@ -120,7 +118,7 @@ const Footer = () => {
               className="p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-white"
             >
               <i className="fa-brands fa-twitter">
-                <FaTwitter className="w-6 h-6 dark:text-white" />
+                <FaTwitter className="w-6 h-6 text-blackText" />
               </i>
             </Link>
             <Link
@@ -128,7 +126,7 @@ const Footer = () => {
               className="p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-white"
             >
               <i className="fa-solid fa-envelope">
-                <FaEnvelope className="w-6 h-6 dark:text-white " />
+                <FaEnvelope className="w-6 h-6 text-blackText" />
               </i>
             </Link>
           </div>

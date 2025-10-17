@@ -2,10 +2,10 @@
 
 const OurStory = () => {
   return (
-    <div className="gap-5 grid grid-cols-1 lg:grid-cols-2 p-5 dark:bg-mainDarkModeColor py-10">
+    <div className="gap-5 grid grid-cols-1 lg:grid-cols-2 p-5 dark:bg-mainDarkModeColor bg-whiteText py-10">
       {/* Text */}
       <div className="flex justify-center items-center flex-col h-full ">
-        <h3 className="text-blackText mb-5">Our Story</h3>
+        <h3 className="text-blackText mb-5 dark:text-whiteText font-semibold">Our Story</h3>
         <p className="text-grayText">
           Bugopedia was born from a simple frustration: debugging alone is hard.
           Too many developers struggle in isolation, spending hours on problems
