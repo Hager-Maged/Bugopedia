@@ -6,13 +6,13 @@ import JoinUs from "./components/JoinUs";
 
 function AboutUs() {
   return (
-    <>
+    <div className="bg-whiteText dark:bg-darkModeBg">
     <Hero />
     <OurMission />
     <OurStory />
     <OurTeam />
     <JoinUs />
-    </>
+    </div>
   );
 }
 

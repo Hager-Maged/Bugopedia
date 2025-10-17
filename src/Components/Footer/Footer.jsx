@@ -8,7 +8,11 @@ import { FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   return (
+<<<<<<< HEAD
     <footer className="w-full py-10 pt-20 bg-white border-t dark:bg-mainDarkModeColor border-slate-200">
+=======
+    <footer className="w-full py-10 pt-20 bg-white dark:bg-mainDarkModeColor border-t border-slate-200">
+>>>>>>> 9e7594ea2b5f2bcfbec199e1427f318c289d3d9d
       <div className="grid grid-cols-1 gap-10 px-6 mx-auto max-w-7xl md:grid-cols-4">
         <div className="space-y-3">
           <div className="flex items-center gap-1">
@@ -103,16 +107,24 @@ const Footer = () => {
         </div>
 
         <div>
+<<<<<<< HEAD
           <h6 className="mb-3 text-base font-semibold text-blackText dark:text-whiteText ">
             Connect
           </h6>
+=======
+          <h6 className="mb-3 text-base font-semibold text-blackText dark:text-whiteText ">Connect</h6>
+>>>>>>> 9e7594ea2b5f2bcfbec199e1427f318c289d3d9d
           <div className="flex gap-3">
             <Link
               to="#"
               className="p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-white "
             >
               <i className=" fa-brands fa-github">
+<<<<<<< HEAD
                 <FaGithub className="w-6 h-6 text-blackText dark:text-whiteText" />
+=======
+                <FaGithub className="w-6 h-6 text-blackText" />
+>>>>>>> 9e7594ea2b5f2bcfbec199e1427f318c289d3d9d
               </i>
             </Link>
             <Link
@@ -120,7 +132,11 @@ const Footer = () => {
               className="p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-white"
             >
               <i className="fa-brands fa-twitter">
+<<<<<<< HEAD
                 <FaTwitter className="w-6 h-6 text-blackText dark:text-whiteText " />
+=======
+                <FaTwitter className="w-6 h-6 text-blackText" />
+>>>>>>> 9e7594ea2b5f2bcfbec199e1427f318c289d3d9d
               </i>
             </Link>
             <Link
@@ -128,7 +144,11 @@ const Footer = () => {
               className="p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-white"
             >
               <i className="fa-solid fa-envelope">
+<<<<<<< HEAD
                 <FaEnvelope className="w-6 h-6 text-blackText dark:text-whiteText" />
+=======
+                <FaEnvelope className="w-6 h-6 text-blackText" />
+>>>>>>> 9e7594ea2b5f2bcfbec199e1427f318c289d3d9d
               </i>
             </Link>
           </div>

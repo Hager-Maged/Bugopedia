@@ -56,7 +56,11 @@ const NavBar = () => {
 
 function NavList({ theme, setLightMode, setDarkMode }) {
   return (
+<<<<<<< HEAD
     <ul className="flex flex-col gap-2 my-2 lg:flex-row lg:items-center lg:gap-4">
+=======
+    <ul className="flex flex-col gap-2 my-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 ">
+>>>>>>> 9e7594ea2b5f2bcfbec199e1427f318c289d3d9d
       <NavLink
         to="/"
         className={({ isActive }) =>
@@ -128,7 +132,7 @@ function NavList({ theme, setLightMode, setDarkMode }) {
       </NavLink>
 
       <NavLink
-        to="/about"
+        to="/aboutus"
         className={({ isActive }) =>
           `flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
             isActive

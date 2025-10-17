@@ -1,7 +1,7 @@
 import React from "react";
 import Logo2 from "../../Media/Logo2.png";
 import { FaArrowRight } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { Typography, Input, Button } from "@material-tailwind/react";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
@@ -107,9 +107,9 @@ const Signin = () => {
             className="mt-6 font-normal text-center"
           >
             Not registered?{" "}
-            <a href="#" className="font-bold text-orange">
+            <Link to="/signup" className="font-bold text-orange">
               Sign Up
-            </a>
+            </Link>
           </Typography>
         </form>
       </div>
