@@ -13,7 +13,7 @@ export function SignUp() {
   const [showConfPassword, setShowConfPassword] = useState(false);
 
   return (
-    <section className="flex items-center justify-center w-full min-h-screen p-10 bg-mainDarkModeColor">
+    <section className="flex items-center justify-center w-full min-h-screen p-10 bg-darkModeBg">
       <div className="flex flex-col items-center w-full max-w-xl p-10 bg-white rounded-lg shadow-lg">
         <img src={Logo2} alt="Logo" className="w-auto h-40 mb-6" />
 
