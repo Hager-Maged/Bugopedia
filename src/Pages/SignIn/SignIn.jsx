@@ -14,8 +14,8 @@ const Signin = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordVisiblity = () => setPasswordShown((cur) => !cur);
   return (
-    <section className="flex items-center justify-center w-full min-h-screen p-10 bg-mainDarkModeColor">
-      <div className="flex flex-col items-center w-full max-w-xl p-10 rounded-lg shadow-lg bg-whiteText">
+    <section className="flex items-center justify-center w-full min-h-screen p-10 bg-darkModeBg">
+      <div className="flex flex-col items-center w-full max-w-xl p-10 bg-white rounded-lg shadow-lg">
         <img src={Logo2} alt="Logo" className="w-auto h-40 mb-6" />
 
         <Typography variant="h3" color="blue-gray" className="mb-2">
@@ -104,10 +104,10 @@ const Signin = () => {
           <Typography
             variant="small"
             color="gray"
-            className="mt-6 font-normal text-center"
+            className="mt-6 text-base font-normal text-center"
           >
             Not registered?{" "}
-            <Link to="/signup" className="font-bold text-orange">
+            <Link to="/signup" className="font-bold text-orangeColor">
               Sign Up
             </Link>
           </Typography>

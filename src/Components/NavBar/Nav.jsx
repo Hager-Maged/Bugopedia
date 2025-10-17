@@ -56,7 +56,6 @@ const NavBar = () => {
 
 function NavList({ theme, setLightMode, setDarkMode }) {
   return (
-
     <ul className="flex flex-col gap-2 my-2 lg:flex-row lg:items-center lg:gap-4">
       <NavLink
         to="/"
@@ -153,7 +152,7 @@ function NavList({ theme, setLightMode, setDarkMode }) {
         </div>
       </li>
 
-      <div className="flex flex-row items-center gap-4 justify-evenly md:gap-6">
+      <div className="flex flex-row items-center gap-4 justify-evenly md:gap-52">
         <ul className="flex flex-row items-center gap-4 justify-evenly md:gap-6">
           <li>
             <Menu placement="bottom-end">
@@ -209,11 +208,13 @@ function NavList({ theme, setLightMode, setDarkMode }) {
           <li>
             <Menu placement="bottom-end">
               <MenuHandler>
-                <Avatar
-                  src="https://docs.material-tailwind.com/img/face-2.jpg"
-                  alt="User Avatar"
-                  className="w-[2.5em] h-[2.5em] border-[0.15em] border-secondaryColorTwo dark:border-secondaryColorOne rounded-full cursor-pointer hover:scale-105 transition-transform duration-200"
-                />
+                <div className=" w-[2.5em] h-[2.5em] flex-shrink-0">
+                  <Avatar
+                    src="https://docs.material-tailwind.com/img/face-2.jpg"
+                    alt="User Avatar"
+                    className="w-full h-full border-[0.15em] border-secondaryColorTwo dark:border-secondaryColorOne rounded-full cursor-pointer hover:scale-105 transition-transform duration-200"
+                  />
+                </div>
               </MenuHandler>
 
               <MenuList className="p-2 text-gray-800 bg-white rounded-lg shadow-lg dark:text-gray-200 dark:bg-darkModeBg">
@@ -300,7 +301,7 @@ export function NavbarSimple({
   theme,
   setLightMode,
   setDarkMode,
-  className = "max-w-full px-6 py-3 bg-white border-0 rounded-none dark:bg-mainDarkModeColor dark:text-whiteText",
+  className = "max-w-full px-6 py-3 !bg-white border-0 rounded-none dark:!bg-mainDarkModeColor dark:!text-whiteText",
 }) {
   const [openNav, setOpenNav] = React.useState(false);
 
