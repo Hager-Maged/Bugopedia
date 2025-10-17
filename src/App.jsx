@@ -11,7 +11,7 @@ import Leaderboard from "./Pages/Leaderboard/Leaderboard";
 import Rewards from "./Pages/Rewards/Rewards";
 import Profile from "./Pages/Profile/Profile";
 import NavBar from "./Components/NavBar/Nav";
-import Signin from "./Pages/Signin/Signin";
+import Signin from "./Pages/SignIn/SignIn";
 import FAQ from "./Pages/FAQ/Faq";
 import SignUp from "./Pages/SignUp/SignUp";
 
