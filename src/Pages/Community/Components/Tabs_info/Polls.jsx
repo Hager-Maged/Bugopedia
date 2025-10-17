@@ -47,7 +47,7 @@ const Polls = () => {
   return (
     <div className="grid grid-cols-1 gap-5 pt-5 dark:text-white">
       {pollsData.map((poll, index) => (
-        <div key={index} className="border p-10 flex flex-col gap-5 rounded-2xl dark:border-[#3d3554]">
+        <div key={index} className="border md:p-10 p-4 flex flex-col gap-5 rounded-2xl dark:bg-card dark:border-[#3d3554]">
           {/* Header */}
           <div className="flex flex-col gap-3">
             <h1 className="text-lg font-medium">{poll.question}</h1>
@@ -71,8 +71,8 @@ const Polls = () => {
                     <h1 className="text-[#1e1e1e] text-md font-medium dark:text-white">{option.label}</h1>
                   </div>
                   <div className="flex gap-2 text-blackText text-sm font-medium">
-                    <p>{option.votes}</p>
-                    <p>{option.percent}</p>
+                    <p className="dark:text-pargraph text-pargraph">{option.votes}</p>
+                    <p className="dark:text-white text-blackText">{option.percent}</p>
                   </div>
                 </div>
                 <div className="relative">
