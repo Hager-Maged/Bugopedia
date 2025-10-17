@@ -301,7 +301,7 @@ export function NavbarSimple({
   theme,
   setLightMode,
   setDarkMode,
-  className = "max-w-full px-6 py-3 !bg-white border-0 rounded-none dark:!bg-mainDarkModeColor dark:!text-whiteText",
+  className = "max-w-full px-6 py-3 !bg-white !shadow-none !border-none !backdrop-blur-0 !bg-opacity-100 rounded-none dark:!bg-mainDarkModeColor dark:!text-whiteText",
 }) {
   const [openNav, setOpenNav] = React.useState(false);
 
