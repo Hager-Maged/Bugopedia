@@ -18,13 +18,14 @@ module.exports = withMT({
         whiteText: "#1a1625",
         grayText: "#9ca3af",
         blackText: "#1a1625",
-        orange: "#ff6b35",
+        orangeColor: "#ff6b35",
         mutedBlue: "#162556",
         lightBlue: "#2b7fff",
         mutedYellow: "#432004",
         lightYellow: "#f0b100",
         lightPurple: "#ad46ff",
         mutedPurple: "#3c0366",
+        lightPink: "#ffdcdd",
         pargraph: "#9ca3af",
         card: "#251f37",
         tabs: "#2d2640",
@@ -32,7 +33,12 @@ module.exports = withMT({
       backgroundImage: {
         mainGradient: "linear-gradient(to right, #ff6a34 , #ff3266 )",
         secondaryGradient: "linear-gradient(45deg , #cb542a , #7d48a5)",
-        thirdGradient: "linear-gradient(to right, oklab(70.4517% .149185 .121806 / .2), oklab(65.6462% .22857 .0541986 / .2))",
+
+        
+
+        gradientThree : "linear-gradient(180deg , #cd3e44 , #a43f81)",
+        lightGradiantToRight : "linear-gradient(to right , #fd693b , #ff3666)"
+
       },
     },
   },
