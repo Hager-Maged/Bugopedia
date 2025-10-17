@@ -12,6 +12,7 @@ import Rewards from "./Pages/Rewards/Rewards";
 import Profile from "./Pages/Profile/Profile";
 import NavBar from "./Components/NavBar/Nav";
 import Signin from "./Pages/Signin/Signin";
+import FAQ from "./Pages/FAQ/FAQ";
 
 function App() {
   if (
@@ -38,6 +39,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/rewards" element={<Rewards />} />
         <Route path="/signin" element={<Signin />} />
+        <Route path="/faq" element={<FAQ />} />
       </Routes>
       <Footer />
     </div>
