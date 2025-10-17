@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="space-y-3">
           <div className="flex items-center gap-1">
             <img src={Logo} alt="Logo" className="w-12 h-12" />
-            <h5 className="text-xl font-semibold text-slate-800 dark:text-white">
+            <h5 className="text-xl font-semibold text-black dark:text-white">
               Bugopedia
             </h5>
           </div>
