@@ -12,6 +12,7 @@ import Rewards from "./Pages/Rewards/Rewards";
 import Profile from "./Pages/Profile/Profile";
 import NavBar from "./Components/NavBar/Nav";
 import Signin from "./Pages/SignIn/SignIn";
+import FAQ from "./Pages/FAQ/FAQ";
 import SignUp from "./Pages/SignUp/SignUp";
 import Settings from "./Pages/Settings/Settings";
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/rewards" element={<Rewards />} />
         <Route path="/signin" element={<Signin />} />
+        <Route path="/faq" element={<FAQ />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/settings" element={<Settings />} />
       </Routes>
