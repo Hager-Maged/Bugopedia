@@ -22,7 +22,7 @@ const Signin = () => {
           Welcome Back!
         </Typography>
         <Typography className="text-gray-600 font-normal text-[18px] mb-6">
-          Sign in to continue to Bugopedia
+          Sign in to continue to Bugopedia.
         </Typography>
 
         <form className="w-full">
