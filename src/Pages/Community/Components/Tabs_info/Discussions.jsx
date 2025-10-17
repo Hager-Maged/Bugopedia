@@ -10,7 +10,7 @@ const discussionsData = [
     likes: 128,
     title: "What's your favorite debugging technique?",
     tags: ["General", "debugging", "best-practices"],
-    user: "user name",
+    user: "user",
     email: "@email",
     replies: "replies",
     views: "892 views",
@@ -21,7 +21,7 @@ const discussionsData = [
     likes: 95,
     title: "How do you handle API errors gracefully?",
     tags: ["API", "error-handling", "frontend"],
-    user: "John Doe",
+    user: "John",
     email: "@john",
     replies: "25 replies",
     views: "520 views",
@@ -57,9 +57,9 @@ const Discussions = () => {
       {discussionsData.map((item) => (
         <div
           key={item.id}
-          className="flex gap-5 border p-10 rounded-2xl border-[#e6e6e6] hover:shadow-xl dark:bg-card dark:border-[#3d3554]"
+          className="flex md:gap-5 gap-2 border md:p-10 px-2 py-3 rounded-2xl border-[#e6e6e6] hover:shadow-xl dark:bg-card dark:border-[#3d3554]"
         >
-          <div className="flex justify-center items-center flex-col gap-4">
+          <div className="flex justify-center items-center flex-col gap-2 md:gap-4">
             <button className="text-xl dark:text-[#f9fafb]">
               <AiOutlineLike />
             </button>

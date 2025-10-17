@@ -11,12 +11,6 @@ import { IoTrendingUp } from "react-icons/io5";
 import Polls from "./Tabs_info/Polls";
 import Trending from "./Tabs_info/Trending";
 import Discussions from "./Tabs_info/Discussions";
-
-
-
-
-
-
 const Tabs_section = () => {
 	const data = [
     {
@@ -40,10 +34,14 @@ const Tabs_section = () => {
 ];
   return (
 		
-		<div className="!grid !grid-cols-5 ">
-			{/*scroll need dark mode edit*/}
-			<Tabs id="custom-animation" value="discussions" className="col-start-2 col-end-5 ">
-				<TabsHeader className=" dark:bg-card ">
+		<div className="!grid !grid-cols-3 mx-3">
+			<Tabs id="custom-animation" value="discussions" className="col-start-1 col-end-5 ">
+        <TabsHeader
+          className="dark:bg-card"
+          indicatorProps={{
+            className: "dark:bg-[#392C4F] dark:opacity-90	  rounded-2xl ",
+          }}
+        >
 					{data.map(({ label, value,icon }) => (
 						<Tab key={value} value={value} className="dark:text-white ">
 							<div className="flex flex-row justify-center items-center gap-3 font-semibold text-sm ">
@@ -62,7 +60,7 @@ const Tabs_section = () => {
 					}}
 				>
 					{data.map(({ value, desc }) => (
-						<TabPanel key={value} value={value} className="">
+						<TabPanel key={value} value={value} className="!px-0 ">
 							{desc}
 						</TabPanel>
 					))}
