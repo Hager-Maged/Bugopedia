@@ -8,7 +8,7 @@ import { FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="w-full py-10 pt-20 bg-white dark:bg-mainDarkModeColor border-t border-slate-200">
+    <footer className="w-full py-10 pt-20 bg-white border-t dark:bg-mainDarkModeColor border-slate-200">
       <div className="grid grid-cols-1 gap-10 px-6 mx-auto max-w-7xl md:grid-cols-4">
         <div className="space-y-3">
           <div className="flex items-center gap-1">
@@ -103,14 +103,16 @@ const Footer = () => {
         </div>
 
         <div>
-          <h6 className="mb-3 text-base font-semibold text-blackText dark:text-whiteText ">Connect</h6>
+          <h6 className="mb-3 text-base font-semibold text-blackText dark:text-whiteText ">
+            Connect
+          </h6>
           <div className="flex gap-3">
             <Link
               to="#"
               className="p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-white "
             >
               <i className=" fa-brands fa-github">
-                <FaGithub className="w-6 h-6 text-blackText" />
+                <FaGithub className="w-6 h-6 text-blackText dark:text-whiteText" />
               </i>
             </Link>
             <Link
@@ -118,7 +120,7 @@ const Footer = () => {
               className="p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-white"
             >
               <i className="fa-brands fa-twitter">
-                <FaTwitter className="w-6 h-6 text-blackText" />
+                <FaTwitter className="w-6 h-6 text-blackText dark:text-whiteText " />
               </i>
             </Link>
             <Link
@@ -126,7 +128,7 @@ const Footer = () => {
               className="p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-white"
             >
               <i className="fa-solid fa-envelope">
-                <FaEnvelope className="w-6 h-6 text-blackText" />
+                <FaEnvelope className="w-6 h-6 text-blackText dark:text-whiteText" />
               </i>
             </Link>
           </div>

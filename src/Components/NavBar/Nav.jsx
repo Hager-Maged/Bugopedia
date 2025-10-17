@@ -56,14 +56,15 @@ const NavBar = () => {
 
 function NavList({ theme, setLightMode, setDarkMode }) {
   return (
-    <ul className="flex flex-col gap-2 my-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 ">
+
+    <ul className="flex flex-col gap-2 my-2 lg:flex-row lg:items-center lg:gap-4">
       <NavLink
         to="/"
         className={({ isActive }) =>
           `flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
             isActive
-              ? "text-white bg-mainGradient"
-              : "text-blackText dark:text-white hover:text-secondaryColorOne"
+              ? "text-whiteText bg-mainGradient"
+              : "text-blackText dark:text-whiteText hover:text-secondaryColorOne"
           }`
         }
       >
@@ -76,8 +77,8 @@ function NavList({ theme, setLightMode, setDarkMode }) {
         className={({ isActive }) =>
           `flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
             isActive
-              ? "text-white bg-mainGradient"
-              : "text-blackText dark:text-white "
+              ? "text-whiteText bg-mainGradient"
+              : "text-blackText dark:text-whiteText "
           }`
         }
       >
@@ -90,8 +91,8 @@ function NavList({ theme, setLightMode, setDarkMode }) {
         className={({ isActive }) =>
           `flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
             isActive
-              ? "text-white bg-mainGradient"
-              : "text-blackText dark:text-white "
+              ? "text-whiteText bg-mainGradient"
+              : "text-blackText dark:text-whiteText "
           }`
         }
       >
@@ -104,8 +105,8 @@ function NavList({ theme, setLightMode, setDarkMode }) {
         className={({ isActive }) =>
           `flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
             isActive
-              ? "text-white bg-mainGradient"
-              : "text-blackText dark:text-white"
+              ? "text-whiteText bg-mainGradient"
+              : "text-blackText dark:text-whiteText"
           }`
         }
       >
@@ -118,8 +119,8 @@ function NavList({ theme, setLightMode, setDarkMode }) {
         className={({ isActive }) =>
           `flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
             isActive
-              ? "text-white bg-mainGradient"
-              : "text-blackText dark:text-white"
+              ? "text-whiteText bg-mainGradient"
+              : "text-blackText dark:text-whiteText"
           }`
         }
       >
@@ -132,8 +133,8 @@ function NavList({ theme, setLightMode, setDarkMode }) {
         className={({ isActive }) =>
           `flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
             isActive
-              ? "text-white bg-mainGradient"
-              : "text-blackText dark:text-white"
+              ? "text-whiteText bg-mainGradient"
+              : "text-blackText dark:text-whiteText"
           }`
         }
       >
@@ -142,12 +143,12 @@ function NavList({ theme, setLightMode, setDarkMode }) {
       </NavLink>
 
       <li className="p-1">
-        <div className="relative flex items-center w-[20em]">
+        <div className="relative flex items-center flex-1 max-w-xs">
           <CiSearch className="absolute left-3 text-grayText text-[1.2em]" />
           <input
             type="text"
             placeholder="Search bugs, topics, or contributors"
-            className="w-full pl-10 pr-3 py-[0.6em] rounded-[0.6em]  border-1 bg-transparent text-blackText dark:!text-white placeholder-grayText outline-none focus:ring-2 focus:ring-orange transition-all duration-200 focus:!text-white dark:focus:!text-white"
+            className="w-full pl-10 pr-3 py-[0.6em] rounded-[0.6em]  border-1 bg-transparent text-blackText dark:!text-whiteText placeholder-grayText outline-none focus:ring-2 focus:ring-orangeColor transition-all duration-200 focus:!text-whiteText dark:focus:!text-whiteText"
           />
         </div>
       </li>
@@ -157,11 +158,11 @@ function NavList({ theme, setLightMode, setDarkMode }) {
           <li>
             <Menu placement="bottom-end">
               <MenuHandler>
-                <IoIosNotificationsOutline className="w-6 h-6 transition-transform duration-200 cursor-pointer text-blackText dark:text-white hover:scale-110" />
+                <IoIosNotificationsOutline className="w-6 h-6 transition-transform duration-200 cursor-pointer text-blackText dark:text-whiteText hover:scale-110" />
               </MenuHandler>
 
               <MenuList className="w-64 p-2 text-gray-800 bg-white rounded-lg shadow-lg dark:text-gray-200 dark:bg-darkModeBg">
-                <MenuItem className="flex flex-col items-start gap-1 p-2 rounded-md hover:bg-mainGradient hover:!text-white">
+                <MenuItem className="flex flex-col items-start gap-1 p-2 rounded-md hover:bg-mainGradient hover:!text-whiteText">
                   <Typography variant="small" className="font-semibold">
                     Tania sent you a message
                   </Typography>
@@ -170,7 +171,7 @@ function NavList({ theme, setLightMode, setDarkMode }) {
                   </Typography>
                 </MenuItem>
 
-                <MenuItem className="flex flex-col items-start gap-1 p-2 rounded-md hover:bg-mainGradient hover:!text-white">
+                <MenuItem className="flex flex-col items-start gap-1 p-2 rounded-md hover:bg-mainGradient hover:!text-whiteText">
                   <Typography variant="small" className="font-semibold">
                     Natali replied to your email
                   </Typography>
@@ -179,7 +180,7 @@ function NavList({ theme, setLightMode, setDarkMode }) {
                   </Typography>
                 </MenuItem>
 
-                <MenuItem className="flex flex-col items-start gap-1 p-2 rounded-md hover:bg-mainGradient hover:!text-white">
+                <MenuItem className="flex flex-col items-start gap-1 p-2 rounded-md hover:bg-mainGradient hover:!text-whiteText">
                   <Typography variant="small" className="font-semibold">
                     You received a payment
                   </Typography>
@@ -195,12 +196,12 @@ function NavList({ theme, setLightMode, setDarkMode }) {
             {theme ? (
               <IoMoonOutline
                 onClick={setDarkMode}
-                className="w-5 h-5 cursor-pointer text-blackText dark:text-white"
+                className="w-5 h-5 cursor-pointer text-blackText dark:text-whiteText"
               />
             ) : (
               <LuSunMedium
                 onClick={setLightMode}
-                className="w-5 h-5 cursor-pointer text-blackText dark:text-white"
+                className="w-5 h-5 cursor-pointer text-blackText dark:text-whiteText"
               />
             )}
           </li>
@@ -219,7 +220,7 @@ function NavList({ theme, setLightMode, setDarkMode }) {
                 <MenuItem className="p-0">
                   <NavLink
                     to="/profile"
-                    className="flex items-center w-full gap-2 p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-white"
+                    className="flex items-center w-full gap-2 p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-whiteText"
                   >
                     <Typography variant="small" className="font-medium">
                       My Profile
@@ -230,7 +231,7 @@ function NavList({ theme, setLightMode, setDarkMode }) {
                 <MenuItem className="p-0">
                   <NavLink
                     to="/my-bugs"
-                    className="flex items-center w-full gap-2 p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-white"
+                    className="flex items-center w-full gap-2 p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-whiteText"
                   >
                     <Typography variant="small" className="font-medium ">
                       My Bugs
@@ -241,7 +242,7 @@ function NavList({ theme, setLightMode, setDarkMode }) {
                 <MenuItem className="p-0">
                   <NavLink
                     to="/settings"
-                    className="flex items-center w-full gap-2 p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-white"
+                    className="flex items-center w-full gap-2 p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-whiteText"
                   >
                     <Typography variant="small" className="font-medium">
                       Settings
@@ -252,7 +253,7 @@ function NavList({ theme, setLightMode, setDarkMode }) {
                 <MenuItem className="p-0">
                   <NavLink
                     to="/support"
-                    className="flex items-center w-full gap-2 p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-white"
+                    className="flex items-center w-full gap-2 p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-whiteText"
                   >
                     <Typography variant="small" className="font-medium">
                       Support
@@ -263,7 +264,7 @@ function NavList({ theme, setLightMode, setDarkMode }) {
                 <MenuItem className="p-0">
                   <NavLink
                     to="/faq"
-                    className="flex items-center w-full gap-2 p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-white"
+                    className="flex items-center w-full gap-2 p-2 transition-all duration-200 rounded-md hover:bg-mainGradient hover:text-whiteText"
                   >
                     <Typography variant="small" className="font-medium">
                       FAQ
@@ -276,11 +277,11 @@ function NavList({ theme, setLightMode, setDarkMode }) {
                 <MenuItem className="p-0">
                   <NavLink
                     to="/signin"
-                    className="flex items-center w-full gap-2 p-2 rounded-md hover:bg-red-100 focus:bg-mainGradient focus:!text-white transition-all duration-200"
+                    className="flex items-center w-full gap-2 p-2 rounded-md hover:bg-red-100 focus:bg-mainGradient focus:!text-whiteText transition-all duration-200"
                   >
                     <Typography
                       variant="small"
-                      className="font-medium text-red-600 dark:text-red-400 focus:!text-white"
+                      className="font-medium text-red-600 dark:text-red-400 focus:!text-whiteText"
                     >
                       Sign Out
                     </Typography>
@@ -299,7 +300,7 @@ export function NavbarSimple({
   theme,
   setLightMode,
   setDarkMode,
-  className = "max-w-full px-6 py-3 mx-auto bg-white border-0 rounded-none dark:bg-mainDarkModeColor dark:text-white",
+  className = "max-w-full px-6 py-3 bg-white border-0 rounded-none dark:bg-mainDarkModeColor dark:text-whiteText",
 }) {
   const [openNav, setOpenNav] = React.useState(false);
 
@@ -316,11 +317,11 @@ export function NavbarSimple({
 
   return (
     <Navbar className={className}>
-      <div className="flex items-center justify-evenly text-blackText dark:text-white">
+      <div className="flex items-center justify-evenly text-blackText dark:text-whiteText">
         <Typography
           as={Link}
           to="/"
-          className="rounded-md bg-slate-800 p-2.5   text-center text-sm text-white transition-all  focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
+          className="rounded-md bg-slate-800 p-2.5   text-center text-sm text-whiteText transition-all  focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
         >
           <img src={Logo} alt="Logo" className="object-contain w-10 h-10" />
         </Typography>
