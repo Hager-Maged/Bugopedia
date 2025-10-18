@@ -11,22 +11,22 @@ const OurMission = () => {
     <div className=" pb-10 ">
       {/* CARDS */}
       <div className=" grid grid-cols-1 md:grid-cols-4 pt-8 gap-3 px-4">
-        <div className="transition-all hover:scale-110 flex flex-col gap-5 items-center rounded-2xl p-5 dark:bg-mainDarkModeColor">
+        <div className="transition-all hover:scale-105 flex flex-col gap-5 items-center rounded-2xl p-5 dark:bg-mainDarkModeColor">
           <FaUserFriends className="text-5xl text-orangeColor " />
           <p className="text-blackText dark:text-whiteText">0</p>
           <p className="text-grayText">Active Users</p>
         </div>
-        <div className="transition-all hover:scale-110  flex flex-col gap-5 items-center  rounded-2xl p-5 dark:bg-mainDarkModeColor">
+        <div className="transition-all hover:scale-105  flex flex-col gap-5 items-center  rounded-2xl p-5 dark:bg-mainDarkModeColor">
           <IoMdCheckmarkCircleOutline className="text-5xl text-orangeColor " />
           <p className="text-blackText dark:text-whiteText">0</p>
           <p className="text-grayText">Bugs Solved</p>
         </div>
-        <div className="transition-all hover:scale-110  flex flex-col gap-5 items-center  rounded-2xl p-5 dark:bg-mainDarkModeColor">
+        <div className="transition-all hover:scale-105  flex flex-col gap-5 items-center  rounded-2xl p-5 dark:bg-mainDarkModeColor">
           <FaRegHeart className="text-5xl text-orangeColor " />
           <p className="text-blackText dark:text-whiteText">0</p>
           <p className="text-grayText">Community Members</p>
         </div>
-        <div className="transition-all hover:scale-110  flex flex-col gap-5 items-center  rounded-2xl p-5 dark:bg-mainDarkModeColor">
+        <div className="transition-all hover:scale-105  flex flex-col gap-5 items-center  rounded-2xl p-5 dark:bg-mainDarkModeColor">
           <SlEnergy className="text-5xl text-orangeColor " />
           <p className="text-blackText dark:text-whiteText">0</p>
           <p className="text-grayText">Daily Solutions</p>

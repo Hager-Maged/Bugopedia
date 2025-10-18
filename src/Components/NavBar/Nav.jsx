@@ -18,6 +18,7 @@ import { FaMedal } from "react-icons/fa6";
 import { FaRegQuestionCircle } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { IoIosNotificationsOutline } from "react-icons/io";
+import { FaRegMessage } from "react-icons/fa6";
 import { IoPeopleOutline } from "react-icons/io5";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { IoHomeOutline } from "react-icons/io5";
