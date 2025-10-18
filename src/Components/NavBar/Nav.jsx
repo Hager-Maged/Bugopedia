@@ -29,32 +29,19 @@ import {
   MenuList,
   MenuItem,
 } from "@material-tailwind/react";
+import useTheme from "../../hooks/useTheme";
 
 const NavBar = () => {
-  const [theme, setTheme] = useState(true);
-
-  const setLightMode = () => {
-    document.documentElement.classList.remove("dark");
-    setTheme(true);
-  };
-
-  const setDarkMode = () => {
-    document.documentElement.classList.add("dark");
-    setTheme(false);
-  };
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <>
-      <NavbarSimple
-        theme={theme}
-        setLightMode={setLightMode}
-        setDarkMode={setDarkMode}
-      />
+      <NavbarSimple theme={theme} toggleTheme={toggleTheme} />
     </>
   );
 };
 
-function NavList({ theme, setLightMode, setDarkMode }) {
+function NavList({ theme, toggleTheme }) {
   return (
     <ul className="flex flex-col gap-2 my-2 lg:flex-row lg:items-center lg:gap-4">
       <NavLink
@@ -192,14 +179,14 @@ function NavList({ theme, setLightMode, setDarkMode }) {
           </li>
 
           <li>
-            {theme ? (
+            {theme === "light" ? (
               <IoMoonOutline
-                onClick={setDarkMode}
+                onClick={toggleTheme}
                 className="w-5 h-5 cursor-pointer text-blackText dark:text-whiteText"
               />
             ) : (
               <LuSunMedium
-                onClick={setLightMode}
+                onClick={toggleTheme}
                 className="w-5 h-5 cursor-pointer text-blackText dark:text-whiteText"
               />
             )}
@@ -299,8 +286,7 @@ function NavList({ theme, setLightMode, setDarkMode }) {
 
 export function NavbarSimple({
   theme,
-  setLightMode,
-  setDarkMode,
+  toggleTheme,
   className = "max-w-full px-6 py-3 !bg-white !shadow-none !border-none !backdrop-blur-0 !bg-opacity-100 rounded-none dark:!bg-mainDarkModeColor dark:!text-whiteText",
 }) {
   const [openNav, setOpenNav] = React.useState(false);
@@ -330,8 +316,7 @@ export function NavbarSimple({
         <div className="hidden lg:block">
           <NavList
             theme={theme}
-            setLightMode={setLightMode}
-            setDarkMode={setDarkMode}
+            toggleTheme={toggleTheme}
             className={className}
           />
         </div>
@@ -351,8 +336,7 @@ export function NavbarSimple({
       <Collapse open={openNav}>
         <NavList
           theme={theme}
-          setLightMode={setLightMode}
-          setDarkMode={setDarkMode}
+          toggleTheme={toggleTheme}
           className={className}
         />
       </Collapse>
