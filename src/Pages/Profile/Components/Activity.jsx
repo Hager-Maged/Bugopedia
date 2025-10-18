@@ -38,7 +38,7 @@ const Activity = () => {
           <p className="text-sm text-blackText dark:text-white sm:text-base md:text-lg">
             {item.description}
           </p>
-          <span className="text-xs text-gray-500 sm:text-sm dark:text-gray-300 whitespace-nowrap">
+          <span className="text-xs text-gray-500 sm:text-sm dark:text-grayText whitespace-nowrap">
             {item.time}
           </span>
         </div>
