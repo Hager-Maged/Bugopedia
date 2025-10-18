@@ -33,8 +33,8 @@ const ProfileCard = () => {
   const { name, title, email, location, joined, avatar, tags, badge } = user;
 
   return (
-    <Card className="w-11/12 p-8 m-6 mx-auto shadow-none rounded-xl dark:bg-mainDarkModeColor">
-      <div className="relative h-36 rounded-t-xl bg-secondaryGradient">
+    <Card className="w-11/12 p-8 m-6 mx-auto shadow-none rounded-xl !bg-white dark:bg-mainDarkModeColor">
+      <div className="relative h-36 rounded-t-xl !bg-secondaryGradient">
         <div className="absolute z-10 right-4 top-4 ">
           <Link to="/settings">
             <Button
@@ -67,7 +67,7 @@ const ProfileCard = () => {
           </div>
 
           <div className="flex flex-col items-center flex-1 md:items-start ">
-            <Typography className=" font-medium text-black text-2xl dark:!text-white">
+            <Typography className=" font-medium !text-black text-2xl dark:!text-white">
               {name}
             </Typography>
             <Typography className="mt-1 text-lg text-center text-grayText md:text-left">

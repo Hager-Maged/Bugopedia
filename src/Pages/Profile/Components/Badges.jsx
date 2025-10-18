@@ -53,17 +53,17 @@ const badgesData = [
 
 const Badges = () => {
   return (
-    <div className="grid grid-cols-1 gap-6 p-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid grid-cols-1 gap-6 p-4 sm:grid-cols-2 lg:grid-cols-4 !bg-white">
       {badgesData.map((badge, index) => (
         <div
           key={index}
-          className="flex flex-col items-center justify-center gap-4 p-6 bg-white border-2 rounded-lg shadow-lg border-secondaryColorTwo hover:border-orangeColor dark:bg-mainDarkModeColor"
+          className="flex flex-col items-center justify-center gap-4 p-6 !bg-white border-2 rounded-lg shadow-lg !border-secondaryColorTwo hover:!border-orangeColor dark:!bg-mainDarkModeColor"
         >
           <span className="text-5xl">{badge.icon}</span>
-          <h2 className="text-xl font-semibold text-center text-blackText dark:text-white">
+          <h2 className="text-xl font-semibold text-center !text-blackText dark:!text-white">
             {badge.title}
           </h2>
-          <p className="text-sm text-center text-grayText ">{badge.desc}</p>
+          <p className="text-sm text-center !text-grayText ">{badge.desc}</p>
         </div>
       ))}
     </div>
