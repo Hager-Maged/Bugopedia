@@ -53,7 +53,7 @@ const badgesData = [
 
 const Badges = () => {
   return (
-    <div className="grid grid-cols-1 gap-6 p-4 sm:grid-cols-2 lg:grid-cols-4 !bg-white">
+    <div className="grid grid-cols-1 gap-6 p-4 sm:grid-cols-2 lg:grid-cols-4 !bg-white  dark:!bg-darkModeBg">
       {badgesData.map((badge, index) => (
         <div
           key={index}

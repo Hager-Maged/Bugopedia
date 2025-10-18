@@ -29,7 +29,7 @@ const activityData = [
 
 const Activity = () => {
   return (
-    <div className="flex flex-col w-full max-w-4xl gap-3 p-3 mx-auto sm:p-6 !bg-white">
+    <div className="flex flex-col w-full max-w-4xl gap-3 p-3 mx-auto sm:p-6 !bg-white  dark:!bg-darkModeBg">
       {activityData.map((item) => (
         <div
           key={item.id}

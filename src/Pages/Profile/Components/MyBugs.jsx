@@ -29,7 +29,7 @@ const Bugs = [
 
 const MyBugs = () => {
   return (
-    <div className="flex flex-col max-w-5xl gap-3 p-3 mx-auto sm:p-6 !bg-white">
+    <div className="flex flex-col max-w-5xl gap-3 p-3 mx-auto sm:p-6 !bg-white  dark:!bg-darkModeBg">
       {Bugs.map((item) => (
         <div
           key={item.id}
