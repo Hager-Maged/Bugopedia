@@ -17,17 +17,8 @@ import SignUp from "./Pages/SignUp/SignUp";
 import Settings from "./Pages/Settings/Settings";
 
 function App() {
-  if (
-    localStorage.theme === "dark" ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
   return (
-    <div className="dark:bg-darkModeBg">
+    <div className="!bg-white dark:!bg-darkModeBg">
       <NavBar />
       <Routes>
         <Route path="/" element={<Landing />} />
