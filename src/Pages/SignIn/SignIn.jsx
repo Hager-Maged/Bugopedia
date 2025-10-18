@@ -1,7 +1,7 @@
 import React from "react";
 import Logo2 from "../../Media/Logo2.png";
 import { FaArrowRight } from "react-icons/fa";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Typography, Input, Button } from "@material-tailwind/react";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
@@ -13,6 +13,16 @@ import { TbLockPassword } from "react-icons/tb";
 const Signin = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordVisiblity = () => setPasswordShown((cur) => !cur);
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+  const navigate = useNavigate();
+  const handleUser = () => {
+    if (user.email == "admin@admin" && user.password == "123") {
+      navigate("/");
+    }
+  };
   return (
     <section className="flex items-center justify-center w-full min-h-screen p-10 bg-darkModeBg">
       <div className="flex flex-col items-center w-full max-w-xl p-10 bg-white rounded-lg shadow-lg">
@@ -30,6 +40,10 @@ const Signin = () => {
             <MdOutlineMail className="absolute text-gray-400 transform -translate-y-1/2 left-3 top-1/2" />
             <Input
               id="email"
+              value={user.email}
+              onChange={(e) => {
+                setUser({ ...user, email: e.target.value });
+              }}
               size="lg"
               type="email"
               placeholder="you@example.com"
@@ -42,6 +56,10 @@ const Signin = () => {
             <TbLockPassword className="absolute text-gray-400 transform -translate-y-1/2 left-3 top-1/2" />
             <Input
               size="lg"
+              value={user.password}
+              onChange={(e) => {
+                setUser({ ...user, password: e.target.value });
+              }}
               type={passwordShown ? "text" : "password"}
               placeholder="********"
               className="w-full pl-12 placeholder:opacity-100 focus:border-t-primary border-t-blue-gray-200"
@@ -83,6 +101,7 @@ const Signin = () => {
 
           <button
             type="button"
+            onClick={handleUser}
             className="flex items-center justify-center w-full gap-2 py-3 text-whiteText transition-all rounded-md shadow-md bg-mainGradient hover:shadow-lg hover:scale-[1.02] focus:scale-[0.98] active:scale-[0.96]"
           >
             Sign In <FaArrowRight />
