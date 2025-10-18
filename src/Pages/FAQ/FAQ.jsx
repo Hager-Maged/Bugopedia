@@ -17,7 +17,7 @@ const FAQ = () => {
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
   return (
-    <section className="px-8 py-20">
+    <section className="px-8 py-20 bg-white dark:bg-darkModeBg">
       <div className="container flex flex-col items-center gap-8 mx-auto">
         <div className="flex flex-col gap-6 pb-12 text-center">
           <FaRegQuestionCircle className="mx-auto rounded-full text-8xl bg-mainGradient text-whiteText" />
