@@ -29,21 +29,21 @@ const Bugs = [
 
 const MyBugs = () => {
   return (
-    <div className="flex flex-col max-w-5xl gap-3 p-3 mx-auto sm:p-6">
+    <div className="flex flex-col max-w-5xl gap-3 p-3 mx-auto sm:p-6 !bg-white">
       {Bugs.map((item) => (
         <div
           key={item.id}
-          className="flex flex-col gap-3 p-4 transition-all duration-200 border sm:flex-row sm:items-center sm:justify-between rounded-2xl hover:shadow-lg dark:bg-card dark:border-darkModeBg"
+          className="flex flex-col gap-3 p-4 transition-all duration-200 border sm:flex-row sm:items-center sm:justify-between rounded-2xl hover:shadow-lg dark:!bg-mainDarkModeColor dark:!border-darkModeBg"
         >
           <div className="flex flex-col gap-1 sm:max-w-5xl">
-            <p className="text-sm font-semibold text-blackText dark:text-white sm:text-base md:text-lg">
+            <p className="text-sm font-semibold !text-blackText dark:!text-white sm:text-base md:text-lg">
               {item.title}
             </p>
             <span
               className={`text-xs sm:text-sm font-medium px-2 py-1 rounded-full w-max ${
                 item.status === "Solved"
-                  ? "bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100"
-                  : "bg-yellow-100 text-yellow-800 dark:bg-yellow-800 dark:text-yellow-100"
+                  ? "!bg-green-100 !text-green-800 dark:!bg-green-800 dark:!text-green-100"
+                  : "!bg-yellow-100 text-yellow-800 dark:!bg-yellow-800 dark:!text-yellow-100"
               }`}
             >
               {item.status}
