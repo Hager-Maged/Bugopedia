@@ -12,7 +12,7 @@ import {
 import { Navigate, useNavigate } from "react-router-dom";
 import AccountPop from "./AccountPop";
 
-const Account = () => {
+const Account = ({handleDelete}) => {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPass, setNewPass] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
@@ -41,10 +41,7 @@ const Account = () => {
   const deleteAcc = () => {
     setDeleteAccFlag(!deleteAccFlag);
   };
-  const handleDelete = () => {
-    const navigate = useNavigate();
-    navigate("/");
-  };
+
 
   return (
     <div className="bg-white dark:bg-dark-divBackground flex flex-col gap-5 p-5 w-full rounded-xl">

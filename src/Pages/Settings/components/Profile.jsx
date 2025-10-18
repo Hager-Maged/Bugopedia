@@ -5,6 +5,7 @@ import ButtonGradiant from "../../../Components/Buttons/ButtonGradiant";
 
 
 const Profile = () => {
+  
   return (
     <div className="bg-white dark:bg-dark-divBackground flex flex-col gap-5 p-5 w-full rounded-xl">
       <h3 className="font-semibold text-light-textColor dark:text-dark-textColor">

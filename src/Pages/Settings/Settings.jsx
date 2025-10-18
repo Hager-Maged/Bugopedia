@@ -14,8 +14,13 @@ import Account from "./components/Account";
 import Appearance from "./components/Appearance";
 import Notifications from "./components/Notifications";
 import Profile from "./components/Profile";
+import { useNavigate } from "react-router-dom";
 
 const Settings = () => {
+  const handleDelete = () => {
+    const navigate = useNavigate;
+    navigate("/");
+  };
   const data = [
     {
       label: "Profile",
@@ -27,7 +32,7 @@ const Settings = () => {
       label: "Account",
       value: "account",
       icon: IoShieldOutline,
-      desc: <Account />,
+      desc: <Account handleDelete = {handleDelete}/>,
     },
     {
       label: "Notifications",
@@ -52,7 +57,7 @@ const Settings = () => {
         <p className="text-l text-grayText">
           Manage your account settings and preferences
         </p>
-        <Tabs value="dashboard">
+        <Tabs value="profile">
           <TabsHeader className="grid  sm:grid-cols-2 md:grid-cols-4">
             {data.map(({ label, value, icon }) => (
               <Tab key={value} value={value}>
