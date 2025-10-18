@@ -2,7 +2,7 @@ import { Avatar } from "@material-tailwind/react";
 
 const OurTeam = () => {
   return (
-    <div className=" py-10 ">
+    <div data-aos="flip-up" className=" py-10 ">
       <div className="w-full text-center py-10">
         <h3 className="text-xl font-semibold text-blackText dark:text-whiteText">Meet Our Team</h3>
       </div>

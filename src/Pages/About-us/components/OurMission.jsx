@@ -8,9 +8,9 @@ import { IoShieldOutline } from "react-icons/io5";
 const OurMission = () => {
   return (
     // Cards
-    <div className=" pb-10 ">
+    <div className=" pb-10 " data-aos="fade-down">
       {/* CARDS */}
-      <div className=" grid grid-cols-1 md:grid-cols-4 pt-8 gap-3 px-4">
+      <div className=" grid grid-cols-1 md:grid-cols-4 pt-8 gap-3 px-4" data-aos="fade-down">
         <div className="transition-all hover:scale-105 flex flex-col gap-5 items-center rounded-2xl p-5 dark:bg-mainDarkModeColor">
           <FaUserFriends className="text-5xl text-orangeColor " />
           <p className="text-blackText dark:text-whiteText">0</p>
@@ -33,7 +33,7 @@ const OurMission = () => {
         </div>
       </div>
       {/* Our Mission */}
-      <div className="mt-10 text-center p-5">
+      <div className="mt-10 text-center p-5" >
         <h1 className="text-2xl text-blackText dark:text-whiteText mb-4 font-semibold">
           Our Mission
         </h1>
@@ -48,7 +48,7 @@ const OurMission = () => {
       </div>
       {/* Our Mission Cards */}
       <div className="grid gird-cols-1 lg:grid-cols-2 mt-10 gap-3">
-        <div className="flex gap-3   rounded-xl p-5 py-7">
+        <div className="flex gap-3   rounded-xl p-5 py-7" data-aos="flip-left" data-aos-delay="100" >  
           <div>
             <FaCode className="text-orangeColor bg-lightPink dark:bg-mutedYellow p-2 text-5xl rounded-xl" />
           </div>
@@ -63,7 +63,7 @@ const OurMission = () => {
           </div>
         </div>
 
-        <div className="flex gap-3   rounded-xl p-5 py-7">
+        <div className="flex gap-3   rounded-xl p-5 py-7"data-aos="flip-left" data-aos-delay="300">
           <div>
             <FaUserFriends className="text-orangeColor bg-lightPink dark:bg-mutedYellow p-2 text-5xl rounded-xl" />
           </div>
@@ -78,7 +78,7 @@ const OurMission = () => {
           </div>
         </div>
 
-        <div className="flex gap-3   rounded-xl p-5 py-7">
+        <div className="flex gap-3   rounded-xl p-5 py-7" data-aos="flip-left" data-aos-delay="500">
           <div>
             <FaUserFriends className="text-orangeColor bg-lightPink dark:bg-mutedYellow p-2 text-5xl rounded-xl" />
           </div>
@@ -93,7 +93,7 @@ const OurMission = () => {
           </div>
         </div>
 
-        <div className="flex gap-3   rounded-xl p-5 py-7">
+        <div className="flex gap-3   rounded-xl p-5 py-7" data-aos="flip-left" data-aos-delay="700">
           <div>
             <IoShieldOutline className="text-orangeColor bg-lightPink dark:bg-mutedYellow p-2 text-5xl rounded-xl" />
           </div>
