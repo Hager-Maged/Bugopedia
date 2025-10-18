@@ -1,0 +1,79 @@
+import React from "react";
+import {
+  Tabs,
+  TabsHeader,
+  TabsBody,
+  Tab,
+  TabPanel,
+} from "@material-tailwind/react";
+import { CgProfile } from "react-icons/cg";
+import { IoShieldOutline, IoNotificationsOutline } from "react-icons/io5";
+import { MdInvertColors } from "react-icons/md";
+
+import Account from "./components/Account";
+import Appearance from "./components/Appearance";
+import Notifications from "./components/Notifications";
+import Profile from "./components/Profile";
+
+const Settings = () => {
+  const data = [
+    {
+      label: "Profile",
+      value: "profile",
+      icon: CgProfile,
+      desc: <Profile />,
+    },
+    {
+      label: "Account",
+      value: "account",
+      icon: IoShieldOutline,
+      desc: <Account />,
+    },
+    {
+      label: "Notifications",
+      value: "notifications",
+      icon: IoNotificationsOutline,
+      desc: <Notifications />,
+    },
+    {
+      label: "Appearance",
+      value: "appearance",
+      icon: MdInvertColors,
+      desc: <Appearance />,
+    },
+  ];
+
+  return (
+    <div className="bg-white dark:bg-darkModeBg lg:px-32 md:px-20 px-5 py-10">
+      <div className="">
+        <h1 className="font-semibold text-xl text-light-textColor dark:text-dark-textColor">
+          Settings
+        </h1>
+        <p className="text-l text-grayText">
+          Manage your account settings and preferences
+        </p>
+        <Tabs value="dashboard">
+          <TabsHeader className="grid  sm:grid-cols-2 md:grid-cols-4">
+            {data.map(({ label, value, icon }) => (
+              <Tab key={value} value={value}>
+                <div className="flex items-center gap-2">
+                  {React.createElement(icon, { className: "w-5 h-5" })}
+                  {label}
+                </div>
+              </Tab>
+            ))}
+          </TabsHeader>
+          <TabsBody>
+            {data.map(({ value, desc }) => (
+              <TabPanel key={value} value={value}>
+                {desc}
+              </TabPanel>
+            ))}
+          </TabsBody>
+        </Tabs>
+      </div>
+    </div>
+  );
+};
+
+export default Settings;
