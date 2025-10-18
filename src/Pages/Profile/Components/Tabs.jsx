@@ -36,7 +36,7 @@ const TabsSection = () => {
   ];
 
   return (
-    <div className="flex justify-center !bg-white">
+    <div className="flex justify-center !bg-white  dark:!bg-darkModeBg">
       <Tabs value="badges" className="w-full max-w-6xl">
         <TabsHeader className="dark:!bg-mainDarkModeColor">
           {data.map(({ label, value, icon }) => (
