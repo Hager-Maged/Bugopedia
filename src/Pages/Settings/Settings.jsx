@@ -15,6 +15,9 @@ import Appearance from "./components/Appearance";
 import Notifications from "./components/Notifications";
 import Profile from "./components/Profile";
 import { useNavigate } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Settings = () => {
   const handleDelete = () => {
@@ -32,7 +35,7 @@ const Settings = () => {
       label: "Account",
       value: "account",
       icon: IoShieldOutline,
-      desc: <Account handleDelete = {handleDelete}/>,
+      desc: <Account handleDelete={handleDelete} />,
     },
     {
       label: "Notifications",
@@ -47,9 +50,15 @@ const Settings = () => {
       desc: <Appearance />,
     },
   ];
-
+  useEffect(() => {
+    AOS.init({});
+  }, []);
   return (
-    <div className="bg-white dark:bg-darkModeBg lg:px-32 md:px-20 px-5 py-10">
+    <div
+      className="bg-white dark:bg-darkModeBg lg:px-32 md:px-20 px-5 py-10"
+      data-aos="fade-down"
+      data-aos-duration="600"
+    >
       <div className="">
         <h1 className="font-semibold text-xl text-light-textColor dark:text-dark-textColor">
           Settings
