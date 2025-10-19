@@ -45,7 +45,7 @@ function NavList({ theme, toggleTheme }) {
   return (
     <ul className="flex flex-col gap-2 my-2 lg:flex-row lg:items-center lg:gap-4">
       <NavLink
-        to="/"
+        to="/home"
         className={({ isActive }) =>
           `flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
             isActive
