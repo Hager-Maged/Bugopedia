@@ -33,7 +33,7 @@ const Activity = () => {
           <TimelineItem key={item.id}>
             {index !== activityData.length - 1 && <TimelineConnector />}{" "}
             <TimelineHeader className="flex items-center gap-4">
-              <TimelineIcon className="flex items-center justify-center w-8 h-8 rounded-full bg-secondaryColorTwo "></TimelineIcon>{" "}
+              <TimelineIcon className="flex items-center justify-center w-8 h-8 rounded-full bg-secondaryColorTwo "></TimelineIcon>
               <div className="flex flex-col w-full gap-2 p-3 transition-all duration-200 rounded-2xl hover:shadow-lg border border-secondaryColorOne dark:!bg-mainDarkModeColor m-2">
                 <Typography
                   variant="small"

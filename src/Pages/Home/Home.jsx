@@ -18,7 +18,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 function Home() {
-
   const leaderBoard = [
     {
       name: "User 1",
@@ -134,7 +133,7 @@ function Home() {
 
   return (
     <div
-      className="flex gap-10 w-full  justify-between mb-2"
+      className="flex justify-between w-full gap-10 mb-2"
       data-aos="fade-down"
       data-aos-duration="600"
     >
@@ -150,7 +149,7 @@ function Home() {
 
           <ButtonGradiant text="+ Share a Bug" onClickFun={handleOpen} />
           {/* Bugs  */}
-          <div className="w-full flex-col flex gap-5">
+          <div className="flex flex-col w-full gap-5">
             {latestBugs.map((bug) => (
               <BugCard
                 key={bug.id}
@@ -177,13 +176,13 @@ function Home() {
           </h3>
         </DialogHeader>
         <DialogBody className="w-full bg-light-backGround dark:bg-dark-backGround">
-          <div className="flex gap-3 flex-col ">
+          <div className="flex flex-col gap-3 ">
             <div>
               <h3 className="text-light-textColor dark:text-dark-textColor">
                 Bug Title
               </h3>
               <input
-                className="w-full bg-light-backGround dark:bg-dark-backGround p-1 rounded-l border border-grayText"
+                className="w-full p-1 border rounded-l bg-light-backGround dark:bg-dark-backGround border-grayText"
                 type="text"
                 placeholder="e.g ., React useState not updating after async call"
               />
@@ -195,13 +194,13 @@ function Home() {
               <textarea
                 name=""
                 id=""
-                className="bg-light-backGround dark:bg-dark-backGround w-full p-2 resize-none border border-grayText rounded-xl"
+                className="w-full p-2 border resize-none bg-light-backGround dark:bg-dark-backGround border-grayText rounded-xl"
                 placeholder="Describe your bug in detail, What happened? What did you expect to happen?"
               ></textarea>
             </div>
             <div>
-              <div className="flex gap-1 items-center">
-                <FaCode className="text-light-textColor dark:text-dark-textColor text-lg" />
+              <div className="flex items-center gap-1">
+                <FaCode className="text-lg text-light-textColor dark:text-dark-textColor" />
                 <h3 className="text-light-textColor dark:text-dark-textColor">
                   Code Snippet (Optional)
                 </h3>
@@ -209,26 +208,26 @@ function Home() {
               <textarea
                 name=""
                 id=""
-                className="bg-light-backGround dark:bg-dark-backGround w-full p-2 resize-none border border-grayText rounded-xl"
+                className="w-full p-2 border resize-none bg-light-backGround dark:bg-dark-backGround border-grayText rounded-xl"
                 placeholder="Paste Your Code Here ..."
               ></textarea>
             </div>
             <div>
-              <div className="flex gap-1 items-center">
-                <FaTag className="text-light-textColor dark:text-dark-textColor text-lg" />
+              <div className="flex items-center gap-1">
+                <FaTag className="text-lg text-light-textColor dark:text-dark-textColor" />
                 <h3 className="text-light-textColor dark:text-dark-textColor">
                   Tags
                 </h3>
               </div>
               <input
-                className="w-full bg-light-backGround dark:bg-dark-backGround p-1 rounded-l border border-grayText"
+                className="w-full p-1 border rounded-l bg-light-backGround dark:bg-dark-backGround border-grayText"
                 type="text"
                 placeholder="e.g ., React , Javascript , Hooks (comma-seperated)"
               />
             </div>
           </div>
         </DialogBody>
-        <DialogFooter className="bg-light-backGround dark:bg-dark-backGround w-full">
+        <DialogFooter className="w-full bg-light-backGround dark:bg-dark-backGround">
           <div className="flex gap-5">
             <Button
               variant="outlined"
@@ -244,7 +243,7 @@ function Home() {
       {/* Main Feed End */}
 
       {/* Side Bar Start*/}
-      <div className="h-screen hidden w-1/4 md:flex  bg-light-backGround dark:bg-dark-backGround  md:flex-col gap-5 mt-5 pe-2">
+      <div className="hidden w-1/4 h-screen gap-5 mt-5 md:flex bg-light-backGround dark:bg-dark-backGround md:flex-col pe-2">
         <TrendingTags />
         <BugOfTheWeek />
       </div>

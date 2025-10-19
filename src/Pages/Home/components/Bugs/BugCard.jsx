@@ -27,7 +27,7 @@ const BugCard = ({
 
   return (
     <>
-      <div className="bg-light-divBackground dark:bg-dark-divBackground p-5 flex flex-col gap-3 border border-grayText dark:border-orangeColor rounded-xl">
+      <div className="flex flex-col gap-3 p-5 border bg-light-divBackground dark:bg-dark-divBackground border-grayText dark:border-orangeColor rounded-xl">
         <div className="flex justify-between">
           <div className="flex gap-2">
             <Avatar
@@ -41,33 +41,33 @@ const BugCard = ({
               <p className="text-grayText">{time}</p>
             </div>
           </div>
-          <HiDotsHorizontal className="text-light-textColor dark:text-dark-textColor cursor-pointer" />
+          <HiDotsHorizontal className="cursor-pointer text-light-textColor dark:text-dark-textColor" />
         </div>
 
         <h2
-          className="text-light-textColor dark:text-dark-textColor cursor-pointer"
+          className="cursor-pointer text-light-textColor dark:text-dark-textColor"
           onClick={handleOpen}
         >
           {title}
         </h2>
 
-        <pre className="rounded-xl cursor-pointer" onClick={handleOpen}>
-          <pre className="bg-gray-900 text-green-400 rounded-xl overflow-x-auto">
+        <pre className="cursor-pointer rounded-xl" onClick={handleOpen}>
+          <pre className="overflow-x-auto text-green-400 bg-gray-900 rounded-xl">
             <code className="language-javascript">{code}</code>
           </pre>
         </pre>
 
-        <hr className="text-grayText opacity-50 h-2" />
+        <hr className="h-2 opacity-50 text-grayText" />
 
         <div className="flex justify-between">
           <div className="flex gap-5">
-            <div className="flex gap-1 items-center cursor-pointer">
-              <CiHeart className="text-grayText text-2xl" />
-              <p className="text-grayText cursor-pointer">{likesCount}</p>
+            <div className="flex items-center gap-1 cursor-pointer">
+              <CiHeart className="text-2xl text-grayText" />
+              <p className="cursor-pointer text-grayText">{likesCount}</p>
             </div>
 
             <div
-              className="flex gap-1 items-center cursor-pointer"
+              className="flex items-center gap-1 cursor-pointer"
               onClick={handleOpen}
             >
               <FaRegCommentAlt className="text-grayText" />
@@ -76,7 +76,7 @@ const BugCard = ({
           </div>
 
           {solved && (
-            <div className="bg-mainGradient p-1 flex gap-1 items-center rounded-xl">
+            <div className="flex items-center gap-1 p-1 bg-mainGradient rounded-xl">
               <IoMdCheckmark className="text-white" />
               <p className="text-white">Solved</p>
             </div>

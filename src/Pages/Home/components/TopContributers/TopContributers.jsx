@@ -9,14 +9,14 @@ const TopContributers = ({ leaderBoard }) => {
     navigate("/leaderboard");
   };
   return (
-    <div className="w-full p-3 bg-light-backGround dark:bg-dark-divBackground mt-5 rounded-xl">
-      <div className="flex justify-between items-center">
+    <div className="w-full p-3 mt-5 bg-light-backGround dark:bg-dark-divBackground rounded-xl">
+      <div className="flex items-center justify-between">
         <h3 className="text-light-textColor dark:text-dark-textColor">
           Top contributors this week
         </h3>
         <ButtonGradiant text="Leaderboard" onClickFun={goLeaderboard} />
       </div>
-      <div className="flex gap-5 w-full items-center justify-center overflow-auto">
+      <div className="flex items-center justify-center w-full gap-5 overflow-auto">
         {leaderBoard.map((person) => {
           return (
             <LeaderBoardSlider

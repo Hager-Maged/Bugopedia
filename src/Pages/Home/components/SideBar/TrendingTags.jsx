@@ -4,15 +4,18 @@ const TrendingTags = () => {
   const trendingTags = ["Python", "Frontend", "React"];
 
   return (
-    <div className="border border-grayText rounded-xl flex flex-col p-3 gap-3 bg-light-divBackground dark:bg-dark-divBackground">
-      <h3 className="text-light-textColor dark:text-dark-textColor font-semibold">
+    <div className="flex flex-col gap-3 p-3 border border-grayText rounded-xl bg-light-divBackground dark:bg-dark-divBackground">
+      <h3 className="font-semibold text-light-textColor dark:text-dark-textColor">
         Trending tags
       </h3>
       <div className="flex flex-wrap gap-3">
-        {trendingTags.map((tag , index) => {
+        {trendingTags.map((tag, index) => {
           return (
-            <div className="bg-light-backGround dark:bg-dark-backGround p-2 rounded-xl" key={index}>
-              <h3 className="text-light-textColor dark:text-dark-textColor text-sm">
+            <div
+              className="p-2 bg-light-backGround dark:bg-dark-backGround rounded-xl"
+              key={index}
+            >
+              <h3 className="text-sm text-light-textColor dark:text-dark-textColor">
                 #{tag}
               </h3>
             </div>
