@@ -14,8 +14,9 @@ import NavBar from "./Components/NavBar/Nav";
 import Signin from "./Pages/SignIn/SignIn";
 import FAQ from "./Pages/FAQ/FAQ";
 import SignUp from "./Pages/SignUp/SignUp";
+import Post from "./Pages/Community/Components/Tabs_info/discussions/Post";
 import Settings from "./Pages/Settings/Settings";
-
+import Support from "./Pages/Support/Support"
 function App() {
   return (
     <div className="!bg-white dark:!bg-darkModeBg">
@@ -34,7 +35,13 @@ function App() {
         <Route path="/signin" element={<Signin />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/Post/:id" element={<Post />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/Support" element={<Support/>} />
+        <Route path="/Post/:id" element={<Post />} />
+
+        <Route path="/settings" element={<Settings />} />
+
       </Routes>
       <Footer />
     </div>
