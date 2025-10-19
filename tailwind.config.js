@@ -40,6 +40,7 @@ module.exports = withMT({
         card: "#251f37",
         tabs: "#2d2640",
         borderLight: "#e6e6e6",
+        brown:"#a1581c",
         borderDark: "#3d3554"
       },
       backgroundImage: {
@@ -49,6 +50,7 @@ module.exports = withMT({
         lightGradiantToRight: "linear-gradient(to right , #fd693b , #ff3666)",
         gradientThree: "linear-gradient(180deg , #cd3e44 , #a43f81)",
         lightGradiantToRight: "linear-gradient(to right , #fd693b , #ff3666)",
+        purpleCard: "linear-gradient(135deg, #9D50BB, #6E48AA)",
       },
       screens: {
         xsm: "350px",
