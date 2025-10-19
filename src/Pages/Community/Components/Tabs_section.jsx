@@ -10,7 +10,7 @@ import { FaRegChartBar } from "react-icons/fa";
 import { IoTrendingUp } from "react-icons/io5";
 import Polls from "./Tabs_info/Polls";
 import Trending from "./Tabs_info/Trending";
-import Discussions from "./Tabs_info/Discussions";
+import Discussions from "./Tabs_info/discussions/Discussions";
 const Tabs_section = () => {
 	const data = [
     {
