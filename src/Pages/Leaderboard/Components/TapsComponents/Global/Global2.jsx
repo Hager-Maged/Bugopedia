@@ -1,6 +1,8 @@
 import { Card, CardBody, Typography, Avatar } from "@material-tailwind/react";
 
 const Global2 = ({ rest }) => {
+  if (!rest || rest.length === 0) return null;
+
   return (
     <Card className="w-full dark:bg-[#392C4F] dark:opacity-90">
       <CardBody>
@@ -57,7 +59,7 @@ const Global2 = ({ rest }) => {
     whitespace-nowrap
   "
                     >
-                      🔥{dayStreak}days
+                      🔥 {dayStreak} days
                     </span>
                   </div>
                 </div>
