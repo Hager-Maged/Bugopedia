@@ -1,11 +1,13 @@
 import React from "react";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaRegLightbulb } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { LuBug } from "react-icons/lu";
 import { FaCode, FaPeopleGroup, FaArrowTrendUp } from "react-icons/fa6";
 import { PiMedal } from "react-icons/pi";
 import { RiDiscussLine } from "react-icons/ri";
 import { MdElectricBolt } from "react-icons/md";
+import { CiSearch } from "react-icons/ci";
+import { FiTarget } from "react-icons/fi";
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -39,7 +41,7 @@ const Landing = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
               fill="currentColor"
-              class="w-4 h-4"
+              className="w-4 h-4"
             >
               <path
                 fill-rule="evenodd"
@@ -221,6 +223,104 @@ const Landing = () => {
                 See Stats <FaArrowRight className="w-4 h-4" />
               </button>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="py-20 bg-gradient-to-br from-orange/5 to-[#9B59D6]/5">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">How It Works</h2>
+          <p className="text-xl text-muted-foreground mb-16">
+            Get started in three simple steps
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                step: 1,
+                title: "Search or Submit Bugs",
+                desc: "Search our database of solved bugs or submit your own issue with code snippets and descriptions.",
+                iconColor: "#FF6B35",
+                icon: <CiSearch className="w-8 h-8" />,
+                gradientFrom: "#FF6B35",
+                gradientTo: "#FF3366",
+              },
+              {
+                step: 2,
+                title: "Understand and Solve",
+                desc: "Get detailed explanations and solutions from the community. Vote on the best answers.",
+                iconColor: "#FF3366",
+                icon: <FaRegLightbulb className="w-8 h-8" />,
+                gradientFrom: "#FF3366",
+                gradientTo: "#9B59D6",
+              },
+              {
+                step: 3,
+                title: "Engage and Learn",
+                desc: "Participate in discussions, earn badges, and help others solve their bugs too.",
+                iconColor: "#9B59D6",
+                icon: <FiTarget className="w-8 h-8" />,
+                gradientFrom: "#9B59D6",
+                gradientTo: "#6366f1",
+              },
+            ].map((item) => (
+              <div
+                key={item.step}
+                className="relative bg-white dark:bg-mainDarkModeColor rounded-xl p-6 pt-16 text-center shadow hover:shadow-xl transition-all"
+              >
+                <div
+                  className={`absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center text-white text-xl`}
+                  style={{
+                    background: `linear-gradient(to right, ${item.gradientFrom}, ${item.gradientTo})`,
+                  }}
+                >
+                  {item.step}
+                </div>
+                <div
+                  className={`w-16 h-16 mx-auto mb-4 rounded-xl flex items-center justify-center`}
+                  style={{
+                    background: `linear-gradient(to bottom right, ${item.gradientFrom}, ${item.gradientTo})`,
+                  }}
+                >
+                  {item.icon}
+                </div>
+                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                <p className="text-muted-foreground text-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-col justify-center items-center gap-4">
+            <button
+              onClick={goHome}
+              className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium hover:scale-110 hover:scale-120
+                           bg-gradient-to-r from-secondaryColorOne to-secondaryColorTwo text-whiteText w-fit"
+            >
+              <LuBug className="w-6 h-6" />
+              Start Debugging
+              <FaArrowRight />
+            </button>
+            <p className="text-muted-foreground text-grayText mt-4 sm:mt-0">
+              Join 50,000+ developers already debugging together
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-mainDarkModeColor">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-4xl md:text-xl text-white mb-6">
+            Ready to Debug Better?
+          </h2>
+          <p className="text-xl text-gray-300 mb-8">
+            Join our community and never debug alone again.
+          </p>
+          <div className="flex gap-4 justify-center flex-wrap">
+            <button className="px-8 py-6 text-lg text-[#1a1625] bg-white rounded-lg hover:bg-gray-100 transition flex items-center justify-center gap-2">
+              Get Started Free <FaArrowRight className="w-5 h-5" />
+            </button>
+            <button className="px-8 py-6 text-lg border-2 border-white/20 text-white rounded-lg hover:bg-white/10 transition">
+              Watch Demo
+            </button>
           </div>
         </div>
       </section>
