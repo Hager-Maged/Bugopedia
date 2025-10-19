@@ -38,6 +38,11 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/Post/:id" element={<Post />} />
         <Route path="/settings" element={<Settings />} />
+
+        <Route path="/Post/:id" element={<Post />} />
+
+        <Route path="/settings" element={<Settings />} />
+
       </Routes>
       <Footer />
     </div>
