@@ -1,48 +1,57 @@
 import React from "react";
-
+import {
+  Timeline,
+  TimelineItem,
+  TimelineConnector,
+  TimelineHeader,
+  TimelineIcon,
+  Typography,
+} from "@material-tailwind/react";
 const activityData = [
   {
     id: 1,
-    type: "comment",
     description: "Commented on React Hook useCallback issue",
     time: "2 hours ago",
   },
-  {
-    id: 2,
-    type: "badge",
-    description: "Earned badge Top Contributor",
-    time: "1 day ago",
-  },
+  { id: 2, description: "Earned badge Top Contributor", time: "1 day ago" },
   {
     id: 3,
-    type: "bug",
     description: "Submitted bug TypeScript generic type inference",
     time: "5 days ago",
   },
   {
     id: 4,
-    type: "solution",
     description: "Solution accepted for React useEffect infinite loop",
     time: "1 week ago",
   },
 ];
-
 const Activity = () => {
   return (
-    <div className="flex flex-col w-full max-w-4xl gap-3 p-3 mx-auto sm:p-6 !bg-white  dark:!bg-darkModeBg">
-      {activityData.map((item) => (
-        <div
-          key={item.id}
-          className="flex flex-col gap-2 p-4 transition-all duration-200 border sm:flex-row sm:justify-between sm:items-center rounded-2xl hover:shadow-lg dark:!bg-mainDarkModeColor dark:!border-mainDarkModeColor"
-        >
-          <p className="text-sm !text-blackText dark:!text-white sm:text-base md:text-lg">
-            {item.description}
-          </p>
-          <span className="text-xs  sm:text-sm !text-grayText whitespace-nowrap">
-            {item.time}
-          </span>
-        </div>
-      ))}
+    <div className="flex flex-col w-full max-w-4xl p-4 mx-auto sm:p-6 !bg-white dark:!bg-darkModeBg rounded-2xl ">
+      <Timeline>
+        {activityData.map((item, index) => (
+          <TimelineItem key={item.id}>
+            {index !== activityData.length - 1 && <TimelineConnector />}{" "}
+            <TimelineHeader className="flex items-center gap-4">
+              <TimelineIcon className="flex items-center justify-center w-8 h-8 rounded-full bg-secondaryColorTwo "></TimelineIcon>{" "}
+              <div className="flex flex-col w-full gap-2 p-3 transition-all duration-200 rounded-2xl hover:shadow-lg border border-secondaryColorOne dark:!bg-mainDarkModeColor m-2">
+                <Typography
+                  variant="small"
+                  className="!text-blackText dark:!text-whiteText text-sm sm:text-base"
+                >
+                  {item.description}
+                </Typography>
+                <Typography
+                  variant="small"
+                  className="text-xs sm:text-sm !text-grayText whitespace-nowrap"
+                >
+                  {item.time}
+                </Typography>
+              </div>
+            </TimelineHeader>
+          </TimelineItem>
+        ))}
+      </Timeline>
     </div>
   );
 };

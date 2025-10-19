@@ -1,5 +1,4 @@
 import { CardBody, Typography, Input, Button } from "@material-tailwind/react";
-import Logo2 from "../../Media/Logo2.png";
 import { FaArrowRight, FaGithub, FaGoogle } from "react-icons/fa";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
 import { MdOutlineMail } from "react-icons/md";
@@ -7,6 +6,7 @@ import { TbLockPassword } from "react-icons/tb";
 import { FaRegUser } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import Logo2 from "/images/Logo2.png";
 
 export function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
