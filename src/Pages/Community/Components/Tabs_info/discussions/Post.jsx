@@ -55,7 +55,7 @@ const Post = () => {
           >
             <div className="flex gap-4 items-center">
               <GoArrowLeft className="text-xl font-bold" />
-              <h1 className="font-medium text-sm dark:text-white">Back to Discussions</h1>
+              <h1 className="font-medium text-blackText text-sm dark:text-white">Back to Discussions</h1>
             </div>
           </button>
 
