@@ -48,7 +48,7 @@ const Post = () => {
   return (
     <div className="bg-white dark:bg-[#1a1625] py-6">
       <div className="max-w-[72rem] mx-auto flex flex-col gap-7">
-        <div className="flex flex-col items-start gap-6">
+        <div className="flex flex-col items-start gap-6 mx-3 ">
           <button
             onClick={() => navigate(-1)}
             className="hover:bg-[#be582115] whitespace-pre-line leading-relaxed p-2 rounded-3xl"
@@ -56,8 +56,6 @@ const Post = () => {
             <div className="flex gap-4 items-center">
               <GoArrowLeft className="text-xl font-bold text-blackText dark:text-white" />
               <h1 className="font-medium text-sm text-blackText dark:text-white">Back to Discussions</h1>
-              <GoArrowLeft className="text-xl font-bold" />
-              <h1 className="font-medium text-blackText text-sm dark:text-white">Back to Discussions</h1>
             </div>
           </button>
 
@@ -112,7 +110,7 @@ const Post = () => {
           </div>
         </div>
 
-        <div className="flex gap-3 items-center">
+        <div className="flex gap-3 items-center mx-8">
           <div className="text-lg">{reply_num}</div>
           <div className="text-lg">Replies</div>
         </div>
@@ -121,7 +119,7 @@ const Post = () => {
           {repliesState.map((comment, index) => (
             <div
               key={index}
-              className="border border-borderLight flex flex-col p-7 gap-6 mb-5 rounded-3xl dark:bg-card dark:border-borderDark"
+              className="border border-borderLight flex flex-col p-7 gap-6 mb-5 rounded-3xl dark:bg-card dark:border-borderDark mx-3 "
             >
               <div className="flex gap-3 text-blackText dark:text-white">
                 <FaRegUserCircle className="text-5xl" />
