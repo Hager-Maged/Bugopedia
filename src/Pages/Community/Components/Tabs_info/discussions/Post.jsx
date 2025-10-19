@@ -54,8 +54,8 @@ const Post = () => {
             className="hover:bg-[#be582115] whitespace-pre-line leading-relaxed p-2 rounded-3xl"
           >
             <div className="flex gap-4 items-center">
-              <GoArrowLeft className="text-xl font-bold" />
-              <h1 className="font-medium text-sm dark:text-white">Back to Discussions</h1>
+              <GoArrowLeft className="text-xl font-bold text-blackText dark:text-white" />
+              <h1 className="font-medium text-sm text-blackText dark:text-white">Back to Discussions</h1>
             </div>
           </button>
 

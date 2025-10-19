@@ -1,14 +1,14 @@
 import ProfileCard from "./Components/ProfileCard";
 import ProfileActivity from "./Components/ProfileActivity";
-import TabsSection from "./Components/Tabs";
-const Profile = () => {
+import Tabs from "./Components/Tabs";
+function Profile() {
   return (
     <div>
       <ProfileCard />
       <ProfileActivity />
-      <TabsSection />
+      <Tabs />
     </div>
   );
-};
+}
 
 export default Profile;

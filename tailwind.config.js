@@ -11,6 +11,16 @@ module.exports = withMT({
   theme: {
     extend: {
       colors: {
+        light: {
+          backGround: "#fdf0e7",
+          textColor: "#1a1625",
+          divBackground: "#fdf0e7",
+        },
+        dark: {
+          backGround: "#1a1625",
+          textColor: "#fdf0e7",
+          divBackground: "#252037",
+        },
         mainDarkModeColor: "#252037",
         darkModeBg: "#1a1625",
         secondaryColorOne: "#e7704f",
@@ -37,8 +47,26 @@ module.exports = withMT({
         secondaryGradient: "linear-gradient(45deg , #cb542a , #7d48a5)",
         gradientThree: "linear-gradient(180deg , #cd3e44 , #a43f81)",
         lightGradiantToRight: "linear-gradient(to right , #fd693b , #ff3666)",
-        gradientThree : "linear-gradient(180deg , #cd3e44 , #a43f81)",
-        lightGradiantToRight : "linear-gradient(to right , #fd693b , #ff3666)"
+        gradientThree: "linear-gradient(180deg , #cd3e44 , #a43f81)",
+        lightGradiantToRight: "linear-gradient(to right , #fd693b , #ff3666)",
+      },
+      screens: {
+        xsm: "350px",
+        // Extra Small Devices
+        sm: "640px",
+        // => @media (min-width: 640px) { ... }
+
+        md: "768px",
+        // => @media (min-width: 768px) { ... }
+
+        lg: "1024px",
+        // => @media (min-width: 1024px) { ... }
+
+        xl: "1280px",
+        // => @media (min-width: 1280px) { ... }
+
+        "2xl": "1536px",
+        // => @media (min-width: 1536px) { ... }
       },
     },
   },
