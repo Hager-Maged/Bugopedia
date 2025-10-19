@@ -11,12 +11,13 @@ import Community from "./Pages/Community/Community";
 import Leaderboard from "./Pages/Leaderboard/Leaderboard";
 import Rewards from "./Pages/Rewards/Rewards";
 import Profile from "./Pages/Profile/Profile";
+import Notfound from "./Pages/Notfound/Notfound";
 
 function App() {
   return (
-    <div>
+    <div /*className="dark"*/>
       <Footer />
-      
+
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
@@ -28,6 +29,7 @@ function App() {
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/rewards" element={<Rewards />} />
+        <Route path="*" element={<Notfound />} />
       </Routes>
 
       <Header />
