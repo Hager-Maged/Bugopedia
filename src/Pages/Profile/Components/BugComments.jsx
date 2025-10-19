@@ -2,7 +2,7 @@ import React from "react";
 import { Avatar } from "@material-tailwind/react";
 import { SlLike } from "react-icons/sl";
 
-const BugReply = ({ user, commentDesc, likesCount }) => {
+const BugComments = ({ user, commentDesc, likesCount }) => {
   return (
     <div className="flex gap-2 p-2 bg-light-divBackground dark:bg-dark-backGround rounded-xl ">
       <div>
@@ -28,4 +28,4 @@ const BugReply = ({ user, commentDesc, likesCount }) => {
   );
 };
 
-export default BugReply;
+export default BugComments;

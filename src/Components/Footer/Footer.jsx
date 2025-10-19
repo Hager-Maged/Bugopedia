@@ -1,10 +1,9 @@
 import React from "react";
-import NavBar from "../NavBar/Nav";
 import { Link } from "react-router-dom";
-import Logo from "../../Media/Logo.png";
 import { FaGithub } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa6";
 import { FaEnvelope } from "react-icons/fa";
+import Logo from "/images/Logo.png";
 
 const Footer = () => {
   return (

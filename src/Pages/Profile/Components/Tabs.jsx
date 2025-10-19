@@ -63,5 +63,4 @@ const TabsSection = () => {
     </div>
   );
 };
-
 export default TabsSection;

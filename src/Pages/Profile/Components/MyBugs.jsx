@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+import OpenBug from "./OpenBug";
 import { FaBugSlash } from "react-icons/fa6";
 
 const Bugs = [
@@ -7,6 +9,15 @@ const Bugs = [
     status: "Solved",
     votes: 24,
     comments: 8,
+    commentsList: [
+      { id: 1, user: "Alice", commentDesc: "I faced this too", likesCount: 2 },
+      {
+        id: 2,
+        user: "Bob",
+        commentDesc: "Try using useCallback",
+        likesCount: 3,
+      },
+    ],
     time: "2 days ago",
   },
   {
@@ -15,6 +26,14 @@ const Bugs = [
     status: "Open",
     votes: 12,
     comments: 5,
+    commentsList: [
+      {
+        id: 1,
+        user: "Charlie",
+        commentDesc: "Check your TS version",
+        likesCount: 1,
+      },
+    ],
     time: "5 days ago",
   },
   {
@@ -23,17 +42,27 @@ const Bugs = [
     status: "Solved",
     votes: 31,
     comments: 12,
+    commentsList: [],
     time: "1 week ago",
   },
 ];
 
 const MyBugs = () => {
+  const [openBug, setOpenBug] = useState(false);
+  const [selectedBug, setSelectedBug] = useState(null);
+
+  const handleOpenBug = (bug) => {
+    setSelectedBug(bug);
+    setOpenBug(!openBug);
+  };
+
   return (
-    <div className="flex flex-col max-w-5xl gap-3 p-3 mx-auto sm:p-6 !bg-white  dark:!bg-darkModeBg">
+    <div className="flex flex-col max-w-5xl gap-3 p-3 mx-auto sm:p-6 !bg-white dark:!bg-darkModeBg">
       {Bugs.map((item) => (
         <div
           key={item.id}
-          className="flex flex-col gap-3 p-4 transition-all duration-200 border sm:flex-row sm:items-center sm:justify-between rounded-2xl hover:shadow-lg dark:!bg-mainDarkModeColor dark:!border-darkModeBg"
+          onClick={() => handleOpenBug(item)}
+          className="flex flex-col gap-3 p-4 transition-all duration-200 border cursor-pointer sm:flex-row sm:items-center sm:justify-between rounded-2xl hover:shadow-lg dark:!bg-mainDarkModeColor dark:!border-darkModeBg"
         >
           <div className="flex flex-col gap-1 sm:max-w-5xl">
             <p className="text-sm font-semibold !text-blackText dark:!text-white sm:text-base md:text-lg">
@@ -57,6 +86,18 @@ const MyBugs = () => {
           </div>
         </div>
       ))}
+
+      {selectedBug && (
+        <OpenBug
+          open={openBug}
+          handleOpen={handleOpenBug}
+          title={selectedBug.title}
+          likesCount={selectedBug.votes}
+          commentsCount={selectedBug.comments}
+          solved={selectedBug.status === "Solved"}
+          comments={selectedBug.commentsList || []}
+        />
+      )}
     </div>
   );
 };
