@@ -5,10 +5,11 @@ import {
   Tab,
   TabPanel,
 } from "@material-tailwind/react";
+/*
 import CPlus from "./TapsComponents/CPlus/CPlus";
-import JavaScript from "./TapsComponents/JavaScript/JavaScript";
+import JavaScript from "./TapsComponents/JavaScript/JavaScript";*/
 import Global from "./TapsComponents/Global/Global";
-import Python from "./TapsComponents/Python/Python";
+//import Python from "./TapsComponents/Python/Python";
 function Taps({ leaderboardData }) {
   const data = [
     {
@@ -20,7 +21,7 @@ function Taps({ leaderboardData }) {
       label: "Python",
       value: "Python",
       desc: (
-        <Python 
+        <Global 
           data={leaderboardData.filter((item) => item.language === "Python")}
         />
       ),
@@ -29,7 +30,7 @@ function Taps({ leaderboardData }) {
       label: "Java Script",
       value: "Java",
       desc: (
-        <JavaScript
+        <Global
           data={leaderboardData.filter(
             (item) => item.language === "JavaScript"
           )}
@@ -40,7 +41,7 @@ function Taps({ leaderboardData }) {
       label: "C++",
       value: "Cplus",
       desc: (
-        <CPlus
+        <Global
           data={leaderboardData.filter((item) => item.language === "C++")}
         />
       ),
