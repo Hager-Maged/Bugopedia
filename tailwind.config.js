@@ -29,6 +29,8 @@ module.exports = withMT({
         pargraph: "#9ca3af",
         card: "#251f37",
         tabs: "#2d2640",
+        borderLight: "#e6e6e6",
+        borderDark: "#3d3554"
       },
       backgroundImage: {
         mainGradient: "linear-gradient(to right, #ff6a34 , #ff3266 )",
