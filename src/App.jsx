@@ -15,20 +15,12 @@ import Signin from "./Pages/SignIn/SignIn";
 import FAQ from "./Pages/FAQ/FAQ";
 import SignUp from "./Pages/SignUp/SignUp";
 import Post from "./Pages/Community/Components/Tabs_info/discussions/Post";
+import Settings from "./Pages/Settings/Settings";
 
 
 function App() {
-  if (
-    localStorage.theme === "dark" ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
   return (
-    <div className="dark:bg-darkModeBg">
+    <div className="!bg-white dark:!bg-darkModeBg">
       <NavBar />
       <Routes>
         <Route path="/" element={<Landing />} />
@@ -44,7 +36,11 @@ function App() {
         <Route path="/signin" element={<Signin />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/signup" element={<SignUp />} />
+
         <Route path="/Post/:id" element={<Post />} />
+
+        <Route path="/settings" element={<Settings />} />
+
       </Routes>
       <Footer />
     </div>

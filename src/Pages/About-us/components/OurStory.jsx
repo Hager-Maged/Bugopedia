@@ -2,7 +2,7 @@
 
 const OurStory = () => {
   return (
-    <div className="gap-5 grid grid-cols-1 lg:grid-cols-2 p-5 dark:bg-mainDarkModeColor bg-whiteText py-10">
+    <div data-aos="fade-up" className="gap-5 grid grid-cols-1 lg:grid-cols-2 p-5 dark:bg-mainDarkModeColor bg-whiteText py-10">
       {/* Text */}
       <div className="flex justify-center items-center flex-col h-full ">
         <h3 className="text-blackText mb-5 dark:text-whiteText font-semibold">Our Story</h3>
