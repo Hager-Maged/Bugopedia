@@ -79,7 +79,7 @@ const MyBugs = () => {
             </span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 text-xs text-blue-gray-800 sm:text-sm sm:justify-end">
+          <div className="flex flex-wrap items-center gap-4 text-xs text-blue-gray-800 sm:text-sm sm:justify-end dark:!text-lightPink">
             <p className="whitespace-nowrap">{item.votes} votes</p>
             <p className="whitespace-nowrap">{item.comments} comments</p>
             <p className="whitespace-nowrap">{item.time}</p>

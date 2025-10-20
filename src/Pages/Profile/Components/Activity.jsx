@@ -37,13 +37,13 @@ const Activity = () => {
               <div className="flex flex-col w-full gap-2 p-3 transition-all duration-200 rounded-2xl hover:shadow-lg border border-secondaryColorOne dark:!bg-mainDarkModeColor m-2 hover:scale-105">
                 <Typography
                   variant="small"
-                  className="!text-blackText dark:!text-whiteText text-sm sm:text-base"
+                  className="!text-blackText dark:!text-whiteText text-sm sm:text-base font-bold"
                 >
                   {item.description}
                 </Typography>
                 <Typography
                   variant="small"
-                  className="text-xs sm:text-sm !text-blue-gray-800 whitespace-nowrap"
+                  className="text-xs sm:text-sm !text-blue-gray-800 whitespace-nowrap dark:!text-lightPink "
                 >
                   {item.time}
                 </Typography>

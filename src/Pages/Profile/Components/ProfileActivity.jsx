@@ -11,7 +11,7 @@ const ProfileActivity = () => {
 
         <h1 className="mb-1 text-3xl !text-secondaryColorOne ">2,450</h1>
 
-        <p className="text-base font-light !text-blue-gray-800 ">
+        <p className="text-base font-light !text-blue-gray-800  dark:!text-lightPink">
           Total Points
         </p>
       </div>
@@ -21,7 +21,7 @@ const ProfileActivity = () => {
 
           <h1 className="mb-1 text-3xl !text-secondaryColorOne ">8</h1>
 
-          <p className="text-base font-light !text-blue-gray-800 ">
+          <p className="text-base font-light !text-blue-gray-800 dark:!text-lightPink">
             Badges Earned
           </p>
         </div>
@@ -32,7 +32,7 @@ const ProfileActivity = () => {
 
           <h1 className="mb-1 text-3xl !text-secondaryColorOne ">48</h1>
 
-          <p className="text-base font-light !text-blue-gray-800 ">
+          <p className="text-base font-light !text-blue-gray-800 dark:!text-lightPink">
             Bug Submitted
           </p>
         </div>
@@ -43,7 +43,7 @@ const ProfileActivity = () => {
 
           <h1 className="mb-1 text-3xl !text-secondaryColorOne ">156</h1>
 
-          <p className="text-base font-light !text-blue-gray-800 ">
+          <p className="text-base font-light !text-blue-gray-800  dark:!text-lightPink">
             Comments Made
           </p>
         </div>
