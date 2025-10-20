@@ -38,13 +38,13 @@ const Signin = () => {
     } else {
       const isValid = validate();
       if (!isValid) {
-        console.log("invalid user");
+        console.log("invalid user!");
       }
     }
   };
 
   return (
-    <section className="flex items-center justify-center w-full bg-gray-200 h-4/6 hp-6 sm:p-8 lg:p-7 dark:bg-darkModeBg">
+    <section className="flex items-center justify-center w-full bg-gray-300 h-4/6 hp-6 sm:p-8 lg:p-7 dark:bg-darkModeBg">
       <div className="flex flex-col items-center w-full max-w-sm px-6 py-1 bg-white border rounded-lg shadow-lg border-secondaryColorTwo sm:max-w-lg lg:px-10 lg:py-4 sm:p-8 dark:bg-mainDarkModeColor">
         <img
           src="/images/Logo2.png"
