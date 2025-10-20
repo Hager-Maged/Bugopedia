@@ -63,7 +63,7 @@ const Badges = () => {
           <h2 className="text-xl font-semibold text-center !text-blackText dark:!text-white">
             {badge.title}
           </h2>
-          <p className="text-sm text-center !text-blue-gray-800 ">
+          <p className="text-sm text-center !text-blue-gray-800 dark:!text-lightPink">
             {badge.desc}
           </p>
         </div>

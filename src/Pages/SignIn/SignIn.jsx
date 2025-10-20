@@ -3,28 +3,49 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Typography, Input, Button } from "@material-tailwind/react";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
-import { FaGithub } from "react-icons/fa";
-import { FaGoogle } from "react-icons/fa";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
 import { TbLockPassword } from "react-icons/tb";
 
 const Signin = () => {
   const [passwordShown, setPasswordShown] = useState(false);
-  const togglePasswordVisiblity = () => setPasswordShown((cur) => !cur);
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
+  const [errors, setErrors] = useState({ email: "", password: "" });
+  const [user, setUser] = useState({ email: "", password: "" });
   const navigate = useNavigate();
+
+  const validate = () => {
+    let valid = true;
+    const newErrors = { email: "", password: "" };
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(user.email)) {
+      newErrors.email = "Please enter a valid email address";
+      valid = false;
+    }
+
+    if (!/^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/.test(user.password)) {
+      newErrors.password =
+        "Password must be at least 8 characters, include a number and an uppercase letter";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    return valid;
+  };
+
   const handleUser = () => {
-    if (user.email == "admin@admin" && user.password == "123") {
+    if (user.email === "admin@admin.com" && user.password === "123") {
       navigate("/");
+    } else {
+      const isValid = validate();
+      if (!isValid) {
+        console.log("invalid user");
+      }
     }
   };
 
   return (
     <section className="flex items-center justify-center w-full bg-gray-200 h-4/6 hp-6 sm:p-8 lg:p-7 dark:bg-darkModeBg">
-      <div className="flex flex-col items-center w-full max-w-sm px-6 py-1 bg-white border rounded-lg shadow-lg border-secondaryColorTwo border- sm:max-w-lg lg:px-10 lg:py-4 sm:p-8 dark:bg-mainDarkModeColor">
+      <div className="flex flex-col items-center w-full max-w-sm px-6 py-1 bg-white border rounded-lg shadow-lg border-secondaryColorTwo sm:max-w-lg lg:px-10 lg:py-4 sm:p-8 dark:bg-mainDarkModeColor">
         <img
           src="/images/Logo2.png"
           alt="Logo"
@@ -34,7 +55,7 @@ const Signin = () => {
         <Typography
           variant="h3"
           color="blue-gray"
-          className=" mb-2 text-lg text-center sm:text-xl lg:text-2xl dark:text-white"
+          className="mb-2 text-lg text-center sm:text-xl lg:text-2xl dark:text-white"
         >
           Welcome Back!
         </Typography>
@@ -42,8 +63,8 @@ const Signin = () => {
           Sign in to continue to Bugopedia.
         </Typography>
 
-        <form className="w-full">
-          <div className="relative mb-6">
+        <form className="flex flex-col w-full gap-3">
+          <div className="relative mb-1">
             <MdOutlineMail className="absolute transform -translate-y-1/2 text-grayText left-3 top-1/2" />
             <Input
               id="email"
@@ -52,12 +73,17 @@ const Signin = () => {
               size="lg"
               type="email"
               placeholder="you@example.com"
-              className="w-full pl-12 placeholder:opacity-100 focus:border-secondaryColorTwo"
+              className={`w-full pl-12 placeholder:opacity-100 focus:border-secondaryColorTwo ${
+                errors.email && "border-red-500"
+              }`}
               labelProps={{ className: "hidden" }}
             />
           </div>
+          {errors.email && (
+            <p className="mt-1 mb-4 text-sm text-red-500">{errors.email}</p>
+          )}
 
-          <div className="relative mb-6">
+          <div className="relative mb-1">
             <TbLockPassword className="absolute transform -translate-y-1/2 text-grayText left-3 top-1/2" />
             <Input
               size="lg"
@@ -65,7 +91,9 @@ const Signin = () => {
               onChange={(e) => setUser({ ...user, password: e.target.value })}
               type={passwordShown ? "text" : "password"}
               placeholder="********"
-              className="w-full pl-12 placeholder:opacity-100 focus:border-secondaryColorTwo"
+              className={`w-full pl-12 placeholder:opacity-100 focus:border-secondaryColorTwo ${
+                errors.password && "border-red-500"
+              }`}
               labelProps={{ className: "hidden" }}
               icon={
                 <i
@@ -81,6 +109,9 @@ const Signin = () => {
               }
             />
           </div>
+          {errors.password && (
+            <p className="mt-1 mb-4 text-sm text-red-500">{errors.password}</p>
+          )}
 
           <div className="flex flex-col items-center justify-between gap-2 mb-4 sm:flex-row">
             <label className="inline-flex items-center cursor-pointer">
@@ -88,7 +119,7 @@ const Signin = () => {
                 type="checkbox"
                 className="w-5 h-5 border rounded checked:bg-text-grayText checked:border-grayText"
               />
-              <span className="ml-2 text-sm text-black dark:text-white ">
+              <span className="ml-2 text-sm text-black dark:text-white">
                 Remember Me
               </span>
             </label>
@@ -97,7 +128,7 @@ const Signin = () => {
               as="a"
               href="#"
               variant="small"
-              className="text-sm font-medium text-black underline sm:text-base dark:text-white "
+              className="text-sm font-medium text-black underline sm:text-base dark:text-white"
             >
               Forgot password?
             </Typography>
