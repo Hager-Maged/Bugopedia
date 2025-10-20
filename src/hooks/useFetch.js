@@ -18,9 +18,8 @@ const useData = (url) => {
     }
   };
   useEffect(() => {
-    setLoading(true);
     getData();
-  }, []);
+  }, [url]);
 
   return { data, error, loading };
 };
