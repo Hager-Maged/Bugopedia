@@ -70,7 +70,7 @@ const ProfileCard = () => {
             <Typography className=" font-medium !text-black text-2xl dark:!text-white">
               {name}
             </Typography>
-            <Typography className="mt-1 text-lg text-center text-grayText md:text-left">
+            <Typography className="mt-1 text-lg text-center text-blue-gray-800 md:text-left">
               {title}
             </Typography>
 
@@ -86,7 +86,7 @@ const ProfileCard = () => {
               ))}
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 mt-6 text-sm text-grayText md:gap-6 md:justify-start">
+            <div className="flex flex-wrap items-center justify-center gap-4 mt-6 text-sm text-blue-gray-800 md:gap-6 md:justify-start">
               <div className="flex items-center gap-2">
                 <HiOutlineMail className="w-5 h-5" />
                 <span>{email}</span>

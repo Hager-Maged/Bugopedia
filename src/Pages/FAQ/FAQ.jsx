@@ -173,7 +173,7 @@ const FAQ = () => {
           >
             Frequently asked questions
           </Typography>
-          <Typography className="mx-auto text-lg font-normal lg:max-w-3xl text-grayText">
+          <Typography className="mx-auto text-lg font-normal lg:max-w-3xl text-blue-gray-800">
             Find answers to common questions about Bugopedia. Can't find what
             you're looking for? Contact our support team.
           </Typography>
@@ -190,11 +190,11 @@ const FAQ = () => {
         {faqData.map((section) => (
           <div
             key={section.id}
-            className="flex flex-col w-5/6 gap-4 p-4 shadow-lg border-1"
+            className="flex flex-col w-5/6 gap-4 p-4 rounded-lg shadow-lg bg-lightPink dark:!bg-mainDarkModeColor"
           >
             <div className="flex items-start gap-3">
               {section.icon}
-              <h1 className="text-2xl font-bold dark:text-whiteText">
+              <h1 className="text-xl font-bold text-blue-gray-800 dark:text-white">
                 {section.title}
               </h1>
             </div>
@@ -204,11 +204,11 @@ const FAQ = () => {
                   <Accordion key={item.id} open={open === item.id}>
                     <AccordionHeader
                       onClick={() => handleOpen(item.id)}
-                      className="dark:text-whiteText"
+                      className="text-black dark:text-white"
                     >
                       {item.question}
                     </AccordionHeader>
-                    <AccordionBody className="text-grayText">
+                    <AccordionBody className="text-lg font-bold text-blue-gray-800 dark:text-secondaryColorTwo">
                       {item.answer}
                     </AccordionBody>
                   </Accordion>

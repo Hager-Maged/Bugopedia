@@ -8,7 +8,7 @@ const Bugs = [
     title: "React useEffect infinite loop with dependency array",
     status: "Solved",
     votes: 24,
-    comments: 8,
+    comments: 2,
     commentsList: [
       { id: 1, user: "Alice", commentDesc: "I faced this too", likesCount: 2 },
       {
@@ -25,7 +25,7 @@ const Bugs = [
     title: "TypeScript generic type inference not working",
     status: "Open",
     votes: 12,
-    comments: 5,
+    comments: 1,
     commentsList: [
       {
         id: 1,
@@ -41,7 +41,7 @@ const Bugs = [
     title: "CSS Grid layout breaking on mobile devices",
     status: "Solved",
     votes: 31,
-    comments: 12,
+    comments: 0,
     commentsList: [],
     time: "1 week ago",
   },
@@ -62,7 +62,7 @@ const MyBugs = () => {
         <div
           key={item.id}
           onClick={() => handleOpenBug(item)}
-          className="flex flex-col gap-3 p-4 transition-all duration-200 border cursor-pointer sm:flex-row sm:items-center sm:justify-between rounded-2xl hover:shadow-lg dark:!bg-mainDarkModeColor dark:!border-darkModeBg"
+          className="flex flex-col gap-3 p-4 transition-all duration-200 border cursor-pointer shadow-lg sm:flex-row sm:items-center sm:justify-between rounded-2xl hover:shadow-lg border-secondaryColorTwo dark:!bg-mainDarkModeColor dark:!border-darkModeBg hover:scale-105"
         >
           <div className="flex flex-col gap-1 sm:max-w-5xl">
             <p className="text-sm font-semibold !text-blackText dark:!text-white sm:text-base md:text-lg">
@@ -79,7 +79,7 @@ const MyBugs = () => {
             </span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 text-xs text-grayText sm:text-sm sm:justify-end">
+          <div className="flex flex-wrap items-center gap-4 text-xs text-blue-gray-800 sm:text-sm sm:justify-end">
             <p className="whitespace-nowrap">{item.votes} votes</p>
             <p className="whitespace-nowrap">{item.comments} comments</p>
             <p className="whitespace-nowrap">{item.time}</p>
