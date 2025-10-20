@@ -232,7 +232,7 @@ const faqs = [
 				</div>
 			</div>
 		</div>
-  )
+)
 }
 
 export default Support
