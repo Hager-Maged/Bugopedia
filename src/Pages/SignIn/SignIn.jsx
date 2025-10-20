@@ -1,5 +1,4 @@
 import { FaArrowRight } from "react-icons/fa";
-import Logo2 from "../images/Logo2.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Typography, Input, Button } from "@material-tailwind/react";
@@ -27,7 +26,7 @@ const Signin = () => {
     <section className="flex items-center justify-center w-full bg-gray-200 h-4/6 hp-6 sm:p-8 lg:p-7 dark:bg-darkModeBg">
       <div className="flex flex-col items-center w-full max-w-sm px-6 py-1 bg-white border rounded-lg shadow-lg border-secondaryColorTwo border- sm:max-w-lg lg:px-10 lg:py-4 sm:p-8 dark:bg-mainDarkModeColor">
         <img
-          src={Logo2}
+          src="/images/Logo2.png"
           alt="Logo"
           className="w-auto h-32 mb-6 sm:h-36 lg:h-40"
         />
@@ -35,7 +34,7 @@ const Signin = () => {
         <Typography
           variant="h3"
           color="blue-gray"
-          className=" mb-2 text-lg text-center sm:text-xl lg:text-2xl"
+          className=" mb-2 text-lg text-center sm:text-xl lg:text-2xl dark:text-white"
         >
           Welcome Back!
         </Typography>

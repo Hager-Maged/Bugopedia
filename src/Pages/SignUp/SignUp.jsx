@@ -6,7 +6,6 @@ import { TbLockPassword } from "react-icons/tb";
 import { FaRegUser } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import Logo2 from "../images/Logo2.png";
 
 
 export function SignUp() {
@@ -61,11 +60,11 @@ export function SignUp() {
   };
 
   return (
-    <section className="flex items-center justify-center w-full min-h-screen p-6 bg-darkModeBg">
-      <div className="flex flex-col items-center w-full max-w-xl p-10 bg-white rounded-lg shadow-lg">
-        <img src={Logo2} alt="Logo" className="w-auto h-40 mb-6" />
+    <section className="flex items-center justify-center w-full bg-gray-200 h-4/6 hp-6 sm:p-8 lg:p-7 dark:bg-darkModeBg">
+      <div className="flex flex-col items-center w-full max-w-sm px-6 py-1 bg-white border rounded-lg shadow-lg border-secondaryColorTwo border- sm:max-w-lg lg:px-10 lg:py-4 sm:p-8 dark:bg-mainDarkModeColor">
+        <img src="/images/Logo2.png" alt="Logo" className="w-auto h-40 mb-6" />
 
-        <Typography variant="h3" color="blue-gray" className="mb-2">
+        <Typography variant="h3" color="blue-gray" className="mb-2 dark:text-white">
           Create Account
         </Typography>
         <Typography className="text-gray-600 font-normal text-[18px] mb-6">
@@ -77,7 +76,7 @@ export function SignUp() {
             <div className="relative w-full">
               <label
                 htmlFor="name"
-                className="text-gray-900 font-normal text-[18px]"
+                className="text-gray-900 font-normal text-[18px] dark:text-white"
               >
                 User Name
               </label>
@@ -100,7 +99,7 @@ export function SignUp() {
             <div className="relative">
               <label
                 htmlFor="email"
-                className="text-gray-900 font-normal text-[18px]"
+                className="text-gray-900 font-normal text-[18px] dark:text-white"
               >
                 Email Address
               </label>
@@ -123,7 +122,7 @@ export function SignUp() {
             <div className="relative">
               <label
                 htmlFor="pass"
-                className="text-gray-900 font-normal text-[18px]"
+                className="text-gray-900 font-normal text-[18px] dark:text-white"
               >
                 Password
               </label>
@@ -156,7 +155,7 @@ export function SignUp() {
             <div className="relative">
               <label
                 htmlFor="confPassword"
-                className="text-gray-900 font-normal text-[18px]"
+                className="text-gray-900 font-normal text-[18px] dark:text-white"
               >
                 Confirm Password
               </label>
