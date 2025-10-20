@@ -18,7 +18,7 @@ const Notfound = () => {
             className="p-6 rounded-2xl shadow-lg inline-flex items-center justify-center
                        bg-gradient-to-r from-secondaryColorOne to-secondaryColorTwo"
           >
-            <MdError size={48} className="text-whiteText" />
+            <MdError className="text-whiteText text-8xl" />
           </div>
         </div>
 
@@ -48,7 +48,7 @@ const Notfound = () => {
                        transition duration-300 hover:opacity-90
                        bg-gradient-to-r from-secondaryColorOne to-secondaryColorTwo text-whiteText"
           >
-            <IoMdHome size={20} />
+            <IoMdHome className=" text-3xl" />
             Back Home
           </button>
         </div>

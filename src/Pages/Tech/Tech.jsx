@@ -371,7 +371,7 @@ const Tech = (input) => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <div className="p-4 bg-white rounded-lg shadow-sm text-center dark:bg-mainDarkModeColor dark:text-whiteText dark:border-whiteText">
-            <div className="text-2xl font-semibold mb-1 bg-clip-text text-transparent bg-gradient-to-r from-orange to-[#FF3366]">
+            <div className="text-2xl font-semibold mb-1 bg-clip-text text-transparent bg-gradient-to-r from-orangeColor to-[#FF3366]">
               {totalBugs.toLocaleString()}
             </div>
             <div className="text-xs text-gray-500">Total Bugs</div>

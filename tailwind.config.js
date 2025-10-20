@@ -14,7 +14,7 @@ module.exports = withMT({
         light: {
           backGround: "#fdf0e7",
           textColor: "#1a1625",
-          divBackground: "white",
+          divBackground: "#fdf0e7",
         },
         dark: {
           backGround: "#1a1625",
@@ -25,10 +25,6 @@ module.exports = withMT({
         darkModeBg: "#1a1625",
         secondaryColorOne: "#e7704f",
         secondaryColorTwo: "#ef3c6a",
-        whiteText: "#f0f0f0",
-        grayText: "#9ca3af",
-        blackText: "#1a1625",
-        orange: "#ff6b35",
         whiteText: "#fdf0e7",
         grayText: "#9ca3af",
         blackText: "#1a1625",
@@ -38,20 +34,14 @@ module.exports = withMT({
         mutedYellow: "#432004",
         lightYellow: "#f0b100",
         lightPurple: "#ad46ff",
-
-      },
-      backgroundImage: {
-        mainGradient: "linear-gradient(to right, #ef3c6a , #ef3c6a)",
-        secondaryGradient: "linear-gradient(45deg , #cb542a , #7d48a5)",
-      },
         mutedPurple: "#3c0366",
         lightPink: "#ffdcdd",
         pargraph: "#9ca3af",
         card: "#251f37",
         tabs: "#2d2640",
         borderLight: "#e6e6e6",
-        brown:"#a1581c",
-        borderDark: "#3d3554"
+        brown: "#a1581c",
+        borderDark: "#3d3554",
       },
       backgroundImage: {
         mainGradient: "linear-gradient(to right, #ff6a34 , #ff3266 )",
@@ -61,6 +51,8 @@ module.exports = withMT({
         gradientThree: "linear-gradient(180deg , #cd3e44 , #a43f81)",
         lightGradiantToRight: "linear-gradient(to right , #fd693b , #ff3666)",
         purpleCard: "linear-gradient(135deg, #9D50BB, #6E48AA)",
+        mainGradienttwo: "linear-gradient(to right, #ef3c6a , #ef3c6a)",
+        secondaryGradienttwo: "linear-gradient(45deg , #cb542a , #7d48a5)",
       },
       screens: {
         xsm: "350px",

@@ -19,7 +19,7 @@ const Landing = () => {
         className="flex flex-col items-center justify-center px-4 min-h-screen
                  bg-mainDarkModeColor text-center space-y-5 gap-2 pb-9"
       >
-        <LuBug className="text-7xl text-orange" />
+        <LuBug className="text-7xl text-orangeColor" />
         <h1 className="text-6xl md:text-7xl text-whiteText">Debug Together,</h1>
         <h2 className="text-5xl md:text-6xl bg-secondaryGradient bg-clip-text text-transparent pb-2">
           Grow Together
@@ -30,25 +30,14 @@ const Landing = () => {
         </p>
         <div className="relative w-full max-w-4xl mx-auto">
           <input
-            className="w-full h-14 text-orange bg-darkModeBg placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md pr-3 pl-12 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow hover:border-orange"
+            className="w-full h-14 text-orangeColor bg-darkModeBg placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md pr-3 pl-12 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow hover:border-orange"
             placeholder="Search for bugs, errors, or solutions..."
           />
           <button
             className="absolute left-3 top-3 rounded bg-slate-800 p-1.5 border border-transparent text-center text-sm text-white transition-all shadow-sm hover:shadow focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="button"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 16 16"
-              fill="currentColor"
-              className="w-4 h-4"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                clip-rule="evenodd"
-              />
-            </svg>
+            <CiSearch />
           </button>
         </div>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -127,10 +116,10 @@ const Landing = () => {
           <div className="flex flex-col p-3">
             <div className="flex gap-4 p-3">
               <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#FF6B35]/20 to-[#FF3366]/20 flex items-center justify-center ">
-                <FaCode className="w-6 h-6 text-orange" />
+                <FaCode className="w-6 h-6 text-orangeColor" />
               </div>
               <div className="flex flex-col">
-                <h3 className="">Real-World Solutions</h3>
+                <h3 className="dark:text-white">Real-World Solutions</h3>
                 <p className=" text-grayText">
                   Get answers to real coding challenges from experienced
                   developers who've faced similar issues.
@@ -142,7 +131,7 @@ const Landing = () => {
                 <FaPeopleGroup className="w-6 h-6 text-[#FF3366]" />
               </div>
               <div className="flex flex-col">
-                <h3 className="">Supportive Community</h3>
+                <h3 className="dark:text-white">Supportive Community</h3>
                 <p className=" text-grayText">
                   Join a welcoming community where beginners and experts help
                   each other grow and learn.
@@ -154,7 +143,7 @@ const Landing = () => {
                 <PiMedal className="w-6 h-6 text-lightPurple" />
               </div>
               <div className="flex flex-col">
-                <h3 className="">Gamified Learning</h3>
+                <h3 className="dark:text-white">Gamified Learning</h3>
                 <p className=" text-grayText">
                   Earn badges, climb leaderboards, and unlock rewards as you
                   contribute and help others.
@@ -167,7 +156,7 @@ const Landing = () => {
       <section className="flex items-center pt-11">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl mb-4 font-bold text-gray-800">
+            <h2 className="text-4xl md:text-5xl mb-4 font-bold text-gray-800 dark:dark:text-white">
               Community Highlights
             </h2>
             <p className="text-xl text-gray-500">
@@ -176,11 +165,11 @@ const Landing = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-6 bg-white rounded-xl shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer">
+            <div className="p-6 bg-white rounded-xl shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer dark:bg-mainDarkModeColor dark:text-whiteText dark:border-whiteText">
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#FF6B35] to-[#FF3366] flex items-center justify-center mb-4">
                 <FaArrowTrendUp className="w-7 h-7 text-white" />
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-gray-800">
+              <h3 className="mb-3 text-lg font-semibold text-gray-800 dark:text-white">
                 Top Contributors
               </h3>
               <p className="text-gray-500 mb-4">
@@ -192,11 +181,11 @@ const Landing = () => {
               </button>
             </div>
 
-            <div className="p-6 bg-white rounded-xl shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer">
+            <div className="p-6 bg-white rounded-xl shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer dark:bg-mainDarkModeColor dark:text-whiteText dark:border-whiteText">
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#FF3366] to-[#9B59D6] flex items-center justify-center mb-4">
                 <RiDiscussLine className="w-7 h-7 text-white" />
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-gray-800">
+              <h3 className="mb-3 text-lg font-semibold text-gray-800 dark:text-white">
                 Active Discussions
               </h3>
               <p className="text-gray-500 mb-4">
@@ -208,11 +197,11 @@ const Landing = () => {
               </button>
             </div>
 
-            <div className="p-6 bg-white rounded-xl shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer">
+            <div className="p-6 bg-white rounded-xl shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer dark:bg-mainDarkModeColor dark:text-whiteText dark:border-whiteText">
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#9B59D6] to-[#6366f1] flex items-center justify-center mb-4">
                 <MdElectricBolt className="w-7 h-7 text-white" />
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-gray-800">
+              <h3 className="mb-3 text-lg font-semibold text-gray-800 dark:text-white">
                 Quick Solutions
               </h3>
               <p className="text-gray-500 mb-4">
@@ -226,7 +215,7 @@ const Landing = () => {
           </div>
         </div>
       </section>
-      <section className="py-20 bg-gradient-to-br from-orange/5 to-[#9B59D6]/5">
+      <section className="py-20 bg-gradient-to-br from-orangeColor/5 to-[#9B59D6]/5 dark:text-white">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">How It Works</h2>
           <p className="text-xl text-muted-foreground mb-16">
