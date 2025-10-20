@@ -183,12 +183,12 @@ What are your go-to debugging techniques? Do you have any unconventional methods
             <p className="dark:text-[#f9fafb] text-blackText">{item.likes}</p>
           </div>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2  min-w-0 flex-1">
             <p className="text-blackText dark:text-[#f9fafb] dark:hover:text-orangeColor">
               {item.title}
             </p>
 
-            <div className="flex gap-1.5">
+            <div className="flex flex-wrap gap-1.5">
               {item.tags.map((tag, index) => (
                 <button
                   key={index}
@@ -199,20 +199,19 @@ What are your go-to debugging techniques? Do you have any unconventional methods
               ))}
             </div>
 
-            <div className="flex gap-2 justify-center items-center dark:text-pargraph text-sm">
+            <div className="flex gap-2  items-center dark:text-pargraph text-sm flex-wrap">
               <div className="flex justify-center items-center gap-2">
                 <FaRegUserCircle className="text-2xl" />
                 <p>{item.user}</p>
-                <p>{item.email}</p>
               </div>
-              <BsDot />
+              <BsDot className="hidden sm:block"/>
               <div className="flex justify-center items-center gap-0.5">
-                <LuMessageCircle />
+                <LuMessageCircle className="text-xl "/>
                 <p>{item.replies}</p>
               </div>
-              <BsDot />
+              <BsDot className="hidden sm:block"/>
               <p>{item.views}</p>
-              <BsDot />
+              <BsDot className="hidden sm:block"/>
               <p>{item.time}</p>
             </div>
           </div>

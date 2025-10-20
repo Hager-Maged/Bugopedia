@@ -14,7 +14,7 @@ module.exports = withMT({
         light: {
           backGround: "#fdf0e7",
           textColor: "#1a1625",
-          divBackground: "#fdf0e7",
+          divBackground: "white",
         },
         dark: {
           backGround: "#1a1625",

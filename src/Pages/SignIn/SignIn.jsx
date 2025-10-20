@@ -8,6 +8,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
 import { TbLockPassword } from "react-icons/tb";
+import Logo2 from "/images/Logo2.png";
 
 const Signin = () => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -22,9 +23,10 @@ const Signin = () => {
       navigate("/");
     }
   };
+
   return (
-    <section className="flex items-center justify-center w-full min-h-screen p-6 sm:p-8 lg:p-10 bg-darkModeBg">
-      <div className="flex flex-col items-center w-full max-w-sm p-6 bg-white rounded-lg shadow-lg sm:max-w-lg sm:p-8 lg:p-10">
+    <section className="flex items-center justify-center w-full bg-gray-200 h-4/6 hp-6 sm:p-8 lg:p-7 dark:bg-darkModeBg">
+      <div className="flex flex-col items-center w-full max-w-sm px-6 py-1 bg-white border rounded-lg shadow-lg border-secondaryColorTwo border- sm:max-w-lg lg:px-10 lg:py-4 sm:p-8 dark:bg-mainDarkModeColor">
         <img
           src={Logo2}
           alt="Logo"
@@ -88,14 +90,16 @@ const Signin = () => {
                 type="checkbox"
                 className="w-5 h-5 border rounded checked:bg-text-grayText checked:border-grayText"
               />
-              <span className="ml-2 text-sm text-black">Remember Me</span>
+              <span className="ml-2 text-sm text-black dark:text-white ">
+                Remember Me
+              </span>
             </label>
 
             <Typography
               as="a"
               href="#"
               variant="small"
-              className="text-sm font-medium text-black underline sm:text-base"
+              className="text-sm font-medium text-black underline sm:text-base dark:text-white "
             >
               Forgot password?
             </Typography>
