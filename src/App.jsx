@@ -10,6 +10,8 @@ import Community from "./Pages/Community/Community";
 import Leaderboard from "./Pages/Leaderboard/Leaderboard";
 import Rewards from "./Pages/Rewards/Rewards";
 import Profile from "./Pages/Profile/Profile";
+import Notfound from "./Pages/Notfound/Notfound";
+import Tech from "./Pages/Tech/Tech";
 import NavBar from "./Components/NavBar/Nav";
 import Signin from "./Pages/SignIn/SignIn";
 import FAQ from "./Pages/FAQ/FAQ";
@@ -32,6 +34,8 @@ function App() {
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/rewards" element={<Rewards />} />
+        <Route path="/Tech" element={<Tech />} />
+        <Route path="*" element={<Notfound />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/signup" element={<SignUp />} />
@@ -39,7 +43,6 @@ function App() {
         <Route path="/settings" element={<Settings />} />
         <Route path="/Support" element={<Support />} />
         <Route path="/Post/:id" element={<Post />} />
-
         <Route path="/settings" element={<Settings />} />
       </Routes>
       <Footer />
