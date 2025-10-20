@@ -6,7 +6,8 @@ import { TbLockPassword } from "react-icons/tb";
 import { FaRegUser } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import Logo2 from "/images/Logo2.png";
+import Logo2 from "../../Media/Logo2.png";
+
 
 export function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
