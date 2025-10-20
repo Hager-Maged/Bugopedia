@@ -1,6 +1,6 @@
-import React from "react";
+import Logo2 from "../../Media/Logo2.png";
 import { FaArrowRight } from "react-icons/fa";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Typography, Input, Button } from "@material-tailwind/react";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
@@ -35,7 +35,8 @@ const Signin = () => {
 
         <Typography
           variant="h3"
-          className="mb-2 text-lg text-center sm:text-xl lg:text-2xl dark:text-white "
+          color="blue-gray"
+          className=" mb-2 text-lg text-center sm:text-xl lg:text-2xl"
         >
           Welcome Back!
         </Typography>

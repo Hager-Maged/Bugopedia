@@ -5,11 +5,8 @@ import {
   Tab,
   TabPanel,
 } from "@material-tailwind/react";
-/*
-import CPlus from "./TapsComponents/CPlus/CPlus";
-import JavaScript from "./TapsComponents/JavaScript/JavaScript";*/
 import Global from "./TapsComponents/Global/Global";
-//import Python from "./TapsComponents/Python/Python";
+
 function Taps({ leaderboardData }) {
   const data = [
     {
