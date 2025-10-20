@@ -1,5 +1,5 @@
 import { FaArrowRight } from "react-icons/fa";
-import Logo2 from "../../Media/Logo2.png";
+import Logo2 from "../images/Logo2.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Typography, Input, Button } from "@material-tailwind/react";
