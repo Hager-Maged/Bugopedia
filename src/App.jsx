@@ -19,6 +19,7 @@ import SignUp from "./Pages/SignUp/SignUp";
 import Post from "./Pages/Community/Components/Tabs_info/discussions/Post";
 import Settings from "./Pages/Settings/Settings";
 import Support from "./Pages/Support/Support";
+import BugDetails from "./Pages/Bugs/Components/BugDetails";
 function App() {
   return (
     <div className="!bg-white dark:!bg-darkModeBg">
@@ -29,7 +30,7 @@ function App() {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/bugsubmit" element={<BugSubmit />} />
-        <Route path="/bugs" element={<Bugs />} />
+        <Route path="/bugs/:categoryName" element={<Bugs />} />
         <Route path="/community" element={<Community />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/profile" element={<Profile />} />
@@ -44,6 +45,7 @@ function App() {
         <Route path="/Support" element={<Support />} />
         <Route path="/Post/:id" element={<Post />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/bugs/:categoryName/:bugId" element={<BugDetails />} />
       </Routes>
       <Footer />
     </div>
