@@ -9,7 +9,7 @@ const TopContributers = ({ leaderBoard }) => {
     navigate("/leaderboard");
   };
   return (
-    <div className="w-full p-3 mt-5 bg-light-backGround dark:bg-dark-divBackground rounded-xl">
+    <div className="w-full p-3 mt-5 bg-white  dark:bg-dark-divBackground rounded-xl">
       <div className="flex items-center justify-between">
         <h3 className="text-light-textColor dark:text-dark-textColor">
           Top contributors this week

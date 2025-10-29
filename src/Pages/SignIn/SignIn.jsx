@@ -27,7 +27,7 @@ const Signin = () => {
         "Password must be at least 8 characters, include a number and an uppercase letter";
       valid = false;
     }
-
+    localStorage.isLogged = true;
     setErrors(newErrors);
     return valid;
   };
