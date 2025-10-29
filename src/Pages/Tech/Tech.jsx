@@ -20,9 +20,6 @@ import {
 } from "@material-tailwind/react";
 import { IoIosTrendingUp } from "react-icons/io";
 
- 
-
-
 function Icon({ id, open }) {
   return (
     <svg
@@ -347,11 +344,11 @@ const bugCategories = [
   },
 ];
 const Tech = (input) => {
-
   const navigate = useNavigate();
 
   const goBugs = (category) => {
-    navigate(`/bugs/${category.name}`);}
+    navigate(`/bugs/${category.name}`);
+  };
 
   const [openId, setOpenId] = React.useState(0);
   const toggle = (id) => setOpenId(openId === id ? 0 : id);
@@ -361,7 +358,7 @@ const Tech = (input) => {
     totalBugs = totalBugs + bugCategories[i].bugCount;
   }
   return (
-    <div className="flex-1 overflow-y-auto bg-gray-50 text-gray-900 dark:bg-darkModeBg dark:text-whiteText">
+    <div className="flex-1 overflow-y-auto bg-gray-50 text-gray-900 dark:bg-darkModeBg dark:text-whiteText  dark:border-darkModeBg">
       <div className="container mx-auto px-6 py-8 max-w-6xl">
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-2">
@@ -407,7 +404,7 @@ const Tech = (input) => {
           </div>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 ">
           {bugCategories.map((category) => {
             const id = category.id;
             return (
@@ -416,8 +413,11 @@ const Tech = (input) => {
                 open={openId === id}
                 icon={<Icon id={id} openId={openId} />}
               >
-                <AccordionHeader onClick={() => toggle(id)}>
-                  <div className="flex items-center justify-between w-full  dark:bg-mainDarkModeColor dark:text-whiteText dark:border-whiteText dark:p-5 dark:rounded-lg">
+                <AccordionHeader
+                  className="!border-none"
+                  onClick={() => toggle(id)}
+                >
+                  <div className="flex items-center justify-between w-full  dark:bg-mainDarkModeColor dark:text-whiteText dark:p-5 dark:rounded-lg">
                     <div className="flex items-center gap-4">
                       <div>{category.icon}</div>
                       <div>
@@ -442,7 +442,7 @@ const Tech = (input) => {
                   </div>
                 </AccordionHeader>
 
-                <AccordionBody>
+                <AccordionBody className="!border-none">
                   <p className="text-gray-600 mb-4 ">{category.description}</p>
 
                   <div className="space-y-3">
