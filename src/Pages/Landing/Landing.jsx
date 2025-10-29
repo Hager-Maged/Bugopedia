@@ -7,6 +7,8 @@ import Howitworks from "./components/Howitworks";
 import Endpart from "./components/Endpart";
 
 export default function Landing() {
+  document.documentElement.classList.remove("dark");
+
   return (
     <div className="">
       <Landingpart />

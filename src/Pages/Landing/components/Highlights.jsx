@@ -4,7 +4,6 @@ import { RiDiscussLine } from "react-icons/ri";
 import { MdElectricBolt } from "react-icons/md";
 
 const Highlights = () => {
-  document.documentElement.classList.remove("dark");
   return (
     <section className="flex items-center pt-11">
       <div className="container max-w-6xl px-6 mx-auto">
