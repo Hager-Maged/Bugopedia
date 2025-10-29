@@ -12,7 +12,9 @@ import { CiSearch } from "react-icons/ci";
 import { IoPeopleOutline } from "react-icons/io5";
 import { GiTrophyCup } from "react-icons/gi";
 import { Link } from "react-router-dom";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useState, useEffect } from "react";
 const faqData = [
   {
     id: 1,
@@ -160,10 +162,20 @@ const faqData = [
 const FAQ = () => {
   const [open, setOpen] = React.useState(1);
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+    });
+    AOS.refresh();
+  }, []);
 
   return (
     <section className="px-8 py-20 bg-white dark:bg-darkModeBg">
-      <div className="container flex flex-col items-center gap-8 mx-auto">
+      <div
+        className="container flex flex-col items-center gap-8 mx-auto"
+        data-aos="zoom-in"
+      >
         <div className="flex flex-col gap-6 pb-12 text-center">
           <FaRegQuestionCircle className="mx-auto rounded-full text-8xl bg-mainGradient text-whiteText" />
           <Typography
@@ -218,7 +230,10 @@ const FAQ = () => {
           </div>
         ))}
 
-        <section className="w-5/6 p-6 mx-auto text-center rounded-lg shadow-lg lg:w-2/3 lg:p-8 bg-mainGradient">
+        <section
+          className="w-5/6 p-6 mx-auto text-center rounded-lg shadow-lg lg:w-2/3 lg:p-8 bg-mainGradient"
+          data-aos="flip-right"
+        >
           <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 lg:gap-8">
             <Typography
               variant="small"

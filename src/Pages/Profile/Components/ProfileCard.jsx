@@ -12,6 +12,9 @@ import {
   HiOutlineCalendar,
 } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useState, useEffect } from "react";
 
 const ProfileCard = () => {
   const user = {
@@ -31,9 +34,19 @@ const ProfileCard = () => {
   };
 
   const { name, title, email, location, joined, avatar, tags, badge } = user;
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+    });
+    AOS.refresh();
+  }, []);
 
   return (
-    <Card className="w-11/12 p-8 m-6 mx-auto bg-white shadow-none rounded-xl dark:bg-mainDarkModeColor">
+    <Card
+      className="w-11/12 p-8 m-6 mx-auto bg-white shadow-none rounded-xl dark:bg-mainDarkModeColor"
+      data-aos="flip-left"
+    >
       <div className="relative h-36 rounded-t-xl !bg-secondaryGradient  ">
         <div className="absolute z-10 right-4 top-4 ">
           <Link to="/settings">
