@@ -1,4 +1,5 @@
-import React, { useState, useNavigate } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   FaJs,
   FaPython,
@@ -19,7 +20,8 @@ import {
 } from "@material-tailwind/react";
 import { IoIosTrendingUp } from "react-icons/io";
 
-const goBugs = () => navigate("/bugs", { replace: true });
+ 
+
 
 function Icon({ id, open }) {
   return (
@@ -345,6 +347,12 @@ const bugCategories = [
   },
 ];
 const Tech = (input) => {
+
+  const navigate = useNavigate();
+
+  const goBugs = (category) => {
+    navigate(`/bugs/${category.name}`);}
+
   const [openId, setOpenId] = React.useState(0);
   const toggle = (id) => setOpenId(openId === id ? 0 : id);
 
@@ -475,7 +483,7 @@ const Tech = (input) => {
 
                   <div className="mt-4">
                     <button
-                      onClick={goBugs}
+                      onClick={() => goBugs(category)}
                       className="w-full inline-flex items-center justify-center gap-2 rounded-md border border-gray-200 px-4 py-2 text-sm font-medium hover:bg-white "
                     >
                       View All {category.name} Bugs

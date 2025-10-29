@@ -1,9 +1,9 @@
 import { Button } from "@material-tailwind/react";
 
-const ButtonGradiant = ({ text, onClickFun, size }) => {
+const ButtonGradiant = ({ text, onClickFun, size ,classs }) => {
   return (
     <Button
-      className="bg-lightGradiantToRight"
+      className={`${classs} bg-lightGradiantToRight`}
       size={size}
       onClick={onClickFun}
     >
