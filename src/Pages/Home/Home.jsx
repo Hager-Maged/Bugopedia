@@ -170,19 +170,19 @@ function Home() {
 
       {/* BUG POST TOGGLER */}
       <Dialog open={open} handler={handleOpen}>
-        <DialogHeader className="bg-light-backGround dark:bg-dark-backGround">
+        <DialogHeader className="bg-white dark:bg-dark-backGround">
           <h3 className="text-light-textColor dark:text-dark-textColor">
             Share a Bug
           </h3>
         </DialogHeader>
-        <DialogBody className="w-full bg-light-backGround dark:bg-dark-backGround">
+        <DialogBody className="w-full bg-white dark:bg-dark-backGround">
           <div className="flex flex-col gap-3 ">
             <div>
               <h3 className="text-light-textColor dark:text-dark-textColor">
                 Bug Title
               </h3>
               <input
-                className="w-full p-1 border rounded-l bg-light-backGround dark:bg-dark-backGround border-grayText"
+                className="w-full p-1 bg-white border rounded-l dark:bg-dark-backGround border-grayText"
                 type="text"
                 placeholder="e.g ., React useState not updating after async call"
               />
@@ -194,7 +194,7 @@ function Home() {
               <textarea
                 name=""
                 id=""
-                className="w-full p-2 border resize-none bg-light-backGround dark:bg-dark-backGround border-grayText rounded-xl"
+                className="w-full p-2 bg-white border resize-none dark:bg-dark-backGround border-grayText rounded-xl"
                 placeholder="Describe your bug in detail, What happened? What did you expect to happen?"
               ></textarea>
             </div>
@@ -208,7 +208,7 @@ function Home() {
               <textarea
                 name=""
                 id=""
-                className="w-full p-2 border resize-none bg-light-backGround dark:bg-dark-backGround border-grayText rounded-xl"
+                className="w-full p-2 bg-white border resize-none dark:bg-dark-backGround border-grayText rounded-xl"
                 placeholder="Paste Your Code Here ..."
               ></textarea>
             </div>
@@ -220,14 +220,14 @@ function Home() {
                 </h3>
               </div>
               <input
-                className="w-full p-1 border rounded-l bg-light-backGround dark:bg-dark-backGround border-grayText"
+                className="w-full p-1 bg-white border rounded-l dark:bg-dark-backGround border-grayText"
                 type="text"
                 placeholder="e.g ., React , Javascript , Hooks (comma-seperated)"
               />
             </div>
           </div>
         </DialogBody>
-        <DialogFooter className="w-full bg-light-backGround dark:bg-dark-backGround">
+        <DialogFooter className="w-full bg-white dark:bg-dark-backGround">
           <div className="flex gap-5">
             <Button
               variant="outlined"
@@ -243,7 +243,7 @@ function Home() {
       {/* Main Feed End */}
 
       {/* Side Bar Start*/}
-      <div className="hidden w-1/4 h-screen gap-5 mt-5 md:flex bg-light-backGround dark:bg-dark-backGround md:flex-col pe-2">
+      <div className="hidden w-1/4 h-screen gap-5 mt-5 bg-white md:flex dark:bg-dark-backGround md:flex-col pe-2">
         <TrendingTags />
         <BugOfTheWeek />
       </div>

@@ -8,7 +8,7 @@ const LeaderBoardSlider = ({ name, points }) => {
         alt="avatar"
       />
       <h1 className="text-light-textColor dark:text-dark-textColor">{name}</h1>
-      <p className="text-grayText">{points}</p>
+      <p className="text-orangeColor ">{points}</p>
     </div>
   );
 };

@@ -27,7 +27,7 @@ const BugCard = ({
 
   return (
     <>
-      <div className="flex flex-col gap-3 p-5 border bg-light-divBackground dark:bg-dark-divBackground border-grayText dark:border-orangeColor rounded-xl">
+      <div className="flex flex-col gap-3 p-5 bg-white border border-borderLight dark:bg-dark-divBackground dark:border-borderDark rounded-xl">
         <div className="flex justify-between">
           <div className="flex gap-2">
             <Avatar

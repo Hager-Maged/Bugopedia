@@ -6,16 +6,18 @@ const BugOfTheWeek = () => {
     author: "User Name",
   };
   return (
-    <div className="flex flex-col gap-3 p-3 border border-grayText rounded-xl bg-light-divBackground dark:bg-dark-divBackground">
+    <div className="flex flex-col gap-3 p-3 bg-white border border-borderLight rounded-xl dark:bg-dark-divBackground dark:border-borderDark">
       <h3 className="font-semibold text-light-textColor dark:text-dark-textColor">
         Bug of the week
       </h3>
-      <h3 className="font-semibold text-light-textColor dark:text-dark-textColor">
+      <h3 className="font-semibold text-light-textColor dark:text-dark-textColor ">
         {bugOfTheWeek.title}
       </h3>
       <p className="text-grayText">
         Reported by{" "}
-        <span className="text-orangeColor">{bugOfTheWeek.author}</span>
+        <span className="text-orangeColor dark:text-secondaryColorTwo">
+          {bugOfTheWeek.author}
+        </span>
       </p>
     </div>
   );

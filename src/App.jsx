@@ -19,10 +19,19 @@ import SignUp from "./Pages/SignUp/SignUp";
 import Post from "./Pages/Community/Components/Tabs_info/discussions/Post";
 import Settings from "./Pages/Settings/Settings";
 import Support from "./Pages/Support/Support";
+import { useState } from "react";
+
 function App() {
+
+  const [hideNav , setHideNav] = useState(false);
   return (
     <div className="!bg-white dark:!bg-darkModeBg">
-      <NavBar />
+      {!(
+        window.location.pathname == "/signin" ||
+        window.location.pathname == "/signup" ||
+        window.location.pathname == "/" ||
+        hideNav
+      ) && <NavBar />}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
@@ -35,17 +44,20 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/rewards" element={<Rewards />} />
         <Route path="/Tech" element={<Tech />} />
-        <Route path="*" element={<Notfound />} />
+        <Route path="/*" element={<Notfound  setHideNav={setHideNav} />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/Post/:id" element={<Post />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/Support" element={<Support />} />
-        <Route path="/Post/:id" element={<Post />} />
-        <Route path="/settings" element={<Settings />} />
       </Routes>
-      <Footer />
+      {!(
+        window.location.pathname == "/signin" ||
+        window.location.pathname == "/signup" ||
+        window.location.pathname == "/" ||
+        hideNav
+      ) && <Footer />}
     </div>
   );
 }
