@@ -3,7 +3,6 @@ import { FaCode, FaUsers } from "react-icons/fa";
 import { PiMedal } from "react-icons/pi";
 
 const Aboutsection = () => {
-  document.documentElement.classList.remove("dark");
   return (
     <section className=" bg-gray p-9">
       <div className="p-4 text-center">

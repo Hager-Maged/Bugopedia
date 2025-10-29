@@ -35,7 +35,7 @@ const HowItWorks = () => {
       gradientTo: "#6366f1",
     },
   ];
-  document.documentElement.classList.remove("dark");
+
   return (
     <section className="py-20 bg-gradient-to-br from-orangeColor/5 to-[#9B59D6]/5">
       <div className="container px-6 mx-auto text-center">
