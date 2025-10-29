@@ -7,6 +7,9 @@ import {
   TimelineIcon,
   Typography,
 } from "@material-tailwind/react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useState, useEffect } from "react";
 const activityData = [
   {
     id: 1,
@@ -26,6 +29,7 @@ const activityData = [
   },
 ];
 const Activity = () => {
+ 
   return (
     <div className="flex flex-col w-full max-w-4xl p-4 mx-auto sm:p-6 !bg-white dark:!bg-darkModeBg rounded-2xl ">
       <Timeline>

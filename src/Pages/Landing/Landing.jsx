@@ -40,7 +40,7 @@ const Landing = () => {
         </div>
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
           <Link
-            to="/signin"
+            to="/home"
             className="flex items-center justify-center gap-2 px-4 py-2 font-medium rounded-lg hover:opacity-90 hover:scale-120 bg-gradient-to-r from-secondaryColorOne to-secondaryColorTwo text-whiteText"
           >
             <button

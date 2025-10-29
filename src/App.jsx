@@ -22,24 +22,16 @@ import Settings from "./Pages/Settings/Settings";
 import Support from "./Pages/Support/Support";
 
 function App() {
-  const location = useLocation();
   const [hideNav, setHideNav] = useState(false);
-
-  useEffect(() => {
-    if (
-      location.pathname === "/signin" ||
-      location.pathname === "/signup" ||
-      location.pathname === "/"
-    ) {
-      setHideNav(true);
-    } else {
-      setHideNav(false);
-    }
-  }, [location.pathname]);
 
   return (
     <div className="!bg-white dark:!bg-darkModeBg min-h-screen flex flex-col">
-      {!hideNav && <NavBar />}
+      {!(
+        window.location.pathname == "/signin" ||
+        window.location.pathname == "/signup" ||
+        window.location.pathname == "/" ||
+        hideNav
+      ) && <NavBar />}
 
       <Routes>
         <Route path="/" element={<Landing />} />
@@ -61,11 +53,10 @@ function App() {
         <Route path="/support" element={<Support />} />
         <Route path="/*" element={<Notfound setHideNav={setHideNav} />} />
       </Routes>
-
       {!(
-        location.pathname === "/signin" ||
-        location.pathname === "/signup" ||
-        location.pathname === "/" ||
+        window.location.pathname == "/signin" ||
+        window.location.pathname == "/signup" ||
+        window.location.pathname == "/" ||
         hideNav
       ) && <Footer />}
     </div>
