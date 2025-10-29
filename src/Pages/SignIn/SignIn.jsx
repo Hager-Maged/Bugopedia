@@ -34,11 +34,13 @@ const Signin = () => {
 
   const handleUser = () => {
     if (user.email === "admin@admin.com" && user.password === "123") {
-      navigate("/");
+      navigate("/home");
     } else {
       const isValid = validate();
       if (!isValid) {
         console.log("invalid user!");
+      } else {
+        navigate("/home");
       }
     }
   };
