@@ -35,11 +35,11 @@ const HowItWorks = () => {
       gradientTo: "#6366f1",
     },
   ];
-
+  document.documentElement.classList.remove("dark");
   return (
-    <section className="py-20 light:bg-gradient-to-br from-orangeColor/5 to-[#9B59D6]/5 dark:text-white dark:bg-darkModeBg dark:border-darkModeBg">
+    <section className="py-20 bg-gradient-to-br from-orangeColor/5 to-[#9B59D6]/5">
       <div className="container px-6 mx-auto text-center">
-        <h2 className="mb-4 text-4xl font-bold text-gray-800 md:text-5xl dark:dark:text-white">
+        <h2 className="mb-4 text-4xl font-bold text-gray-800 md:text-5xl">
           How It Works
         </h2>
         <p className="mb-16 text-xl text-gray-500">
@@ -50,7 +50,7 @@ const HowItWorks = () => {
           {steps.map((item) => (
             <div
               key={item.step}
-              className="relative p-6 pt-16 text-center transition-all bg-white shadow dark:bg-mainDarkModeColor rounded-xl hover:shadow-xl"
+              className="relative p-6 pt-16 text-center transition-all bg-white shadow rounded-xl hover:shadow-xl"
             >
               <div
                 className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center text-white text-xl"
@@ -70,7 +70,7 @@ const HowItWorks = () => {
                 {item.icon}
               </div>
 
-              <h3 className="mb-2 text-lg font-semibold  text-gray-800 dark:text-white">
+              <h3 className="mb-2 text-lg font-semibold  text-gray-800">
                 {item.title}
               </h3>
               <p className="text-sm text-muted-foreground  text-gray-500">
