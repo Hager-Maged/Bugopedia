@@ -8,7 +8,7 @@ import Endpart from "./components/Endpart";
 
 export default function Landing() {
   return (
-    <div>
+    <div className="">
       <Landingpart />
       <Numbers />
       <Aboutsection />

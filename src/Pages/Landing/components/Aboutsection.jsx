@@ -3,12 +3,11 @@ import { FaCode, FaUsers } from "react-icons/fa";
 import { PiMedal } from "react-icons/pi";
 
 const Aboutsection = () => {
+  document.documentElement.classList.remove("dark");
   return (
-    <section className=" bg-gray p-9 dark:bg-darkModeBg  dark:border-darkModeBg">
+    <section className=" bg-gray p-9">
       <div className="p-4 text-center">
-        <h2 className="mb-4 text-4xl md:text-5xl dark:text-white">
-          About Bugopedia
-        </h2>
+        <h2 className="mb-4 text-4xl md:text-5xl ">About Bugopedia</h2>
         <p className="max-w-3xl mx-auto text-l text-muted-foreground text-grayText">
           A revolutionary platform where developers collaborate to solve bugs,
           share knowledge, and grow together as a community.
@@ -27,7 +26,7 @@ const Aboutsection = () => {
               <FaCode className="w-6 h-6 text-orangeColor" />
             </div>
             <div className="flex flex-col">
-              <h3 className="dark:text-white">Real-World Solutions</h3>
+              <h3 className="">Real-World Solutions</h3>
               <p className=" text-grayText">
                 Get answers to real coding challenges from experienced
                 developers who've faced similar issues.
@@ -39,7 +38,7 @@ const Aboutsection = () => {
               <FaUsers className="w-6 h-6 text-[#FF3366]" />
             </div>
             <div className="flex flex-col">
-              <h3 className="dark:text-white">Supportive Community</h3>
+              <h3 className="">Supportive Community</h3>
               <p className=" text-grayText">
                 Join a welcoming community where beginners and experts help each
                 other grow and learn.
@@ -51,7 +50,7 @@ const Aboutsection = () => {
               <PiMedal className="w-6 h-6 text-lightPurple" />
             </div>
             <div className="flex flex-col">
-              <h3 className="dark:text-white">Gamified Learning</h3>
+              <h3 className="">Gamified Learning</h3>
               <p className=" text-grayText">
                 Earn badges, climb leaderboards, and unlock rewards as you
                 contribute and help others.

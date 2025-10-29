@@ -404,7 +404,7 @@ const Tech = (input) => {
           </div>
         </div>
 
-        <div className="space-y-4 ">
+        <div className="space-y-4">
           {bugCategories.map((category) => {
             const id = category.id;
             return (

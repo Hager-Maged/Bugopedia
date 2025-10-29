@@ -2,7 +2,7 @@ import React from "react";
 
 const Numbers = () => {
   return (
-    <section className="py-16 bg-white border-y dark:bg-darkModeBg  dark:border-darkModeBg">
+    <section className="py-16 bg-white border-y">
       <div className="container grid grid-cols-2 gap-6 px-6 mx-auto text-center md:grid-cols-4">
         {[
           {
