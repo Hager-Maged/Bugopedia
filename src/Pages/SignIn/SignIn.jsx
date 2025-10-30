@@ -6,11 +6,17 @@ import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useAuth } from "../../Context/Data";
 
 const Signin = () => {
   const [passwordShown, setPasswordShown] = useState(false);
-  const [errors, setErrors] = useState({ email: "", password: "" });
-  const [user, setUser] = useState({ email: "", password: "" });
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+    general: "",
+  });
+  const [userInput, setUserInput] = useState({ email: "", password: "" });
+  const { user, login } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,11 +24,17 @@ const Signin = () => {
     AOS.refresh();
   }, []);
 
+  useEffect(() => {
+    if (user) {
+      navigate("/home");
+    }
+  }, [user, navigate]);
+
   const validate = () => {
     let valid = true;
-    const newErrors = { email: "", password: "" };
+    const newErrors = { email: "", password: "", general: "" };
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(user.email)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userInput.email)) {
       newErrors.email = "Please enter a valid email address";
       valid = false;
     }
@@ -30,7 +42,7 @@ const Signin = () => {
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s])(?!.*\s).{8,}$/;
 
-    if (!passwordRegex.test(user.password)) {
+    if (!passwordRegex.test(userInput.password)) {
       newErrors.password =
         "Password must be at least 8 characters, include an uppercase letter, a lowercase letter, a number and a special character (no spaces).";
       valid = false;
@@ -42,11 +54,23 @@ const Signin = () => {
 
   const handleUser = () => {
     const isValid = validate();
-    if (!isValid) {
-      console.log("invalid user!");
+    if (isValid) {
+      const { success, message } = login(userInput.email, userInput.password);
+
+      if (success) {
+        navigate("/home");
+      } else {
+        setErrors((prev) => ({
+          ...prev,
+          general: message || "Invalid email or password. Please try again.",
+        }));
+      }
     } else {
-      localStorage.setItem("isLogged", "true");
-      navigate("/home");
+      console.log("Validation failed");
+      setErrors((prev) => ({
+        ...prev,
+        general: "Please fix the errors above before continuing",
+      }));
     }
   };
 
@@ -73,13 +97,21 @@ const Signin = () => {
         </Typography>
 
         <form className="flex flex-col w-full gap-3">
+          {errors.general && (
+            <div className="p-2 text-sm text-center text-red-500 bg-red-100 rounded-md">
+              {errors.general}
+            </div>
+          )}
+
           <div className="relative mb-1">
             <Input
               type="email"
               label="Email Address"
               id="email"
-              value={user.email}
-              onChange={(e) => setUser({ ...user, email: e.target.value })}
+              value={userInput.email}
+              onChange={(e) =>
+                setUserInput({ ...userInput, email: e.target.value })
+              }
               size="lg"
               className="w-full py-2 !bg-white placeholder:text-pargraph placeholder:text-md dark:text-white border border-gray-300"
               labelProps={{
@@ -98,8 +130,10 @@ const Signin = () => {
               type={passwordShown ? "text" : "password"}
               label="Password"
               id="password"
-              value={user.password}
-              onChange={(e) => setUser({ ...user, password: e.target.value })}
+              value={userInput.password}
+              onChange={(e) =>
+                setUserInput({ ...userInput, password: e.target.value })
+              }
               size="lg"
               className="w-full py-2 !bg-white placeholder:text-pargraph placeholder:text-md dark:text-white border border-gray-300 pr-10"
               labelProps={{

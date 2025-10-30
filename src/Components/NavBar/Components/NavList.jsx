@@ -27,8 +27,16 @@ import {
   MenuList,
   MenuItem,
 } from "@material-tailwind/react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../Context/Data";
 
 const NavList = ({ theme, toggleTheme }) => {
+  const navigate = useNavigate();
+  const { logout } = useAuth();
+  const handleSignOut = () => {
+    logout();
+    navigate("/home");
+  };
   return (
     <ul className="flex flex-col gap-2 my-2 lg:flex-row lg:items-center lg:gap-4">
       <NavLink
@@ -242,8 +250,8 @@ const NavList = ({ theme, toggleTheme }) => {
                 <hr className="my-2 border-gray-300 dark:border-gray-700" />
 
                 <MenuItem className="p-0">
-                  <NavLink
-                    to="/signin"
+                  <button
+                    onClick={handleSignOut}
                     className="flex items-center w-full gap-2 p-2 rounded-md hover:bg-red-100 focus:bg-mainGradient focus:!text-whiteText transition-all duration-200"
                   >
                     <Typography
@@ -252,7 +260,7 @@ const NavList = ({ theme, toggleTheme }) => {
                     >
                       Sign Out
                     </Typography>
-                  </NavLink>
+                  </button>
                 </MenuItem>
               </MenuList>
             </Menu>
