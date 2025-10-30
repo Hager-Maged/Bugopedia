@@ -15,10 +15,12 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useState, useEffect } from "react";
+import { useAuth } from "../../../Context/Data";
 
 const ProfileCard = () => {
-  const user = {
-    name: "Sarah Johnson",
+  const {user} = useAuth();
+  const userData = {
+    name: user.name,
     title: "Full Stack Developer | Bug Hunter | Community Mentor",
     email: "sarah.j@example.com",
     location: "San Francisco, CA",
@@ -33,7 +35,7 @@ const ProfileCard = () => {
     badge: { badge1: "Pro Developer" },
   };
 
-  const { name, title, email, location, joined, avatar, tags, badge } = user;
+  const { name, title, email, location, joined, avatar, tags, badge } = userData;
   useEffect(() => {
     AOS.init({
       duration: 800,
