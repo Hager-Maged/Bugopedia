@@ -1,12 +1,11 @@
 import { Navigate } from "react-router-dom";
+import { useAuth } from "./Data";
 
 const ProtectedRoute = ({ children }) => {
-  const isLogged = localStorage.getItem("isLogged") === "true";
-
-  if (!isLogged) {
+  const { user } = useAuth();
+  if (!user) {
     return <Navigate to="/signin" replace />;
   }
-
   return children;
 };
 
