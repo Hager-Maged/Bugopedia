@@ -343,7 +343,7 @@ const bugCategories = [
     ],
   },
 ];
-const Tech = (input) => {
+const Tech = () => {
   const navigate = useNavigate();
 
   const goBugs = (category) => {
@@ -411,7 +411,7 @@ const Tech = (input) => {
               <Accordion
                 key={id}
                 open={openId === id}
-                icon={<Icon id={id} openId={openId} />}
+                icon={<Icon id={id} open={openId} />}
               >
                 <AccordionHeader
                   className="!border-none"
@@ -449,7 +449,6 @@ const Tech = (input) => {
                     {category.recentBugs.map((bug) => (
                       <div
                         key={bug.id}
-                        onClick={() => onBugClick && onBugClick({ ...bug })}
                         className="p-3 bg-white rounded-lg shadow-sm hover:bg-gray-50 cursor-pointer transition-colors  dark:bg-mainDarkModeColor dark:text-whiteText dark:border-whiteText"
                       >
                         <div className="flex items-start gap-4 ">
