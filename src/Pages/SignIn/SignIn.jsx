@@ -16,7 +16,6 @@ const Signin = () => {
     general: "",
   });
   const [userInput, setUserInput] = useState({ email: "", password: "" });
-  const { user, login } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
