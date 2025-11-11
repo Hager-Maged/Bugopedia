@@ -6,7 +6,6 @@ import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useAuth } from "../../Context/Data";
 
 const Signin = () => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -37,47 +36,54 @@ const Signin = () => {
 
     if (!passwordRegex.test(userInput.password)) {
       newErrors.password =
-        "Password must be at least 8 characters, include an uppercase letter, a lowercase letter, a number and a special character (no spaces).";
+        "Password must be at least 8 characters, include uppercase, lowercase, number, and special char (no spaces).";
       valid = false;
     }
 
     setErrors(newErrors);
     return valid;
   };
+
   const handleSignin = async () => {
     setErrors({ email: "", password: "", general: "" });
+
+    const isValid = validate();
+
     if (!userInput.email || !userInput.password) {
       setErrors((prev) => ({ ...prev, general: "Please fill in both fields" }));
-      return;
     }
-    try {
-      const res = await fetch(
-        "https://project-backend-pi-weld.vercel.app/api/v1/auth/signin",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: userInput.email,
-            password: userInput.password,
-          }),
+
+    if (isValid) {
+      try {
+        const res = await fetch(
+          "https://project-backend-pi-weld.vercel.app/api/v1/auth/signin",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: userInput.email,
+              password: userInput.password,
+            }),
+          }
+        );
+
+        if (res.ok) {
+          navigate("/home");
+        } else {
+          setErrors((prev) => ({
+            ...prev,
+            general: "Invalid email or password. Please try again.",
+          }));
         }
-      );
-      if (res.ok) {
-        navigate("/home");
-      } else {
+      } catch (err) {
+        console.error(err);
         setErrors((prev) => ({
           ...prev,
-          general: "Invalid email or password. Please try again.",
+          general: err.message || "Something went wrong. Please try again.",
         }));
       }
-    } catch (err) {
-      console.error(err);
-      setErrors((prev) => ({
-        ...prev,
-        general: err.message || "Something went wrong. Please try again.",
-      }));
     }
   };
 
@@ -114,7 +120,6 @@ const Signin = () => {
             <Input
               type="email"
               label="Email Address"
-              id="email"
               value={userInput.email}
               onChange={(e) =>
                 setUserInput({ ...userInput, email: e.target.value })
@@ -122,21 +127,16 @@ const Signin = () => {
               size="lg"
               className="w-full py-2 !bg-white placeholder:text-pargraph placeholder:text-md dark:text-white border border-gray-300"
               labelProps={{
-                className: `!text-md !text-black ${
-                  errors.email ? "!text-red-500" : ""
-                }`,
+                className: `!text-md !text-black ${errors.email ? "!text-red-500" : ""}`,
               }}
             />
-            {errors.email && (
-              <p className="mt-1 text-sm text-red-500">{errors.email}</p>
-            )}
+            {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
           </div>
 
           <div className="relative mb-3">
             <Input
               type={passwordShown ? "text" : "password"}
               label="Password"
-              id="password"
               value={userInput.password}
               onChange={(e) =>
                 setUserInput({ ...userInput, password: e.target.value })
@@ -144,9 +144,7 @@ const Signin = () => {
               size="lg"
               className="w-full py-2 !bg-white placeholder:text-pargraph placeholder:text-md dark:text-white border border-gray-300 pr-10"
               labelProps={{
-                className: `!text-md !text-black ${
-                  errors.password ? "!text-red-500" : ""
-                }`,
+                className: `!text-md !text-black ${errors.password ? "!text-red-500" : ""}`,
               }}
               icon={
                 <i
@@ -161,11 +159,7 @@ const Signin = () => {
                 </i>
               }
             />
-            {errors.password && (
-              <p className="mt-1 mb-4 text-sm text-red-500">
-                {errors.password}
-              </p>
-            )}
+            {errors.password && <p className="mt-1 mb-4 text-sm text-red-500">{errors.password}</p>}
           </div>
 
           <div className="flex flex-col items-center justify-between gap-2 mb-4 sm:flex-row">
@@ -189,9 +183,7 @@ const Signin = () => {
           </button>
 
           <div className="flex items-center justify-center mt-5 mb-3">
-            <p className="text-sm text-grayText sm:text-base">
-              Or continue with
-            </p>
+            <p className="text-sm text-grayText sm:text-base">Or continue with</p>
           </div>
 
           <div className="flex flex-col gap-3 sm:flex-row">

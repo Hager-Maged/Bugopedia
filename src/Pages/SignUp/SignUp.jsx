@@ -27,7 +27,6 @@ export function SignUp() {
   }, []);
 
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
@@ -53,29 +52,31 @@ export function SignUp() {
       newErrors.agree = "You must agree to the terms and privacy policy";
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
   };
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    if (!validateForm()) return;
+
+    validateForm();
+
+    if (Object.keys(errors).length > 0) return;
 
     try {
-      const res = await fetch("https://project-backend-pi-weld.vercel.app/api/v1/auth/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: formData.name,
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
+      const res = await fetch(
+        "https://project-backend-pi-weld.vercel.app/api/v1/auth/signup",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: formData.name,
+            email: formData.email,
+            password: formData.password,
+          }),
+        }
+      );
 
-      if (res.ok) {
-        navigate("/signin"); 
-      } else {
+      if (res.ok) navigate("/signin");
+      else {
         const data = await res.json();
         setErrors((prev) => ({
           ...prev,
@@ -98,7 +99,11 @@ export function SignUp() {
       >
         <img src="/images/Logo2.png" alt="Logo" className="w-auto h-40 mb-6" />
 
-        <Typography variant="h3" color="blue-gray" className="mb-2 dark:text-white">
+        <Typography
+          variant="h3"
+          color="blue-gray"
+          className="mb-2 dark:text-white"
+        >
           Create Account
         </Typography>
         <Typography className="text-gray-600 font-normal text-[18px] mb-6">
@@ -116,18 +121,26 @@ export function SignUp() {
               type="text"
               label="User Name"
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
             />
-            {errors.name && <p className="text-sm text-red-500">{errors.name}</p>}
+            {errors.name && (
+              <p className="text-sm text-red-500">{errors.name}</p>
+            )}
 
             {/* Email */}
             <MainInput
               type="email"
               label="Email Address"
               value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
             />
-            {errors.email && <p className="text-sm text-red-500">{errors.email}</p>}
+            {errors.email && (
+              <p className="text-sm text-red-500">{errors.email}</p>
+            )}
 
             {/* Password */}
             <div className="relative">
@@ -135,16 +148,24 @@ export function SignUp() {
                 type={showPassword ? "text" : "password"}
                 label="Password"
                 value={formData.password}
-                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, password: e.target.value })
+                }
               />
               <div
                 className="absolute right-3 top-[50%] -translate-y-1/2 cursor-pointer text-gray-500"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? <EyeIcon className="w-5 h-5" /> : <EyeSlashIcon className="w-5 h-5" />}
+                {showPassword ? (
+                  <EyeIcon className="w-5 h-5" />
+                ) : (
+                  <EyeSlashIcon className="w-5 h-5" />
+                )}
               </div>
             </div>
-            {errors.password && <p className="text-sm text-red-500">{errors.password}</p>}
+            {errors.password && (
+              <p className="text-sm text-red-500">{errors.password}</p>
+            )}
 
             {/* Confirm Password */}
             <div className="relative">
@@ -152,16 +173,24 @@ export function SignUp() {
                 type={showConfPassword ? "text" : "password"}
                 label="Confirm Password"
                 value={formData.confPassword}
-                onChange={(e) => setFormData({ ...formData, confPassword: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, confPassword: e.target.value })
+                }
               />
               <div
                 className="absolute right-3 top-[50%] -translate-y-1/2 cursor-pointer text-gray-500"
                 onClick={() => setShowConfPassword(!showConfPassword)}
               >
-                {showConfPassword ? <EyeIcon className="w-5 h-5" /> : <EyeSlashIcon className="w-5 h-5" />}
+                {showConfPassword ? (
+                  <EyeIcon className="w-5 h-5" />
+                ) : (
+                  <EyeSlashIcon className="w-5 h-5" />
+                )}
               </div>
             </div>
-            {errors.confPassword && <p className="text-sm text-red-500">{errors.confPassword}</p>}
+            {errors.confPassword && (
+              <p className="text-sm text-red-500">{errors.confPassword}</p>
+            )}
 
             {/* Terms */}
             <div className="flex items-center justify-between mb-4">
@@ -169,16 +198,21 @@ export function SignUp() {
                 <input
                   type="checkbox"
                   checked={formData.agree}
-                  onChange={(e) => setFormData({ ...formData, agree: e.target.checked })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, agree: e.target.checked })
+                  }
                   className="w-5 h-5 border border-gray-300 rounded checked:bg-gray-800 checked:border-gray-800"
                 />
                 <span className="ml-2 text-gray-600 text-m">
-                  I agree to the <span className="text-[#ff6b35]">Terms of Service</span> and{" "}
+                  I agree to the{" "}
+                  <span className="text-[#ff6b35]">Terms of Service</span> and{" "}
                   <span className="text-[#ff6b35]">Privacy Policy</span>
                 </span>
               </label>
             </div>
-            {errors.agree && <p className="mb-2 text-sm text-red-500">{errors.agree}</p>}
+            {errors.agree && (
+              <p className="mb-2 text-sm text-red-500">{errors.agree}</p>
+            )}
 
             {/* Submit */}
             <button
