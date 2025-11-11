@@ -16,19 +16,12 @@ const Signin = () => {
     general: "",
   });
   const [userInput, setUserInput] = useState({ email: "", password: "" });
-  const { user, login } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
     AOS.init({ duration: 800, once: false });
     AOS.refresh();
   }, []);
-
-  useEffect(() => {
-    if (user) {
-      navigate("/home");
-    }
-  }, [user, navigate]);
 
   const validate = () => {
     let valid = true;
@@ -51,25 +44,39 @@ const Signin = () => {
     setErrors(newErrors);
     return valid;
   };
-
-  const handleUser = () => {
-    const isValid = validate();
-    if (isValid) {
-      const { success, message } = login(userInput.email, userInput.password);
-
-      if (success) {
+  const handleSignin = async () => {
+    setErrors({ email: "", password: "", general: "" });
+    if (!userInput.email || !userInput.password) {
+      setErrors((prev) => ({ ...prev, general: "Please fill in both fields" }));
+      return;
+    }
+    try {
+      const res = await fetch(
+        "https://project-backend-pi-weld.vercel.app/api/v1/auth/signin",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: userInput.email,
+            password: userInput.password,
+          }),
+        }
+      );
+      if (res.ok) {
         navigate("/home");
       } else {
         setErrors((prev) => ({
           ...prev,
-          general: message || "Invalid email or password. Please try again.",
+          general: "Invalid email or password. Please try again.",
         }));
       }
-    } else {
-      console.log("Validation failed");
+    } catch (err) {
+      console.error(err);
       setErrors((prev) => ({
         ...prev,
-        general: "Please fix the errors above before continuing",
+        general: err.message || "Something went wrong. Please try again.",
       }));
     }
   };
@@ -171,19 +178,11 @@ const Signin = () => {
                 Remember Me
               </span>
             </label>
-            <Typography
-              as="a"
-              href="#"
-              variant="small"
-              className="text-sm font-medium text-black underline sm:text-base dark:text-white"
-            >
-              Forgot password?
-            </Typography>
           </div>
 
           <button
             type="button"
-            onClick={handleUser}
+            onClick={handleSignin}
             className="flex items-center justify-center w-full gap-2 py-2.5 text-whiteText transition-all rounded-md shadow-md bg-mainGradient hover:shadow-lg hover:scale-[1.02] focus:scale-[0.98] active:scale-[0.96]"
           >
             Sign In <FaArrowRight />
