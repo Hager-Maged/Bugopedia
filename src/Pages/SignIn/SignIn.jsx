@@ -71,11 +71,6 @@ const Signin = () => {
 
         if (res.ok) {
           navigate("/home");
-        } else {
-          setErrors((prev) => ({
-            ...prev,
-            general: "Invalid email or password. Please try again.",
-          }));
         }
       } catch (err) {
         console.error(err);
@@ -127,10 +122,14 @@ const Signin = () => {
               size="lg"
               className="w-full py-2 !bg-white placeholder:text-pargraph placeholder:text-md dark:text-white border border-gray-300"
               labelProps={{
-                className: `!text-md !text-black ${errors.email ? "!text-red-500" : ""}`,
+                className: `!text-md !text-black ${
+                  errors.email ? "!text-red-500" : ""
+                }`,
               }}
             />
-            {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
+            {errors.email && (
+              <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+            )}
           </div>
 
           <div className="relative mb-3">
@@ -144,7 +143,9 @@ const Signin = () => {
               size="lg"
               className="w-full py-2 !bg-white placeholder:text-pargraph placeholder:text-md dark:text-white border border-gray-300 pr-10"
               labelProps={{
-                className: `!text-md !text-black ${errors.password ? "!text-red-500" : ""}`,
+                className: `!text-md !text-black ${
+                  errors.password ? "!text-red-500" : ""
+                }`,
               }}
               icon={
                 <i
@@ -159,7 +160,11 @@ const Signin = () => {
                 </i>
               }
             />
-            {errors.password && <p className="mt-1 mb-4 text-sm text-red-500">{errors.password}</p>}
+            {errors.password && (
+              <p className="mt-1 mb-4 text-sm text-red-500">
+                {errors.password}
+              </p>
+            )}
           </div>
 
           <div className="flex flex-col items-center justify-between gap-2 mb-4 sm:flex-row">
@@ -183,7 +188,9 @@ const Signin = () => {
           </button>
 
           <div className="flex items-center justify-center mt-5 mb-3">
-            <p className="text-sm text-grayText sm:text-base">Or continue with</p>
+            <p className="text-sm text-grayText sm:text-base">
+              Or continue with
+            </p>
           </div>
 
           <div className="flex flex-col gap-3 sm:flex-row">
