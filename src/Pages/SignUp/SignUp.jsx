@@ -31,72 +31,64 @@ export function SignUp() {
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
   const validateForm = () => {
-  let newErrors = {};
+    let newErrors = {};
 
-  if (!formData.name.trim()) newErrors.name = "User name is required";
-  if (!formData.email.trim()) newErrors.email = "Email is required";
-  else if (!isValidEmail(formData.email))
-    newErrors.email = "Please enter a valid email";
+    if (!formData.name.trim()) newErrors.name = "User name is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    else if (!isValidEmail(formData.email))
+      newErrors.email = "Please enter a valid email";
 
-  if (!formData.password) newErrors.password = "Password is required";
-  else if (!passwordRegex.test(formData.password))
-    newErrors.password =
-      "Password must be at least 8 characters, include uppercase, lowercase, number & special character.";
+    if (!formData.password) newErrors.password = "Password is required";
+    else if (!passwordRegex.test(formData.password))
+      newErrors.password =
+        "Password must be at least 8 characters, include uppercase, lowercase, number & special character.";
 
-  if (!formData.confPassword)
-    newErrors.confPassword = "Please confirm your password";
-  else if (formData.password !== formData.confPassword)
-    newErrors.confPassword = "Passwords do not match";
+    if (!formData.confPassword)
+      newErrors.confPassword = "Please confirm your password";
+    else if (formData.password !== formData.confPassword)
+      newErrors.confPassword = "Passwords do not match";
 
-  if (!formData.agree)
-    newErrors.agree = "You must agree to the terms and privacy policy";
+    if (!formData.agree)
+      newErrors.agree = "You must agree to the terms and privacy policy";
 
-  setErrors(newErrors);
+    setErrors(newErrors);
 
-  return Object.keys(newErrors).length === 0; 
-};
-
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSignup = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const isValid = validateForm(); 
+    const isValid = validateForm();
 
-  if (isValid) {
-    try {
-      const res = await fetch(
-        "https://project-backend-pi-weld.vercel.app/api/v1/auth/signup",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            username: formData.name,
-            email: formData.email,
-            password: formData.password,
-          }),
+    if (isValid) {
+      try {
+        const res = await fetch(
+          "https://project-backend-pi-weld.vercel.app/api/v1/auth/signup",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              username: formData.name,
+              email: formData.email,
+              password: formData.password,
+            }),
+          }
+        );
+        if (res.ok) {
+          console.log("Response status:", res.ok);
+          navigate("/signin");
         }
-      );
-
-      if (res.ok) {
-        navigate("/signin");
-      } else {
-        const data = await res.json();
+      } catch (err) {
         setErrors((prev) => ({
           ...prev,
-          general: data.message || "Signup failed. Please try again.",
+          general: err.message || "Something went wrong. Please try again.",
         }));
       }
-    } catch (err) {
-      setErrors((prev) => ({
-        ...prev,
-        general: err.message || "Something went wrong. Please try again.",
-      }));
+    } else {
+      console.log("Form validation failed, errors:", errors);
     }
-  } else {
-    console.log("Form validation failed, errors:", errors);
-  }
-};
-
+  };
 
   return (
     <section className="flex items-center justify-center w-full p-6 h-4/6 sm:p-8 lg:p-7 bg-darkModeBg">
