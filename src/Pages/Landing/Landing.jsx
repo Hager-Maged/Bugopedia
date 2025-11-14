@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Landingpart from "./components/Landingpart";
 import Numbers from "./components/Numbers";
 import Aboutsection from "./components/Aboutsection";
@@ -7,8 +7,10 @@ import Howitworks from "./components/Howitworks";
 import Endpart from "./components/Endpart";
 
 export default function Landing() {
-  document.documentElement.classList.remove("dark");
-
+  useEffect(() => {
+    document.documentElement.classList.remove("dark");
+    document.documentElement.classList.add("light");
+  }, []);
   return (
     <div className="">
       <Landingpart />
