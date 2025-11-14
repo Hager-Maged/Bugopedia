@@ -155,7 +155,6 @@ const NavList = ({ theme, toggleTheme }) => {
             )}
           </li>
 
-          {/* LOGGED CONTENT */}
           {user && <LoggedContent />}
           {!user && (
             <ButtonGradiant
@@ -163,7 +162,6 @@ const NavList = ({ theme, toggleTheme }) => {
               onClickFun={() => navigate("/signin")}
             />
           )}
-          {/* LOGGED CONTENT */}
         </ul>
       </div>
     </ul>
