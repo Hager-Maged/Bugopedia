@@ -6,10 +6,11 @@ import { useEffect, useState } from "react";
 import MainInput from "../../Components/Input/MainInput";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useAuth } from "../../Context/Data";
 
 export function SignUp() {
+  const { register } = useAuth();
   const navigate = useNavigate();
-
   const [showPassword, setShowPassword] = useState(false);
   const [showConfPassword, setShowConfPassword] = useState(false);
   const [errors, setErrors] = useState({});
@@ -63,30 +64,26 @@ export function SignUp() {
 
     if (isValid) {
       try {
-        const res = await fetch(
-          "https://project-backend-pi-weld.vercel.app/api/v1/auth/signup",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              username: formData.name,
-              email: formData.email,
-              password: formData.password,
-            }),
-          }
+        const res = await register(
+          formData.name,
+          formData.email,
+          formData.password
         );
-        if (res.ok) {
-          console.log("Response status:", res.ok);
+
+        if (!res.success) {
+          if (res.message.includes("required")) {
+            setErrors({ general: "All fields are required" });
+          } else if (res.message.includes("registered")) {
+            setErrors({ email: "Email already registered" });
+          } else {
+            setErrors({ general: "Maybe try another username" });
+          }
+        } else {
           navigate("/signin");
         }
       } catch (err) {
-        setErrors((prev) => ({
-          ...prev,
-          general: err.message || "Something went wrong. Please try again.",
-        }));
+        setErrors({ general: "Cannot sign up. Please try again." });
       }
-    } else {
-      console.log("Form validation failed, errors:", errors);
     }
   };
 
