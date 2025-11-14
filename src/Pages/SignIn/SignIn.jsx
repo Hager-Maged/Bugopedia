@@ -6,7 +6,6 @@ import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useAuth } from "../../Context/Data";
 
 const Signin = () => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -16,19 +15,12 @@ const Signin = () => {
     general: "",
   });
   const [userInput, setUserInput] = useState({ email: "", password: "" });
-  const { user, login } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
     AOS.init({ duration: 800, once: false });
     AOS.refresh();
   }, []);
-
-  useEffect(() => {
-    if (user) {
-      navigate("/home");
-    }
-  }, [user, navigate]);
 
   const validate = () => {
     let valid = true;
@@ -44,7 +36,7 @@ const Signin = () => {
 
     if (!passwordRegex.test(userInput.password)) {
       newErrors.password =
-        "Password must be at least 8 characters, include an uppercase letter, a lowercase letter, a number and a special character (no spaces).";
+        "Password must be at least 8 characters, include uppercase, lowercase, number, and special char (no spaces).";
       valid = false;
     }
 
@@ -52,25 +44,41 @@ const Signin = () => {
     return valid;
   };
 
-  const handleUser = () => {
-    const isValid = validate();
-    if (isValid) {
-      const { success, message } = login(userInput.email, userInput.password);
+  const handleSignin = async () => {
+    setErrors({ email: "", password: "", general: "" });
 
-      if (success) {
-        navigate("/home");
-      } else {
+    const isValid = validate();
+
+    if (!userInput.email || !userInput.password) {
+      setErrors((prev) => ({ ...prev, general: "Please fill in both fields" }));
+    }
+
+    if (isValid) {
+      try {
+        const res = await fetch(
+          "https://project-backend-pi-weld.vercel.app/api/v1/auth/signin",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: userInput.email,
+              password: userInput.password,
+            }),
+          }
+        );
+
+        if (res.ok) {
+          navigate("/home");
+        }
+      } catch (err) {
+        console.error(err);
         setErrors((prev) => ({
           ...prev,
-          general: message || "Invalid email or password. Please try again.",
+          general: err.message || "Something went wrong. Please try again.",
         }));
       }
-    } else {
-      console.log("Validation failed");
-      setErrors((prev) => ({
-        ...prev,
-        general: "Please fix the errors above before continuing",
-      }));
     }
   };
 
@@ -107,7 +115,6 @@ const Signin = () => {
             <Input
               type="email"
               label="Email Address"
-              id="email"
               value={userInput.email}
               onChange={(e) =>
                 setUserInput({ ...userInput, email: e.target.value })
@@ -129,7 +136,6 @@ const Signin = () => {
             <Input
               type={passwordShown ? "text" : "password"}
               label="Password"
-              id="password"
               value={userInput.password}
               onChange={(e) =>
                 setUserInput({ ...userInput, password: e.target.value })
@@ -171,19 +177,11 @@ const Signin = () => {
                 Remember Me
               </span>
             </label>
-            <Typography
-              as="a"
-              href="#"
-              variant="small"
-              className="text-sm font-medium text-black underline sm:text-base dark:text-white"
-            >
-              Forgot password?
-            </Typography>
           </div>
 
           <button
             type="button"
-            onClick={handleUser}
+            onClick={handleSignin}
             className="flex items-center justify-center w-full gap-2 py-2.5 text-whiteText transition-all rounded-md shadow-md bg-mainGradient hover:shadow-lg hover:scale-[1.02] focus:scale-[0.98] active:scale-[0.96]"
           >
             Sign In <FaArrowRight />
