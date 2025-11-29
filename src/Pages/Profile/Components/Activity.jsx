@@ -11,9 +11,12 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useState, useEffect } from "react";
 import useData from "../../../hooks/useFetch";
+import { useAuth } from "../../../Context/Data";
+
 
 const Activity = () => {
-  const userId = localStorage.getItem("userId");
+  const { user } = useAuth(); 
+  const userId = user?.id;
 
   const {
     data: activity,

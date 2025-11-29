@@ -3,9 +3,12 @@ import OpenBug from "./OpenBug";
 import { FaBugSlash } from "react-icons/fa6";
 import useData from "../../../hooks/useFetch";
 import { FaTrash } from "react-icons/fa";
+import { useAuth } from "../../../Context/Data";
+
 
 const MyBugs = () => {
-  const userId = localStorage.getItem("userId");
+  const { user } = useAuth(); 
+  const userId = user?.id;
   const {
     data: bugs,
     loading,
