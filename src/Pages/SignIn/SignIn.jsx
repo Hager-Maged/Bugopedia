@@ -72,6 +72,7 @@ const Signin = () => {
             setErrors((prev) => ({ ...prev, general: res.message }));
           }
         } else {
+          localStorage.setItem("userId", res.data.id);
           navigate("/home");
         }
       } catch (err) {
@@ -121,9 +122,9 @@ const Signin = () => {
                 setUserInput({ ...userInput, email: e.target.value })
               }
               size="lg"
-              className="w-full py-2 !bg-white placeholder:text-pargraph placeholder:text-md dark:text-white border border-gray-300"
+              className="w-full py-2  placeholder:text-pargraph placeholder:text-md dark:text-gray-500 border dark: border-gray-300"
               labelProps={{
-                className: `!text-md !text-black ${
+                className: `!text-md text-black dark:text-white ${
                   errors.email ? "!text-red-500" : ""
                 }`,
               }}
@@ -142,9 +143,9 @@ const Signin = () => {
                 setUserInput({ ...userInput, password: e.target.value })
               }
               size="lg"
-              className="w-full py-2 !bg-white placeholder:text-pargraph placeholder:text-md dark:text-white border border-gray-300 pr-10"
+              className="w-full py-2  placeholder:text-pargraph dark:text-gray-500 placeholder:text-md  border border-gray-300 pr-10"
               labelProps={{
-                className: `!text-md !text-black ${
+                className: `!text-md text-black dark:text-white  ${
                   errors.password ? "!text-red-500" : ""
                 }`,
               }}
