@@ -72,7 +72,6 @@ const Signin = () => {
             setErrors((prev) => ({ ...prev, general: res.message }));
           }
         } else {
-          localStorage.setItem("userId", res.data.id);
           navigate("/home");
         }
       } catch (err) {
