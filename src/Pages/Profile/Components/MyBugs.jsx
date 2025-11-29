@@ -5,16 +5,17 @@ import useData from "../../../hooks/useFetch";
 import { FaTrash } from "react-icons/fa";
 import { useAuth } from "../../../Context/Data";
 
-
 const MyBugs = () => {
-  const { user } = useAuth(); 
+  const { user } = useAuth();
   const userId = user?.id;
   const {
     data: bugs,
     loading,
     error,
     refetch,
-  } = useData(`https://project-backend-pi-weld.vercel.app/api/v1/profile/mybugs/${userId}`);
+  } = useData(
+    `https://project-backend-pi-weld.vercel.app/api/v1/profile/mybugs/${userId}`
+  );
 
   const [openBug, setOpenBug] = useState(false);
   const [selectedBug, setSelectedBug] = useState(null);

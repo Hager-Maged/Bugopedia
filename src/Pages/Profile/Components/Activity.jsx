@@ -13,9 +13,8 @@ import { useState, useEffect } from "react";
 import useData from "../../../hooks/useFetch";
 import { useAuth } from "../../../Context/Data";
 
-
 const Activity = () => {
-  const { user } = useAuth(); 
+  const { user } = useAuth();
   const userId = user?.id;
 
   const {
