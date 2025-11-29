@@ -12,6 +12,8 @@ import "aos/dist/aos.css";
 import { useState, useEffect } from "react";
 import useData from "../../../hooks/useFetch";
 import { useAuth } from "../../../Context/Data";
+import { FaReply } from "react-icons/fa6";
+
 
 const Activity = () => {
   const { user } = useAuth();
@@ -28,15 +30,14 @@ const Activity = () => {
   if (!userId) return <p>Loading user...</p>;
   if (loading) return <p>Loading activity...</p>;
   if (error) return <p>Error: {error}</p>;
-  if (!activity || activity.replies.length === 0)
-    return <p>No activity found</p>;
+  if (!activity || !activity.replies) return <p>No activity found</p>;
 
   return (
     <div className="flex flex-col w-full max-w-4xl p-4 mx-auto sm:p-6 !bg-white dark:!bg-darkModeBg rounded-2xl ">
       <Timeline>
-        {activity.replies.map((item, index) => (
+        {activity.replies?.map((item, index) => (
           <TimelineItem key={item.bugId}>
-            {index !== activity.length - 1 && <TimelineConnector />}{" "}
+            {index !== activity.replies.length - 1 && <TimelineConnector />}{" "}
             <TimelineHeader className="flex items-center gap-4">
               <TimelineIcon className="flex items-center justify-center w-8 h-8 rounded-full bg-secondaryColorTwo">
                 <FaReply className="text-white" />

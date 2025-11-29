@@ -124,18 +124,15 @@ const LoggedContent = () => {
 
             <hr className="my-2 border-gray-300 dark:border-gray-700" />
 
-            <MenuItem className="p-0">
-              <button
-                onClick={handleSignOut}
-                className="flex items-center w-full gap-2 p-2 rounded-md hover:bg-red-100 focus:bg-mainGradient focus:!text-whiteText transition-all duration-200"
-              >
+            <MenuItem className="p-0" onClick={handleSignOut}>
+              <div className="flex items-center w-full gap-2 p-2 rounded-md hover:bg-red-100 transition-all duration-200">
                 <Typography
                   variant="small"
-                  className="font-medium text-red-600 dark:text-red-400 focus:!text-whiteText"
+                  className="font-medium text-red-600 dark:text-red-400"
                 >
                   Sign Out
                 </Typography>
-              </button>
+              </div>
             </MenuItem>
           </MenuList>
         </Menu>
