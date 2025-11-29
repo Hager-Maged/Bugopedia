@@ -32,7 +32,7 @@ const OpenBug = ({
         {solved && (
           <div className="flex items-center gap-1 p-2 bg-green-900 rounded-xl">
             <CiCircleCheck className="text-lg text-green-600 " />
-            <p className="text-lg font-semibold text-green-600">Solved</p>
+            <p className="text-lg font-semibold text-green-200">Solved</p>
           </div>
         )}
         <h1 className="ml-2 text-light-textColor dark:text-dark-textColor">
@@ -46,7 +46,6 @@ const OpenBug = ({
             <div className="flex gap-5">
               <div className="flex items-center gap-1">
                 <SlLike />
-
                 <p>{likesCount}</p>
               </div>
               <div className="flex items-center gap-1">
@@ -92,8 +91,8 @@ const OpenBug = ({
           color="red"
           onClick={handleOpen}
           className="mr-1"
-        ><span>Close</span>
-          
+        >
+          <span>Close</span>
         </Button>
       </DialogFooter>
     </Dialog>
