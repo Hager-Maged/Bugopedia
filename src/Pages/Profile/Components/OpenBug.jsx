@@ -64,11 +64,11 @@ const OpenBug = ({
             <p className="text-light-textColor dark:text-dark-textColor">
               {commentsCount} Comments
             </p>
-            {comments.map((comment) => (
+            {comments.map((comment, index) => (
               <BugComments
-                key={comment.id}
-                user={comment.user}
-                commentDesc={comment.commentDesc}
+                key={index}
+                user={comment.replier}
+                commentDesc={comment.content}
                 likesCount={comment.likesCount}
               />
             ))}
