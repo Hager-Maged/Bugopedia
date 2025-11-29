@@ -46,6 +46,7 @@ const OpenBug = ({
             <div className="flex gap-5">
               <div className="flex items-center gap-1">
                 <SlLike />
+
                 <p>{likesCount}</p>
               </div>
               <div className="flex items-center gap-1">
@@ -91,8 +92,8 @@ const OpenBug = ({
           color="red"
           onClick={handleOpen}
           className="mr-1"
-        >
-          <span>Close</span>
+        ><span>Close</span>
+          
         </Button>
       </DialogFooter>
     </Dialog>
