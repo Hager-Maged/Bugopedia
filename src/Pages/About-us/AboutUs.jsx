@@ -16,7 +16,7 @@ function AboutUs() {
     AOS.refresh();
   }, []);
   return (
-    <div className="bg-whiteText dark:bg-darkModeBg overflow-x-hidden">
+    <div className="bg-white dark:bg-darkModeBg overflow-x-hidden">
       <Hero />
       <OurMission  />
       <OurStory  />

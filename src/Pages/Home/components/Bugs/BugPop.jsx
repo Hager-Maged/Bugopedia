@@ -35,7 +35,7 @@ const BugPop = ({
       className="bg-light-divBackground dark:bg-dark-divBackground"
     >
       <DialogHeader>
-        {solved && (
+        {solved == "solved" && (
           <div className="flex items-center gap-1 p-2 bg-green-900 rounded-xl">
             <CiCircleCheck className="text-lg text-green-600 " />
             <p className="text-lg font-semibold text-green-600">Solved</p>
