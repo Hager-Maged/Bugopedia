@@ -32,7 +32,7 @@ const OpenBug = ({
         {solved && (
           <div className="flex items-center gap-1 p-2 bg-green-900 rounded-xl">
             <CiCircleCheck className="text-lg text-green-600 " />
-            <p className="text-lg font-semibold text-green-600">Solved</p>
+            <p className="text-lg font-semibold text-green-200">Solved</p>
           </div>
         )}
         <h1 className="ml-2 text-light-textColor dark:text-dark-textColor">
@@ -64,11 +64,11 @@ const OpenBug = ({
             <p className="text-light-textColor dark:text-dark-textColor">
               {commentsCount} Comments
             </p>
-            {comments.map((comment) => (
+            {comments.map((comment, index) => (
               <BugComments
-                key={comment.id}
-                user={comment.user}
-                commentDesc={comment.commentDesc}
+                key={index}
+                user={comment.replier}
+                commentDesc={comment.content}
                 likesCount={comment.likesCount}
               />
             ))}

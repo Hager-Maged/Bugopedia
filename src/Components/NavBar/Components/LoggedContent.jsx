@@ -137,7 +137,7 @@ const LoggedContent = () => {
           </MenuList>
         </Menu>
       </li>
-      {/* PROFIEL */}
+    
     </>
   );
 };
