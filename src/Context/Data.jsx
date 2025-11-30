@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
           body: JSON.stringify({ email, password }),
         }
       );
-
+      
       const data = await res.json();
 
      

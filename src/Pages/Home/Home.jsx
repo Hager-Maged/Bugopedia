@@ -4,6 +4,8 @@ import BugCard from "./components/Bugs/BugCard";
 import TrendingTags from "./components/SideBar/TrendingTags";
 import BugOfTheWeek from "./components/SideBar/BugOfTheWeek";
 import { useState } from "react";
+import useData from "../../hooks/useFetch";
+
 import {
   Button,
   Dialog,
@@ -18,6 +20,12 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 function Home() {
+  const [bug_title, setBugTitle] = useState("");
+  const [bug_description, setBugDescription] = useState("");
+  const [bug_code, setBugCode] = useState("");
+  const [bug_tags, setBugTags] = useState("");
+  const [bug_category, setBugCategory] = useState("Front-End");
+
   const leaderBoard = [
     {
       name: "User 1",
@@ -46,86 +54,48 @@ function Home() {
     },
   ];
 
-  const latestBugs = [
-    {
-      author: "User Name 1",
-      time: "a few hours ago",
-      title: "Bug in POS calculation",
-      code: "itn x = 5; cout << x;",
-      likesCount: "4",
-      commentsCount: "12",
-      solved: false,
-      id: 1,
-      comments: [
-        {
-          user: "user name 1",
-          commentDesc: "You have a syntax error ( int )",
-          likesCount: "10",
-          id: 1,
-        },
-        {
-          user: "user name 2",
-          commentDesc: "You have a syntax error ( int )",
-          likesCount: "2",
-          id: 2,
-        },
-      ],
-    },
-    {
-      author: "User Name 2",
-      time: "a few hours ago",
-      title: "Bug in POS calculation",
-      id: 2,
+  const { data } = useData(
+    "https://project-backend-pi-weld.vercel.app/api/v1/home/get-all-bugs"
+  );
+  const latestBugs = data;
 
-      code: "itn x = 5; cout << x;",
-      likesCount: "4",
-      commentsCount: "12",
-      solved: true,
-      comments: [
-        {
-          user: "user name ",
-          commentDesc: "You have a syntax error ( int )",
-          likesCount: "10",
-          id: 1,
-        },
-        {
-          user: "user name 2",
-          commentDesc: "You have a syntax error ( int )",
-          likesCount: "2",
-          id: 2,
-        },
-      ],
-    },
-    {
-      author: "User Name 3",
-      time: "a few hours ago",
-      title: "Bug in POS calculation",
-
-      code: "itn x = 5; cout << x;",
-      likesCount: "4",
-      commentsCount: "12",
-      solved: false,
-      id: 3,
-
-      comments: [
-        {
-          user: "user name 1",
-          commentDesc: "You have a syntax error ( int )",
-          likesCount: "10",
-          id: 1,
-        },
-        {
-          user: "user name 2",
-          commentDesc: "You have a syntax error ( int )",
-          likesCount: "2",
-          id: 2,
-        },
-      ],
-    },
-  ];
   const [open, setOpen] = useState(false);
-
   const handleOpen = () => setOpen(!open);
+
+  //  Handle Bug Post
+
+  const handleBugPost = async () => {
+    console.log(bug_category);
+    const bugData = {
+      title: bug_title,
+      description: bug_description,
+      snippit: bug_code,
+      tags: bug_tags,
+      categoryName: bug_category,
+      userId: JSON.parse(localStorage.getItem("currentUser")).id,
+      
+    };
+
+    handleOpen(!open);
+
+    try {
+      const res = await fetch(
+        "https://project-backend-pi-weld.vercel.app/api/v1/home/add_bug",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(bugData),
+        }
+      );
+
+      const data = await res.json();
+      console.log("Bug added:", data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   useEffect(() => {
     AOS.init({});
@@ -152,14 +122,14 @@ function Home() {
           <div className="flex flex-col w-full gap-5">
             {latestBugs.map((bug) => (
               <BugCard
-                key={bug.id}
+                key={bug._id}
                 author={bug.author}
-                time={bug.time}
-                code={bug.code}
-                likesCount={bug.likesCount}
-                commentsCount={bug.commentsCount}
-                solved={bug.solved}
-                comments={bug.comments}
+                time={bug.date}
+                code={bug.snippit}
+                likesCount={bug.votes}
+                commentsCount={bug.replies}
+                solved={bug.state}
+                comments={bug.replyDetails}
                 title={bug.title}
               />
             ))}
@@ -170,12 +140,12 @@ function Home() {
 
       {/* BUG POST TOGGLER */}
       <Dialog open={open} handler={handleOpen}>
-        <DialogHeader className="bg-white dark:bg-dark-backGround">
+        <DialogHeader className="bg-white dark:bg-dark-backGround rounded-2xl">
           <h3 className="text-light-textColor dark:text-dark-textColor">
             Share a Bug
           </h3>
         </DialogHeader>
-        <DialogBody className="w-full bg-white dark:bg-dark-backGround">
+        <DialogBody className="w-full  dark:bg-dark-backGround ">
           <div className="flex flex-col gap-3 ">
             <div>
               <h3 className="text-light-textColor dark:text-dark-textColor">
@@ -185,6 +155,8 @@ function Home() {
                 className="w-full p-1 bg-white border rounded-l dark:bg-dark-backGround border-grayText"
                 type="text"
                 placeholder="e.g ., React useState not updating after async call"
+                value={bug_title}
+                onChange={(e) => setBugTitle(e.target.value)}
               />
             </div>
             <div>
@@ -196,6 +168,8 @@ function Home() {
                 id=""
                 className="w-full p-2 bg-white border resize-none dark:bg-dark-backGround border-grayText rounded-xl"
                 placeholder="Describe your bug in detail, What happened? What did you expect to happen?"
+                value={bug_description}
+                onChange={(e) => setBugDescription(e.target.value)}
               ></textarea>
             </div>
             <div>
@@ -210,6 +184,8 @@ function Home() {
                 id=""
                 className="w-full p-2 bg-white border resize-none dark:bg-dark-backGround border-grayText rounded-xl"
                 placeholder="Paste Your Code Here ..."
+                value={bug_code}
+                onChange={(e) => setBugCode(e.target.value)}
               ></textarea>
             </div>
             <div>
@@ -223,11 +199,32 @@ function Home() {
                 className="w-full p-1 bg-white border rounded-l dark:bg-dark-backGround border-grayText"
                 type="text"
                 placeholder="e.g ., React , Javascript , Hooks (comma-seperated)"
+                value={bug_tags}
+                onChange={(e) => setBugTags(e.target.value)}
               />
+            </div>
+            <div>
+              <div className="flex items-center gap-1">
+                <FaTag className="text-lg text-light-textColor dark:text-dark-textColor" />
+                <h3 className="text-light-textColor dark:text-dark-textColor">
+                  Category
+                </h3>
+              </div>
+              <select
+                name=""
+                id=""
+                className="w-full p-3 bg-white rounded-l border border-grayText dark:bg-dark-backGround "
+                value={bug_category}
+                onChange={(e) => setBugCategory(e.target.value)}
+              >
+                <option value="Front-End">Front End</option>
+                <option value="Back-End">Back End</option>
+                <option value="Others">Others</option>
+              </select>
             </div>
           </div>
         </DialogBody>
-        <DialogFooter className="w-full bg-white dark:bg-dark-backGround">
+        <DialogFooter className="w-full bg-white dark:bg-dark-backGround rounded-2xl">
           <div className="flex gap-5">
             <Button
               variant="outlined"
@@ -236,7 +233,7 @@ function Home() {
             >
               Cancel
             </Button>
-            <ButtonGradiant text="Share Bug" onClickFun={handleOpen} />
+            <ButtonGradiant text="Share Bug" onClickFun={handleBugPost} />
           </div>
         </DialogFooter>
       </Dialog>

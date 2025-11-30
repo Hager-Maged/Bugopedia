@@ -88,10 +88,10 @@ export function SignUp() {
   };
 
   return (
-    <section className="flex items-center justify-center w-full p-6 h-4/6 sm:p-8 lg:p-7 bg-darkModeBg">
+    <section className="flex items-center justify-center h-screen w-full p-6 sm:p-8 lg:p-7 bg-darkModeBg">
       <div
         data-aos="zoom-in"
-        className="flex flex-col items-center w-full max-w-md px-6 py-6 bg-white border rounded-lg shadow-lg border-secondaryColorTwo dark:bg-mainDarkModeColor sm:px-8 sm:py-8"
+        className="flex flex-col items-center w-full h-ful max-w-md px-6 py-6 bg-white border rounded-lg shadow-lg border-secondaryColorTwo dark:bg-mainDarkModeColor sm:px-8 sm:py-8"
       >
         <img src="/images/Logo2.png" alt="Logo" className="w-auto h-40 mb-6" />
 
