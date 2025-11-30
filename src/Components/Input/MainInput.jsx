@@ -10,7 +10,7 @@ const MainInput = ({ label, className, type, value, onChange }) => {
         onChange={onChange}
         className={className}
         labelProps={{
-          className: "!text-md dark:!text-white",
+          className: "!text-md dark:!text-gray-400",
         }}
       />
     </div>

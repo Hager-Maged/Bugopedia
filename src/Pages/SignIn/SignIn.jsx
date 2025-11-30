@@ -1,13 +1,14 @@
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Typography, Input, Button } from "@material-tailwind/react";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
-import { FaGithub, FaGoogle } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useAuth } from "../../Context/Data";
 
 const Signin = () => {
+  const { login } = useAuth();
   const [passwordShown, setPasswordShown] = useState(false);
   const [errors, setErrors] = useState({
     email: "",
@@ -23,21 +24,28 @@ const Signin = () => {
   }, []);
 
   const validate = () => {
-    let valid = true;
     const newErrors = { email: "", password: "", general: "" };
+    let valid = true;
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userInput.email)) {
+    if (!userInput.email) {
+      newErrors.email = "Email is required";
+      valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userInput.email)) {
       newErrors.email = "Please enter a valid email address";
       valid = false;
     }
 
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s])(?!.*\s).{8,}$/;
-
-    if (!passwordRegex.test(userInput.password)) {
-      newErrors.password =
-        "Password must be at least 8 characters, include uppercase, lowercase, number, and special char (no spaces).";
+    if (!userInput.password) {
+      newErrors.password = "Password is required";
       valid = false;
+    } else {
+      const passwordRegex =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s])(?!.*\s).{8,}$/;
+      if (!passwordRegex.test(userInput.password)) {
+        newErrors.password =
+          "Password must be at least 8 characters, include uppercase, lowercase, number, and special char (no spaces).";
+        valid = false;
+      }
     }
 
     setErrors(newErrors);
@@ -47,29 +55,23 @@ const Signin = () => {
   const handleSignin = async () => {
     setErrors({ email: "", password: "", general: "" });
 
-    const isValid = validate();
-
-    if (!userInput.email || !userInput.password) {
-      setErrors((prev) => ({ ...prev, general: "Please fill in both fields" }));
-    }
-
-    if (isValid) {
+    if (validate()) {
       try {
-        const res = await fetch(
-          "https://project-backend-pi-weld.vercel.app/api/v1/auth/signin",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email: userInput.email,
-              password: userInput.password,
-            }),
+        const res = await login(userInput.email, userInput.password);
+        if (!res.success) {
+          if (res.message.includes("required")) {
+            setErrors((prev) => ({
+              ...prev,
+              general: "Email and password are required",
+            }));
+          } else if (res.message.includes("not found")) {
+            setErrors((prev) => ({ ...prev, email: "User not found" }));
+          } else if (res.message.includes("Incorrect")) {
+            setErrors((prev) => ({ ...prev, password: "Incorrect password" }));
+          } else {
+            setErrors((prev) => ({ ...prev, general: res.message }));
           }
-        );
-        console.log(res);
-        if (res.status == 200) {
+        } else {
           navigate("/home");
         }
         else if (res.status == 404 || res.status == 401)
@@ -80,10 +82,9 @@ const Signin = () => {
           }));
         }
       } catch (err) {
-        console.error(err);
         setErrors((prev) => ({
           ...prev,
-          general: err.message || "Something went wrong. Please try again.",
+          general: "Cannot sign in. Please try again.",
         }));
       }
     }
@@ -127,9 +128,9 @@ const Signin = () => {
                 setUserInput({ ...userInput, email: e.target.value })
               }
               size="lg"
-              className="w-full py-2 !bg-white placeholder:text-pargraph placeholder:text-md dark:text-white border border-gray-300"
+              className="w-full py-2  placeholder:text-pargraph placeholder:text-md dark:text-gray-500 border dark: border-gray-300"
               labelProps={{
-                className: `!text-md !text-black ${
+                className: `!text-md text-black dark:text-white ${
                   errors.email ? "!text-red-500" : ""
                 }`,
               }}
@@ -148,9 +149,9 @@ const Signin = () => {
                 setUserInput({ ...userInput, password: e.target.value })
               }
               size="lg"
-              className="w-full py-2 !bg-white placeholder:text-pargraph placeholder:text-md dark:text-white border border-gray-300 pr-10"
+              className="w-full py-2  placeholder:text-pargraph dark:text-gray-500 placeholder:text-md  border border-gray-300 pr-10"
               labelProps={{
-                className: `!text-md !text-black ${
+                className: `!text-md text-black dark:text-white  ${
                   errors.password ? "!text-red-500" : ""
                 }`,
               }}
@@ -172,18 +173,6 @@ const Signin = () => {
                 {errors.password}
               </p>
             )}
-          </div>
-
-          <div className="flex flex-col items-center justify-between gap-2 mb-4 sm:flex-row">
-            <label className="inline-flex items-center cursor-pointer">
-              <input
-                type="checkbox"
-                className="w-5 h-5 border rounded checked:bg-white checked:border-whiteText"
-              />
-              <span className="ml-2 text-sm text-black dark:text-white">
-                Remember Me
-              </span>
-            </label>
           </div>
 
           <button
