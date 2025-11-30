@@ -71,6 +71,11 @@ const Signin = () => {
           } else {
             setErrors((prev) => ({ ...prev, general: res.message }));
           }
+        } else if (res.status == 404 || res.status == 401) {
+          setErrors((prev) => ({
+            ...prev,
+            general: res.message,
+          }));
         } else {
           navigate("/home");
         }
