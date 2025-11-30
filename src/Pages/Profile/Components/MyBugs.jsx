@@ -8,6 +8,7 @@ import { useAuth } from "../../../Context/Data";
 const MyBugs = () => {
   const { user } = useAuth();
   const userId = user?.id;
+
   const {
     data: bugs,
     loading,
@@ -66,7 +67,7 @@ const MyBugs = () => {
             </p>
             <span
               className={`text-xs sm:text-sm font-medium px-2 py-1 rounded-full w-max ${
-                item.status === "Solved"
+                item.state === "solved"
                   ? "!bg-green-100 !text-green-800 dark:!bg-green-800 dark:!text-green-100"
                   : "!bg-yellow-100 text-yellow-800 dark:!bg-yellow-800 dark:!text-yellow-100"
               }`}
@@ -78,10 +79,14 @@ const MyBugs = () => {
           <div className="flex flex-wrap items-center gap-4 text-xs text-blue-gray-800 sm:text-sm sm:justify-end dark:!text-lightPink">
             <p className="whitespace-nowrap">{item.votes} votes</p>
             <p className="whitespace-nowrap">{item.replies} comments</p>
-            <p className="whitespace-nowrap">{item.time}</p>
+            <p className="whitespace-nowrap">
+              {new Date(item.createdAt).toLocaleDateString()}
+            </p>
 
-             <button
-              onClick={() => handleDeleteBug(item._id)}
+            <button
+              onClick={(e) => {
+                handleDeleteBug(item._id);
+              }}
               className="flex items-center gap-1 px-2 py-1 text-red-600 border border-red-600 rounded-lg hover:bg-red-600 hover:text-white transition-colors"
             >
               Delete
@@ -97,7 +102,7 @@ const MyBugs = () => {
           title={selectedBug.title}
           likesCount={selectedBug.votes}
           commentsCount={selectedBug.replies}
-          solved={selectedBug.state === "Solved"}
+          solved={selectedBug.state === "solved"}
           comments={selectedBug.replyDetails || []}
         />
       )}

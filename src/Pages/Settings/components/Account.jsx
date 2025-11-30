@@ -12,27 +12,23 @@ import {
 import { Navigate, useNavigate } from "react-router-dom";
 import AccountPop from "./AccountPop";
 
-const Account = ({handleDelete}) => {
+const Account = ({ handleDelete }) => {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPass, setNewPass] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
   const [deleteAccFlag, setDeleteAccFlag] = useState(false);
   // Password Check
-  const [lessThan , setLessThan] = useState(false);
-  const [lettersAndNumber , setLettersAndNumber ] = useState(false)
-  const [savedSuccess , setSavedSuccess ] = useState(false);
+  const [lessThan, setLessThan] = useState(false);
+  const [lettersAndNumber, setLettersAndNumber] = useState(false);
+  const [savedSuccess, setSavedSuccess] = useState(false);
 
   const handleSave = () => {
-    if(newPass.trim().length < 6 || newPass.trim() === "")
-    {
+    if (newPass.trim().length < 6 || newPass.trim() === "") {
       setLessThan(true);
+    } else if (!(/[A-Za-z]/.test(newPass) && /\d/.test(newPass))) {
+      setLettersAndNumber(true);
     }
-    else if(!(/[A-Za-z]/.test(newPass) && /\d/.test(newPass)))
-    {
-      setLettersAndNumber(true)
-    }
-    if (!lessThan && !lettersAndNumber)
-    {
+    if (!lessThan && !lettersAndNumber) {
       setSavedSuccess(true);
       const navigate = useNavigate();
       navigate("/settings");
@@ -41,7 +37,6 @@ const Account = ({handleDelete}) => {
   const deleteAcc = () => {
     setDeleteAccFlag(!deleteAccFlag);
   };
-
 
   return (
     <div className="bg-white dark:bg-dark-divBackground flex flex-col gap-5 p-5 w-full rounded-xl">
@@ -99,7 +94,7 @@ const Account = ({handleDelete}) => {
         />
       </div>
       <div className="self-end pe-5">
-        <ButtonGradiant text="Save Changes" onClickFun={handleSave}/>
+        <ButtonGradiant text="Save Changes" onClickFun={handleSave} />
       </div>
     </div>
   );
