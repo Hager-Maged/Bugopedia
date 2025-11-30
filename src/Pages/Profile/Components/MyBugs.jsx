@@ -93,6 +93,7 @@ const MyBugs = () => {
 
             <button
               onClick={(e) => {
+                e.stopPropagation();
                 handleOpenConfirm(item._id);
               }}
               className="flex items-center gap-1 px-2 py-1 text-red-600 border border-red-600 rounded-lg hover:bg-red-600 hover:text-white transition-colors"
