@@ -50,12 +50,7 @@ const Account = ({ handleDelete }) => {
       <h3 className="text-light-textColor font-semibold dark:text-dark-textColor">
         Account Settings
       </h3>
-      <Input
-        label="Email Address"
-        placeholder="email@example.com"
-        type="e-mail"
-        className="text-light-textColor dark:text-dark-textColor"
-      />
+
       <hr className="bg-grayText w-full h-1 opacity-50" />
       <h3 className="text-light-textColor font-semibold dark:text-dark-textColor">
         Change Password

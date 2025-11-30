@@ -15,10 +15,6 @@ const Appearance = () => {
         <Option value="light">Light</Option>
         <Option value="dark">Dark</Option>
       </Select>
-      <Select color="orange" label="Language">
-        <Option>English</Option>
-        <Option>Arabic</Option>
-      </Select>
       <div className="self-end">
         <ButtonGradiant text="Save Preferences" />
       </div>
