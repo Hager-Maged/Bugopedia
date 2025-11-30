@@ -68,9 +68,16 @@ const Signin = () => {
             }),
           }
         );
-
-        if (res.ok) {
+        console.log(res);
+        if (res.status == 200) {
           navigate("/home");
+        }
+        else if (res.status == 404 || res.status == 401)
+        {
+          setErrors((prev)=>({
+            ...prev,
+            general: res.message
+          }));
         }
       } catch (err) {
         console.error(err);
