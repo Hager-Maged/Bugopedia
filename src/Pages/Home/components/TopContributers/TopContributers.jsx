@@ -1,13 +1,32 @@
+import { useEffect, useState } from "react";
 import LeaderBoardSlider from "./LeaderBoardSlider";
 import ButtonGradiant from "../../../../Components/Buttons/ButtonGradiant";
 import { useNavigate } from "react-router-dom";
 
-const TopContributers = ({ leaderBoard }) => {
+const TopContributers = ({}) => {
   const navigate = useNavigate();
+  const [leaderBoard, setLeaderBoard] = useState([]);
 
   const goLeaderboard = () => {
     navigate("/leaderboard");
   };
+
+  useEffect(() => {
+    const fetchTopContributors = async () => {
+      try {
+        const res = await fetch(
+          "https://project-backend-pi-weld.vercel.app/api/v1/home/get-top-contributors"
+        );
+        const data = await res.json();
+        setLeaderBoard(data.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchTopContributors();
+  }, []);
+
   return (
     <div className="w-full p-3 mt-5 bg-white  dark:bg-dark-divBackground rounded-xl">
       <div className="flex items-center justify-between">
@@ -20,8 +39,8 @@ const TopContributers = ({ leaderBoard }) => {
         {leaderBoard.map((person) => {
           return (
             <LeaderBoardSlider
-              name={person.name}
-              key={person.id}
+              key={person._id}
+              name={person.username}
               points={person.points}
             />
           );
