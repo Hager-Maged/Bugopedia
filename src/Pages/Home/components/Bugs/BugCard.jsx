@@ -75,7 +75,7 @@ const BugCard = ({
             </div>
           </div>
 
-          {solved && (
+          {solved == "solved" && (
             <div className="flex items-center gap-1 p-1 bg-mainGradient rounded-xl">
               <IoMdCheckmark className="text-white" />
               <p className="text-white">Solved</p>

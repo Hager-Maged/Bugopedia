@@ -37,12 +37,6 @@ const Settings = () => {
       icon: IoShieldOutline,
       desc: <Account handleDelete={handleDelete} />,
     },
-    {
-      label: "Appearance",
-      value: "appearance",
-      icon: MdInvertColors,
-      desc: <Appearance />,
-    },
   ];
   useEffect(() => {
     AOS.init({});
@@ -61,7 +55,7 @@ const Settings = () => {
           Manage your account settings and preferences
         </p>
         <Tabs value="profile">
-          <TabsHeader className="grid  sm:grid-cols-2 md:grid-cols-3">
+          <TabsHeader className="grid  sm:grid-cols-2 md:grid-cols-2">
             {data.map(({ label, value, icon }) => (
               <Tab key={value} value={value}>
                 <div className="flex items-center gap-2">
