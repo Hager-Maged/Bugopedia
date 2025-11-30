@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Timeline,
   TimelineItem,
@@ -9,11 +8,9 @@ import {
 } from "@material-tailwind/react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useState, useEffect } from "react";
 import useData from "../../../hooks/useFetch";
 import { useAuth } from "../../../Context/Data";
 import { FaReply } from "react-icons/fa6";
-
 
 const Activity = () => {
   const { user } = useAuth();
@@ -37,21 +34,26 @@ const Activity = () => {
       <Timeline>
         {activity.replies?.map((item, index) => (
           <TimelineItem key={item.bugId}>
-            {index !== activity.replies.length - 1 && <TimelineConnector />}{" "}
-            <TimelineHeader className="flex items-center gap-4">
-              <TimelineIcon className="flex items-center justify-center w-8 h-8 rounded-full bg-secondaryColorTwo">
+            {index !== activity.replies.length - 1 && <TimelineConnector />}
+
+            <TimelineHeader className="flex items-start gap-3">
+              <TimelineIcon className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-secondaryColorTwo shrink-0">
                 <FaReply className="text-white" />
               </TimelineIcon>
-              <div className="flex flex-col w-full gap-2 p-3 transition-all duration-200 rounded-2xl hover:shadow-lg border border-secondaryColorOne dark:!bg-mainDarkModeColor m-2 hover:scale-105">
+
+              <div
+                className="flex flex-col w-full gap-2 p-3 transition-all duration-200 rounded-2xl 
+        hover:shadow-lg hover:scale-105 border border-secondaryColorOne 
+        dark:!bg-mainDarkModeColor m-2">
                 <Typography
                   variant="small"
-                  className="!text-blackText dark:!text-whiteText text-sm sm:text-base font-bold"
+                  className="!text-blackText dark:!text-whiteText text-sm sm:text-base font-bold break-words"
                 >
                   Replied to: {item.title} ({item.categoryName})
                 </Typography>
                 <Typography
                   variant="small"
-                  className="text-xs sm:text-sm !text-blue-gray-800 whitespace-nowrap dark:!text-lightPink"
+                  className="text-xs sm:text-sm !text-blue-gray-800 whitespace-normal break-words dark:!text-lightPink"
                 >
                   {item.reply.content} — {item.createdAt}
                 </Typography>
