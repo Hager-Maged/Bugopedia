@@ -2,8 +2,15 @@ import React, { useState } from "react";
 import OpenBug from "./OpenBug";
 import { FaBugSlash } from "react-icons/fa6";
 import useData from "../../../hooks/useFetch";
-import { FaTrash } from "react-icons/fa";
 import { useAuth } from "../../../Context/Data";
+
+import {
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+  Button,
+} from "@material-tailwind/react";
 
 const MyBugs = () => {
   const { user } = useAuth();
@@ -21,30 +28,33 @@ const MyBugs = () => {
   const [openBug, setOpenBug] = useState(false);
   const [selectedBug, setSelectedBug] = useState(null);
 
+  const [openConfirm, setOpenConfirm] = useState(false);
+  const [bugToDelete, setBugToDelete] = useState(null);
+
   const handleOpenBug = (bug) => {
     setSelectedBug(bug);
     setOpenBug(!openBug);
   };
 
-  const handleDeleteBug = async (bugId) => {
-    if (!window.confirm("Are you sure you want to delete this bug?")) return;
+  const handleOpenConfirm = (bugId) => {
+    setBugToDelete(bugId);
+    setOpenConfirm(true);
+  };
+
+  const confirmDelete = async () => {
+    if (!bugToDelete) return;
 
     try {
-      const res = await fetch(
-        `https://project-backend-pi-weld.vercel.app/api/v1/profile/bug/${bugId}`,
+      await fetch(
+        `https://project-backend-pi-weld.vercel.app/api/v1/profile/bug/${bugToDelete}`,
         { method: "DELETE" }
       );
-      const data = await res.json();
 
-      if (res.ok) {
-        alert("Bug deleted successfully");
-        refetch();
-      } else {
-        alert(data.message || "Failed to delete bug");
-      }
+      setOpenConfirm(false);
+      setBugToDelete(null);
+      refetch(); 
     } catch (err) {
       console.error(err);
-      alert("Error deleting bug");
     }
   };
 
@@ -65,6 +75,7 @@ const MyBugs = () => {
             <p className="text-sm font-semibold !text-blackText dark:!text-white sm:text-base md:text-lg">
               {item.title}
             </p>
+
             <span
               className={`text-xs sm:text-sm font-medium px-2 py-1 rounded-full w-max ${
                 item.state === "solved"
@@ -79,13 +90,11 @@ const MyBugs = () => {
           <div className="flex flex-wrap items-center gap-4 text-xs text-blue-gray-800 sm:text-sm sm:justify-end dark:!text-lightPink">
             <p className="whitespace-nowrap">{item.votes} votes</p>
             <p className="whitespace-nowrap">{item.replies} comments</p>
-            <p className="whitespace-nowrap">
-              {new Date(item.createdAt).toLocaleDateString()}
-            </p>
 
             <button
               onClick={(e) => {
-                handleDeleteBug(item._id);
+                e.stopPropagation();
+                handleOpenConfirm(item._id);
               }}
               className="flex items-center gap-1 px-2 py-1 text-red-600 border border-red-600 rounded-lg hover:bg-red-600 hover:text-white transition-colors"
             >
@@ -106,6 +115,40 @@ const MyBugs = () => {
           comments={selectedBug.replyDetails || []}
         />
       )}
+
+      <Dialog
+        open={openConfirm}
+        handler={() => setOpenConfirm(false)}
+        className="dark:!bg-mainDarkModeColor dark:!text-white !bg-white !text-black"
+      >
+        <DialogHeader className="dark:!text-white !text-black">
+          Confirm Delete
+        </DialogHeader>
+
+        <DialogBody className="dark:!text-lightPink !text-black">
+          Are you sure you want to delete this bug? 
+        </DialogBody>
+
+        <DialogFooter className="flex gap-2">
+          <Button
+            variant="text"
+            color="gray"
+            onClick={() => setOpenConfirm(false)}
+            className="dark:!text-lightPink"
+          >
+            Cancel
+          </Button>
+
+          <Button
+            variant="gradient"
+            color="red"
+            onClick={confirmDelete}
+            className="!bg-red-600 hover:!bg-red-700"
+          >
+            Yes, Delete
+          </Button>
+        </DialogFooter>
+      </Dialog>
     </div>
   );
 };
