@@ -22,6 +22,7 @@ import Settings from "./Pages/Settings/Settings";
 import Support from "./Pages/Support/Support";
 import { AuthProvider } from "./Context/Data";
 import ProtectedRoute from "./Context/ProtectedRoute";
+import BugDetails from "./Pages/Bugs/Components/BugDetails";
 
 function App() {
   const location = useLocation();
@@ -41,7 +42,7 @@ function App() {
 
   return (
     <AuthProvider>
-      <div className="!bg-white dark:!bg-darkModeBg min-h-screen flex flex-col">
+      <div className="!bg-white dark:!bg-darkModeBg ">
         {!hideNav && <NavBar />}
         <Routes>
           <Route path="/" element={<Landing />} />
@@ -90,6 +91,7 @@ function App() {
           />
 
           <Route path="/bugs/:categoryName" element={<Bugs />} />
+          <Route path="/bugs/:categoryName/:bugId" element={<BugDetails />} />
           <Route path="/community" element={<Community />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/rewards" element={<Rewards />} />

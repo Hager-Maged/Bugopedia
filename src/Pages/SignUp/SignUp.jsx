@@ -6,10 +6,11 @@ import { useEffect, useState } from "react";
 import MainInput from "../../Components/Input/MainInput";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useAuth } from "../../Context/Data";
 
 export function SignUp() {
+  const { register } = useAuth();
   const navigate = useNavigate();
-
   const [showPassword, setShowPassword] = useState(false);
   const [showConfPassword, setShowConfPassword] = useState(false);
   const [errors, setErrors] = useState({});
@@ -63,30 +64,26 @@ export function SignUp() {
 
     if (isValid) {
       try {
-        const res = await fetch(
-          "https://project-backend-pi-weld.vercel.app/api/v1/auth/signup",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              username: formData.name,
-              email: formData.email,
-              password: formData.password,
-            }),
-          }
+        const res = await register(
+          formData.name,
+          formData.email,
+          formData.password
         );
-        if (res.ok) {
-          console.log("Response status:", res.ok);
+
+        if (!res.success) {
+          if (res.message.includes("required")) {
+            setErrors({ general: "All fields are required" });
+          } else if (res.message.includes("registered")) {
+            setErrors({ email: "Email already registered" });
+          } else {
+            setErrors({ general: "Maybe try another username" });
+          }
+        } else {
           navigate("/signin");
         }
       } catch (err) {
-        setErrors((prev) => ({
-          ...prev,
-          general: err.message || "Something went wrong. Please try again.",
-        }));
+        setErrors({ general: "Cannot sign up. Please try again." });
       }
-    } else {
-      console.log("Form validation failed, errors:", errors);
     }
   };
 
@@ -115,8 +112,8 @@ export function SignUp() {
 
         <form className="w-full" onSubmit={handleSignup}>
           <CardBody className="flex flex-col gap-4 p-0">
-            {/* User name */}
             <MainInput
+              className={"dark:text-gray-500 "}
               type="text"
               label="User Name"
               value={formData.name}
@@ -128,8 +125,8 @@ export function SignUp() {
               <p className="text-sm text-red-500">{errors.name}</p>
             )}
 
-            {/* Email */}
             <MainInput
+              className={"dark:text-gray-400"}
               type="email"
               label="Email Address"
               value={formData.email}
@@ -141,9 +138,9 @@ export function SignUp() {
               <p className="text-sm text-red-500">{errors.email}</p>
             )}
 
-            {/* Password */}
             <div className="relative">
               <MainInput
+                className={"dark:text-gray-400"}
                 type={showPassword ? "text" : "password"}
                 label="Password"
                 value={formData.password}
@@ -166,9 +163,9 @@ export function SignUp() {
               <p className="text-sm text-red-500">{errors.password}</p>
             )}
 
-            {/* Confirm Password */}
             <div className="relative">
               <MainInput
+                className={"dark:text-gray-400"}
                 type={showConfPassword ? "text" : "password"}
                 label="Confirm Password"
                 value={formData.confPassword}
@@ -191,7 +188,6 @@ export function SignUp() {
               <p className="text-sm text-red-500">{errors.confPassword}</p>
             )}
 
-            {/* Terms */}
             <div className="flex items-center justify-between mb-4">
               <label className="inline-flex items-center cursor-pointer">
                 <input
@@ -213,7 +209,6 @@ export function SignUp() {
               <p className="mb-2 text-sm text-red-500">{errors.agree}</p>
             )}
 
-            {/* Submit */}
             <button
               type="submit"
               className="flex items-center justify-center w-full gap-2 py-3 text-white transition-all rounded-md shadow-md bg-mainGradient hover:shadow-lg hover:scale-[1.02] focus:scale-[0.98] active:scale-[0.96]"

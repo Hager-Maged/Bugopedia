@@ -21,6 +21,7 @@ const useData = (url) => {
     getData();
   }, [url]);
 
-  return { data, error, loading };
+  const refetch = () => getData();
+  return { data, error, loading, refetch };
 };
 export default useData;
