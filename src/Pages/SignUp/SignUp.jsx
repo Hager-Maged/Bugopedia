@@ -1,18 +1,19 @@
-import { CardBody, Typography, Input, Button } from "@material-tailwind/react";
+import { CardBody, Typography, Button } from "@material-tailwind/react";
 import { FaArrowRight, FaGithub, FaGoogle } from "react-icons/fa";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
-import { MdOutlineMail } from "react-icons/md";
-import { TbLockPassword } from "react-icons/tb";
-import { FaRegUser } from "react-icons/fa6";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import MainInput from "../../Components/Input/MainInput";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useAuth } from "../../Context/Data";
 
 export function SignUp() {
+  const { register } = useAuth();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfPassword, setShowConfPassword] = useState(false);
   const [errors, setErrors] = useState({});
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -21,125 +22,134 @@ export function SignUp() {
     agree: false,
   });
 
+  useEffect(() => {
+    AOS.init({ duration: 800, once: false });
+    AOS.refresh();
+  }, []);
+
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
   const validateForm = () => {
     let newErrors = {};
 
-    !formData.name.trim() ? (newErrors.name = "User name is required") : null;
+    if (!formData.name.trim()) newErrors.name = "User name is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    else if (!isValidEmail(formData.email))
+      newErrors.email = "Please enter a valid email";
 
-    !formData.email.trim()
-      ? (newErrors.email = "Email is required")
-      : !isValidEmail(formData.email)
-      ? (newErrors.email = "Please enter a valid email")
-      : null;
+    if (!formData.password) newErrors.password = "Password is required";
+    else if (!passwordRegex.test(formData.password))
+      newErrors.password =
+        "Password must be at least 8 characters, include uppercase, lowercase, number & special character.";
 
-    !formData.password
-      ? (newErrors.password = "Password is required")
-      : formData.password.length < 8
-      ? (newErrors.password = "Password must be at least 8 characters")
-      : null;
+    if (!formData.confPassword)
+      newErrors.confPassword = "Please confirm your password";
+    else if (formData.password !== formData.confPassword)
+      newErrors.confPassword = "Passwords do not match";
 
-    !formData.confPassword
-      ? (newErrors.confPassword = "Please confirm your password")
-      : formData.password !== formData.confPassword
-      ? (newErrors.confPassword = "Passwords do not match")
-      : null;
-
-    !formData.agree
-      ? (newErrors.agree = "You must agree to the terms and privacy policy")
-      : null;
+    if (!formData.agree)
+      newErrors.agree = "You must agree to the terms and privacy policy";
 
     setErrors(newErrors);
-    return Object.keys(newErrors);
+
+    return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
-    validateForm();
+
+    const isValid = validateForm();
+
+    if (isValid) {
+      try {
+        const res = await register(
+          formData.name,
+          formData.email,
+          formData.password
+        );
+
+        if (!res.success) {
+          if (res.message.includes("required")) {
+            setErrors({ general: "All fields are required" });
+          } else if (res.message.includes("registered")) {
+            setErrors({ email: "Email already registered" });
+          } else {
+            setErrors({ general: "Maybe try another username" });
+          }
+        } else {
+          navigate("/signin");
+        }
+      } catch (err) {
+        setErrors({ general: "Cannot sign up. Please try again." });
+      }
+    }
   };
 
   return (
-    <section className="flex items-center justify-center w-full bg-gray-200 h-4/6 hp-6 sm:p-8 lg:p-7 dark:bg-darkModeBg">
-      <div className="flex flex-col items-center w-full max-w-sm px-6 py-1 bg-white border rounded-lg shadow-lg border-secondaryColorTwo border- sm:max-w-lg lg:px-10 lg:py-4 sm:p-8 dark:bg-mainDarkModeColor">
+    <section className="flex items-center justify-center h-screen w-full p-6 sm:p-8 lg:p-7 bg-darkModeBg">
+      <div
+        data-aos="zoom-in"
+        className="flex flex-col items-center w-full h-ful max-w-md px-6 py-6 bg-white border rounded-lg shadow-lg border-secondaryColorTwo dark:bg-mainDarkModeColor sm:px-8 sm:py-8"
+      >
         <img src="/images/Logo2.png" alt="Logo" className="w-auto h-40 mb-6" />
 
-        <Typography variant="h3" color="blue-gray" className="mb-2 dark:text-white">
+        <Typography
+          variant="h3"
+          color="blue-gray"
+          className="mb-2 dark:text-white"
+        >
           Create Account
         </Typography>
         <Typography className="text-gray-600 font-normal text-[18px] mb-6">
           Join the Bugopedia community today
         </Typography>
 
-        <form className="w-full" onSubmit={handleSubmit}>
+        {errors.general && (
+          <p className="mb-2 text-sm text-red-500">{errors.general}</p>
+        )}
+
+        <form className="w-full" onSubmit={handleSignup}>
           <CardBody className="flex flex-col gap-4 p-0">
-            <div className="relative w-full">
-              <label
-                htmlFor="name"
-                className="text-gray-900 font-normal text-[18px] dark:text-white"
-              >
-                User Name
-              </label>
-              <FaRegUser className="absolute left-3 top-[66%] -translate-y-1/2 text-gray-400" />
-              <Input
-                id="name"
-                type="text"
-                placeholder="Johndoe"
-                size="lg"
-                className="w-full pl-12 placeholder:opacity-100 focus:border-t-primary border-t-blue-gray-200"
-                value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-              />
-            </div>
+            <MainInput
+              className={"dark:text-gray-500 "}
+              type="text"
+              label="User Name"
+              value={formData.name}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
+            />
             {errors.name && (
               <p className="text-sm text-red-500">{errors.name}</p>
             )}
-            <div className="relative">
-              <label
-                htmlFor="email"
-                className="text-gray-900 font-normal text-[18px] dark:text-white"
-              >
-                Email Address
-              </label>
-              <MdOutlineMail className="absolute left-3 top-[68%] -translate-y-1/2 text-gray-400" />
-              <Input
-                id="email"
-                type="email"
-                placeholder="you@example.com"
-                size="lg"
-                className="w-full pl-12 placeholder:opacity-100 focus:border-t-primary border-t-blue-gray-200"
-                value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-              />
-            </div>
+
+            <MainInput
+              className={"dark:text-gray-400"}
+              type="email"
+              label="Email Address"
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+            />
             {errors.email && (
               <p className="text-sm text-red-500">{errors.email}</p>
             )}
+
             <div className="relative">
-              <label
-                htmlFor="pass"
-                className="text-gray-900 font-normal text-[18px] dark:text-white"
-              >
-                Password
-              </label>
-              <TbLockPassword className="absolute left-3 top-[67%] -translate-y-1/2 text-gray-400" />
-              <Input
-                id="pass"
+              <MainInput
+                className={"dark:text-gray-400"}
                 type={showPassword ? "text" : "password"}
-                placeholder="********"
-                size="lg"
-                className="w-full pl-12 placeholder:opacity-100 focus:border-t-primary border-t-blue-gray-200"
+                label="Password"
                 value={formData.password}
                 onChange={(e) =>
                   setFormData({ ...formData, password: e.target.value })
                 }
               />
               <div
-                className="absolute right-3 top-[67%] -translate-y-1/2 cursor-pointer text-gray-500"
+                className="absolute right-3 top-[50%] -translate-y-1/2 cursor-pointer text-gray-500"
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? (
@@ -148,31 +158,23 @@ export function SignUp() {
                   <EyeSlashIcon className="w-5 h-5" />
                 )}
               </div>
-            </div>{" "}
+            </div>
             {errors.password && (
               <p className="text-sm text-red-500">{errors.password}</p>
             )}
+
             <div className="relative">
-              <label
-                htmlFor="confPassword"
-                className="text-gray-900 font-normal text-[18px] dark:text-white"
-              >
-                Confirm Password
-              </label>
-              <TbLockPassword className="absolute left-3 top-[67%] -translate-y-1/2 text-gray-400" />
-              <Input
-                id="confPassword"
-                size="lg"
+              <MainInput
+                className={"dark:text-gray-400"}
                 type={showConfPassword ? "text" : "password"}
-                placeholder="********"
-                className="w-full pl-12 placeholder:opacity-100 focus:border-t-primary border-t-blue-gray-200"
+                label="Confirm Password"
                 value={formData.confPassword}
                 onChange={(e) =>
                   setFormData({ ...formData, confPassword: e.target.value })
                 }
               />
               <div
-                className="absolute right-3 top-[67%] -translate-y-1/2 cursor-pointer text-gray-500"
+                className="absolute right-3 top-[50%] -translate-y-1/2 cursor-pointer text-gray-500"
                 onClick={() => setShowConfPassword(!showConfPassword)}
               >
                 {showConfPassword ? (
@@ -185,6 +187,7 @@ export function SignUp() {
             {errors.confPassword && (
               <p className="text-sm text-red-500">{errors.confPassword}</p>
             )}
+
             <div className="flex items-center justify-between mb-4">
               <label className="inline-flex items-center cursor-pointer">
                 <input
@@ -205,6 +208,7 @@ export function SignUp() {
             {errors.agree && (
               <p className="mb-2 text-sm text-red-500">{errors.agree}</p>
             )}
+
             <button
               type="submit"
               className="flex items-center justify-center w-full gap-2 py-3 text-white transition-all rounded-md shadow-md bg-mainGradient hover:shadow-lg hover:scale-[1.02] focus:scale-[0.98] active:scale-[0.96]"

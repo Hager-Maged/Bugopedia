@@ -8,9 +8,9 @@
     const navigate = useNavigate();
     const handleHome = () => navigate("/");
     useEffect(() => {
-      setHideNav(true);
-      return () => setHideNav(false);
-    }, [setHideNav]);
+    setHideNav(true); 
+  }, [setHideNav]);
+
 
     return (
       <main className="flex items-center justify-center min-h-screen px-4 transition-colors duration-300 bg-whiteText dark:bg-darkModeBg">

@@ -12,8 +12,18 @@ import Activity from "./Activity";
 import { FaBugSlash } from "react-icons/fa6";
 import { LuActivity } from "react-icons/lu";
 import { SlBadge } from "react-icons/sl";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useState, useEffect } from "react";
 
 const TabsSection = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+    });
+    AOS.refresh();
+  }, []);
   const data = [
     {
       label: "Badges",
@@ -36,7 +46,10 @@ const TabsSection = () => {
   ];
 
   return (
-    <div className="flex justify-center !bg-white  dark:!bg-darkModeBg">
+    <div
+      className="flex justify-center !bg-white  dark:!bg-darkModeBg"
+      data-aos="fade-up"
+    >
       <Tabs value="badges" className="w-full max-w-6xl">
         <TabsHeader className="dark:!bg-mainDarkModeColor">
           {data.map(({ label, value, icon }) => (

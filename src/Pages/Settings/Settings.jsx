@@ -38,12 +38,6 @@ const Settings = () => {
       desc: <Account handleDelete={handleDelete} />,
     },
     {
-      label: "Notifications",
-      value: "notifications",
-      icon: IoNotificationsOutline,
-      desc: <Notifications />,
-    },
-    {
       label: "Appearance",
       value: "appearance",
       icon: MdInvertColors,
@@ -67,7 +61,7 @@ const Settings = () => {
           Manage your account settings and preferences
         </p>
         <Tabs value="profile">
-          <TabsHeader className="grid  sm:grid-cols-2 md:grid-cols-4">
+          <TabsHeader className="grid  sm:grid-cols-2 md:grid-cols-3">
             {data.map(({ label, value, icon }) => (
               <Tab key={value} value={value}>
                 <div className="flex items-center gap-2">

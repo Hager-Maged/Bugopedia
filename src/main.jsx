@@ -5,9 +5,9 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "@material-tailwind/react";
 
 createRoot(document.getElementById("root")).render(
-  <ThemeProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <ThemeProvider>
       <App />
-    </BrowserRouter>
-  </ThemeProvider>
+    </ThemeProvider>
+  </BrowserRouter>
 );

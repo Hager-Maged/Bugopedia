@@ -12,12 +12,18 @@ import {
   HiOutlineCalendar,
 } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useState, useEffect } from "react";
+import { useAuth } from "../../../Context/Data";
 
 const ProfileCard = () => {
-  const user = {
-    name: "Sarah Johnson",
+  const {user} = useAuth();
+  
+  const userData = {
+    name: user.name,
     title: "Full Stack Developer | Bug Hunter | Community Mentor",
-    email: "sarah.j@example.com",
+    email: user.email,
     location: "San Francisco, CA",
     joined: "Joined March 2024",
     avatar: "https://docs.material-tailwind.com/img/face-2.jpg",
@@ -30,10 +36,20 @@ const ProfileCard = () => {
     badge: { badge1: "Pro Developer" },
   };
 
-  const { name, title, email, location, joined, avatar, tags, badge } = user;
+  const { name, title, email, location, joined, avatar, tags, badge } = userData;
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+    });
+    AOS.refresh();
+  }, []);
 
   return (
-    <Card className="w-11/12 p-8 m-6 mx-auto bg-white shadow-none rounded-xl dark:bg-mainDarkModeColor">
+    <Card
+      className="w-11/12 p-8 m-6 mx-auto bg-white shadow-none rounded-xl dark:bg-mainDarkModeColor"
+      data-aos="flip-left"
+    >
       <div className="relative h-36 rounded-t-xl !bg-secondaryGradient  ">
         <div className="absolute z-10 right-4 top-4 ">
           <Link to="/settings">

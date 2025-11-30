@@ -17,14 +17,7 @@ const Profile = () => {
             size="xl"
           />
         </div>
-        <div>
-          <div>
-            <button className="btn bg-dark-textColor dark:bg-dark-divBackground text-light-textColor dark:text-dark-textColor p-3 rounded-xl shadow-none border-grayText border">
-              Change Avatar
-            </button>
-            <p className="text-grayText">JPG , GIF or PNG , Max size of 2MB</p>
-          </div>
-        </div>
+        <div></div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-2">
         <div className="w-full">

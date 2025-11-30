@@ -20,6 +20,9 @@ import SignUp from "./Pages/SignUp/SignUp";
 import Post from "./Pages/Community/Components/Tabs_info/discussions/Post";
 import Settings from "./Pages/Settings/Settings";
 import Support from "./Pages/Support/Support";
+import { AuthProvider } from "./Context/Data";
+import ProtectedRoute from "./Context/ProtectedRoute";
+import BugDetails from "./Pages/Bugs/Components/BugDetails";
 
 function App() {
   const location = useLocation();
@@ -38,37 +41,70 @@ function App() {
   }, [location.pathname]);
 
   return (
-    <div className="!bg-white dark:!bg-darkModeBg min-h-screen flex flex-col">
-      {!hideNav && <NavBar />}
+    <AuthProvider>
+      <div className="!bg-white dark:!bg-darkModeBg ">
+        {!hideNav && <NavBar />}
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/aboutus" element={<AboutUs />} />
 
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/bugsubmit" element={<BugSubmit />} />
-        <Route path="/bugs/:categoryName" element={<Bugs />} />
-        <Route path="/community" element={<Community />} />
-        <Route path="/leaderboard" element={<Leaderboard />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/rewards" element={<Rewards />} />
-        <Route path="/tech" element={<Tech />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/post/:id" element={<Post />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/support" element={<Support />} />
-        <Route path="/*" element={<Notfound setHideNav={setHideNav} />} />
-      </Routes>
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <Admin />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/bugsubmit"
+            element={
+              <ProtectedRoute>
+                <BugSubmit />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/post/:id"
+            element={
+              <ProtectedRoute>
+                <Post />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <ProtectedRoute>
+                <Settings />
+              </ProtectedRoute>
+            }
+          />
 
-      {!(
-        location.pathname === "/signin" ||
-        location.pathname === "/signup" ||
-        location.pathname === "/" ||
-        hideNav
-      ) && <Footer />}
-    </div>
+          <Route path="/bugs/:categoryName" element={<Bugs />} />
+          <Route path="/bugs/:categoryName/:bugId" element={<BugDetails />} />
+          <Route path="/community" element={<Community />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/rewards" element={<Rewards />} />
+          <Route path="/tech" element={<Tech />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/*" element={<Notfound setHideNav={setHideNav} />} />
+        </Routes>
+        {!hideNav && <Footer />}
+      </div>
+    </AuthProvider>
   );
 }
 
