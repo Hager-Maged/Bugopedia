@@ -2,7 +2,7 @@ import React from "react";
 import { Avatar } from "@material-tailwind/react";
 import { SlLike } from "react-icons/sl";
 
-const BugReply = ({ user, commentDesc, likesCount }) => {
+const BugReply = ({ user, commentsCount, likesCount }) => {
   return (
     <div className="flex gap-2 p-2 bg-light-divBackground dark:bg-dark-backGround rounded-xl ">
       <div>
@@ -15,7 +15,7 @@ const BugReply = ({ user, commentDesc, likesCount }) => {
         <h3 className="text-light-textColor dark:text-dark-textColor">
           {user}
         </h3>
-        <p className="text-grayText">{commentDesc}</p>
+        <p className="text-grayText">{commentsCount}</p>
         <div className="flex items-center gap-1 cursor-pointer">
           <SlLike className="text-light-textColor dark:text-dark-textColor" />
           <p className="text-light-textColor dark:text-dark-textColor">
