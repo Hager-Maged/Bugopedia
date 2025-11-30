@@ -19,10 +19,11 @@ import { useAuth } from "../../../Context/Data";
 
 const ProfileCard = () => {
   const {user} = useAuth();
+  
   const userData = {
     name: user.name,
     title: "Full Stack Developer | Bug Hunter | Community Mentor",
-    email: "sarah.j@example.com",
+    email: user.email,
     location: "San Francisco, CA",
     joined: "Joined March 2024",
     avatar: "https://docs.material-tailwind.com/img/face-2.jpg",
